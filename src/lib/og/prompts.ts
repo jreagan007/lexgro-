@@ -11,6 +11,8 @@ export const NEGATIVE_PROMPT = 'text, words, letters, numbers, watermark, logo, 
 
 // Prompt types
 export type PromptKey =
+  // Homepage
+  | 'homepage'
   // Services
   | 'fractional-cmo'
   | 'marketing-strategy'
@@ -46,6 +48,14 @@ export interface PromptConfig {
 
 // All prompts by type
 export const PROMPTS: Record<PromptKey, PromptConfig> = {
+  // === HOMEPAGE ===
+
+  homepage: {
+    prompt: `Dramatic upward perspective of modern glass skyscraper at golden hour, warm sunlight reflecting off windows creating patterns of light, deep green ivy climbing architectural elements, sense of growth and upward momentum, professional urban success atmosphere, shot from below looking up conveying ambition and achievement, editorial architectural photography, Kodak Ektar vivid colors with warm golden tones, dramatic lighting contrast, no people, no text, no logos, authentic aspirational business growth aesthetic, cinematic wide angle lens`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
   // === SERVICES ===
 
   'fractional-cmo': {
@@ -170,6 +180,9 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
  */
 export function getPromptKeyFromSlug(slug: string): PromptKey {
   const normalizedSlug = slug.replace(/^\/+|\/+$/g, '').toLowerCase()
+
+  // Homepage
+  if (normalizedSlug === '' || normalizedSlug === 'index' || normalizedSlug === 'home') return 'homepage'
 
   // Services
   if (normalizedSlug.includes('fractional-cmo')) return 'fractional-cmo'

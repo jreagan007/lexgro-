@@ -7,10 +7,14 @@
  * Design specs:
  * - Dark gradient overlay from bottom for text readability
  * - Green accent bar on left edge (6px)
- * - Title in Inter (display), max 2 lines
- * - Category in Inter, mint green, uppercase
+ * - Title in Be Vietnam Pro (brand display font), max 2 lines
+ * - Category in Be Vietnam Pro, mint green, uppercase
  * - LEXGRO branding in bottom corners
+ * - Safe area: 80px padding all sides
  * - All text has proper contrast for WCAG AA
+ *
+ * Brand fonts: Be Vietnam Pro (headings), DM Sans (body)
+ * Brand colors: Primary green #298C42, Dark #011907, Accent orange #FF8158
  */
 
 import sharp from 'sharp'
@@ -148,6 +152,10 @@ function wrapTitle(title: string, maxCharsPerLine = 32): string[] {
   return lines
 }
 
+// Brand font stack (Be Vietnam Pro primary, with system fallbacks)
+const FONT_DISPLAY = "'Be Vietnam Pro', 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif"
+const FONT_BODY = "'DM Sans', 'Inter', system-ui, sans-serif"
+
 /**
  * Create text overlay SVG with category and title
  */
@@ -187,13 +195,13 @@ function createTextOverlaySVG(title: string, category?: string): string {
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
       <style>
         .title {
-          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          font-family: ${FONT_DISPLAY};
           font-size: ${titleSize}px;
           font-weight: 700;
           line-height: ${titleLineHeight}px;
         }
         .category {
-          font-family: 'Inter', system-ui, sans-serif;
+          font-family: ${FONT_BODY};
           font-size: 14px;
           font-weight: 600;
           letter-spacing: 0.15em;
@@ -223,7 +231,7 @@ function createBrandingSVG(): string {
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
       <style>
         .brand {
-          font-family: 'Inter', system-ui, sans-serif;
+          font-family: ${FONT_BODY};
           font-size: 18px;
           font-weight: 600;
           letter-spacing: 0.05em;
@@ -231,6 +239,64 @@ function createBrandingSVG(): string {
       </style>
       <text x="${brandX}" y="${brandY}" class="brand" fill="${HEX_COLORS.white}" opacity="0.7" text-anchor="start">
         LEXGRO • Law Firm CMO
+      </text>
+    </svg>
+  `
+}
+
+/**
+ * Create homepage-specific text overlay with brand messaging
+ * Layout:
+ * - Eyebrow: "THE LAW FIRM CMO" (mint, uppercase, tracked)
+ * - Headline: "Predictable Growth." (large, white, bold)
+ * - Subheadline: "Without the Guesswork." (large, white, bold)
+ * - All within 80px safe area
+ */
+function createHomepageTextOverlaySVG(): string {
+  const SAFE_PADDING = 80
+
+  // Vertical positioning (centered in upper 2/3)
+  const eyebrowY = HEIGHT * 0.32
+  const headlineY = HEIGHT * 0.48
+  const subheadlineY = HEIGHT * 0.62
+
+  return `
+    <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .eyebrow {
+          font-family: ${FONT_BODY};
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+        }
+        .headline {
+          font-family: ${FONT_DISPLAY};
+          font-size: 64px;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+        }
+        .subheadline {
+          font-family: ${FONT_DISPLAY};
+          font-size: 52px;
+          font-weight: 600;
+          letter-spacing: -0.01em;
+        }
+      </style>
+
+      <!-- Eyebrow: THE LAW FIRM CMO -->
+      <text x="${SAFE_PADDING}" y="${eyebrowY}" class="eyebrow" fill="${HEX_COLORS.mint}">
+        THE LAW FIRM CMO
+      </text>
+
+      <!-- Headline: Predictable Growth. -->
+      <text x="${SAFE_PADDING}" y="${headlineY}" class="headline" fill="${HEX_COLORS.white}">
+        Predictable Growth.
+      </text>
+
+      <!-- Subheadline: Without the Guesswork. -->
+      <text x="${SAFE_PADDING}" y="${subheadlineY}" class="subheadline" fill="${HEX_COLORS.white}" opacity="0.9">
+        Without the Guesswork.
       </text>
     </svg>
   `
@@ -271,7 +337,12 @@ export async function compositeOGImage(options: CompositeOptions): Promise<Buffe
   // Create overlay buffers
   const overlayBuffer = Buffer.from(createOverlaySVG())
   const accentBuffer = Buffer.from(createAccentBarSVG())
-  const textBuffer = Buffer.from(createTextOverlaySVG(title, category))
+
+  // Use homepage-specific text layout for homepage, otherwise standard
+  const isHomepage = promptKey === 'homepage'
+  const textBuffer = isHomepage
+    ? Buffer.from(createHomepageTextOverlaySVG())
+    : Buffer.from(createTextOverlaySVG(title, category))
   const brandingBuffer = Buffer.from(createBrandingSVG())
 
   // Start compositing
