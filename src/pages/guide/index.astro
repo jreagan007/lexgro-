@@ -6,13 +6,14 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-
-// Import images for guide cards
-import guideFeatureImage from '../../assets/images/brand/services-graphic.png';
 
 // Get all published guides
 const allGuides = await getCollection('guides', ({ data }) => !data.draft);
+
+// Get card image for each guide
+function getGuideCardImage(slug: string): string {
+  return `/cards/guide/${slug}.png`;
+}
 
 // Sort by date, newest first
 const sortedGuides = allGuides.sort(
@@ -143,11 +144,13 @@ function formatDate(date: Date): string {
           {mainPillars.map((guide) => (
             <a href={`/guide/${guide.data.slug}/`} class="featured-card">
               <div class="featured-image">
-                <Image
-                  src={guideFeatureImage}
+                <img
+                  src={getGuideCardImage(guide.data.slug)}
                   alt={guide.data.title}
-                  width={600}
+                  width="600"
+                  height="340"
                   class="featured-img"
+                  loading="eager"
                 />
                 <div class="featured-badge">Pillar Guide</div>
               </div>

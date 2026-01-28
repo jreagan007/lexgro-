@@ -351,6 +351,71 @@ export const COLORS = {
   lightBg: [192, 233, 202] as [number, number, number],     // #C0E9CA
 }
 
+/**
+ * Per-slug unique gradient overrides for blog posts
+ * Each post gets a unique color combination
+ */
+export const BLOG_SLUG_GRADIENTS: Record<string, [[number, number, number], [number, number, number]]> = {
+  // Fractional CMO posts - greens and teals
+  'fractional-cmo-for-law-firms': [[1, 25, 7], [41, 140, 66]],
+  'top-fractional-cmo-benefits': [[10, 45, 20], [26, 167, 116]],
+  'how-a-fractional-cmo-can-transform': [[5, 35, 15], [37, 185, 123]],
+
+  // Fractional C-suite - purples and deep greens
+  'fractional-cfo-for-law-firms': [[20, 10, 45], [103, 58, 228]],
+  'unlocking-peak-performance': [[15, 25, 50], [80, 45, 180]],
+
+  // Bankruptcy posts - hopeful greens and mints
+  'bankruptcy-lawyer-marketing-guide': [[1, 30, 15], [37, 185, 123]],
+  'how-bankruptcy-lawyers-can-generate-more-leads-with-smart-marketing': [[5, 40, 20], [50, 200, 140]],
+  'marketing-for-bankruptcy-lawyers': [[10, 35, 18], [45, 175, 115]],
+
+  // Divorce/Family posts - warm supportive tones
+  'mastering-divorce-lawyer-marketing': [[25, 15, 5], [180, 100, 50]],
+  '5-divorce-lawyer-marketing-strategies-to-dominate-your-local-market': [[30, 20, 10], [200, 120, 60]],
+  'divorce-lawyer-seo': [[20, 25, 15], [150, 90, 45]],
+
+  // Personal Injury - oranges and warm colors
+  'personal-injury-lawyer-marketing': [[35, 15, 5], [255, 129, 88]],
+  'personal-injury-lawyer-marketing-tips': [[40, 20, 8], [230, 110, 70]],
+  'personal-injury-lawyer-online-presence-guide': [[30, 18, 6], [245, 140, 95]],
+  'personal-injury-lawyer-marketing-a-winning-strategy': [[38, 12, 4], [220, 100, 65]],
+
+  // Criminal Defense - deep purples and blues
+  'criminal-defense-attorney-seo-strategies': [[15, 10, 35], [103, 58, 228]],
+
+  // DUI - similar purple family
+  'market-your-dui-law-practice': [[20, 15, 40], [90, 50, 200]],
+  'dui-lawyer-marketing-tips': [[18, 12, 38], [110, 65, 215]],
+
+  // Immigration - hopeful teals and greens
+  'how-immigration-lawyers-can-market-ethically-and-effectively': [[5, 30, 25], [26, 167, 116]],
+
+  // Estate Planning - dignified warm browns/greens
+  'how-to-educate-vs-sell-in-estate-law-marketing': [[35, 40, 25], [85, 110, 55]],
+
+  // Workers Comp - supportive warm oranges
+  'get-more-workers-comp-clients': [[40, 20, 10], [255, 129, 88]],
+  'workers-comp-lawyer-marketing-strategies-that-actually-work': [[35, 18, 8], [240, 115, 75]],
+
+  // Sales Training - professional blues/greens
+  'law-firm-sales-training': [[10, 20, 35], [50, 100, 180]],
+  'why-every-law-firm-needs-sales-training': [[15, 25, 40], [60, 110, 190]],
+
+  // Budgeting - financial greens
+  'law-firm-budgeting-101': [[5, 35, 20], [41, 140, 66]],
+  'law-firm-budgeting-for-growth': [[8, 40, 25], [50, 155, 80]],
+  'ways-to-reduce-cost-per-case-acquisition': [[10, 38, 22], [45, 148, 72]],
+
+  // Digital Marketing - modern teals/purples
+  'attorney-digital-marketing-a-definitive-guide-for-law-firms': [[12, 25, 40], [80, 140, 200]],
+  'how-cmos-help-law-firms-scale-with-digital-channels': [[15, 28, 45], [70, 130, 190]],
+  'attorney-facebook-ads': [[20, 30, 50], [60, 100, 180]],
+
+  // Agency/Consulting - professional greens
+  'why-marketing-agencies-fail-law-firms': [[25, 35, 20], [120, 80, 50]],
+}
+
 // Hex colors for CSS/SVG
 export const HEX_COLORS = {
   darkBg: '#011907',

@@ -19,7 +19,7 @@ import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 import { glob } from 'glob'
 import matter from 'gray-matter'
-import { PROMPTS, HEX_COLORS, getPromptKeyFromSlug, type PromptKey } from '../src/lib/og/prompts'
+import { PROMPTS, HEX_COLORS, getPromptKeyFromSlug, BLOG_SLUG_GRADIENTS, type PromptKey } from '../src/lib/og/prompts'
 
 dotenv.config()
 
@@ -82,10 +82,19 @@ interface PageConfig {
 async function createGradientBackground(
   promptKey: PromptKey,
   width: number,
-  height: number
+  height: number,
+  slug?: string
 ): Promise<Buffer> {
-  const config = PROMPTS[promptKey] || PROMPTS.default
-  const [startColor, endColor] = config.fallbackGradient
+  // Check for per-slug gradient first (for blog posts)
+  let startColor: [number, number, number]
+  let endColor: [number, number, number]
+
+  if (slug && BLOG_SLUG_GRADIENTS[slug]) {
+    [startColor, endColor] = BLOG_SLUG_GRADIENTS[slug]
+  } else {
+    const config = PROMPTS[promptKey] || PROMPTS.default
+    ;[startColor, endColor] = config.fallbackGradient
+  }
 
   const svg = `
     <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
@@ -263,8 +272,12 @@ async function compositeImage(
   outputPath: string,
   isCard: boolean = false
 ): Promise<void> {
-  // Create gradient background
-  const baseImage = await createGradientBackground(config.promptKey, width, height)
+  // Extract actual slug for per-slug gradient lookup
+  const slugParts = config.slug.split('/')
+  const actualSlug = slugParts.length > 1 ? slugParts[slugParts.length - 1] : config.slug
+
+  // Create gradient background with per-slug override support
+  const baseImage = await createGradientBackground(config.promptKey, width, height, actualSlug)
 
   // Create all overlays
   const overlayBuffer = Buffer.from(createOverlaySVG(width, height))
