@@ -2,7 +2,7 @@
 /**
  * Guide Index Page
  *
- * Resource hub for all LEXGRO guides - in-depth pillar content for law firm marketing.
+ * Clean, visual layout matching the blog page design.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
@@ -10,62 +10,28 @@ import { getCollection } from 'astro:content';
 // Get all published guides
 const allGuides = await getCollection('guides', ({ data }) => !data.draft);
 
-// Get card image for each guide
-function getGuideCardImage(slug: string): string {
-  return `/cards/guide/${slug}.png`;
-}
-
 // Sort by date, newest first
 const sortedGuides = allGuides.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-// Separate main pillar guides from sub guides
-const mainPillars = sortedGuides.filter((g) => g.data.pillarType === 'main');
-const subGuides = sortedGuides.filter((g) => g.data.pillarType === 'sub');
+// Get card image for each guide
+function getGuideCardImage(slug: string): string {
+  return `/cards/guide/${slug}.png`;
+}
 
-// Topics/clusters for navigation
-const clusters = [
-  {
-    id: 'fractional-cmo',
-    label: 'Fractional CMO',
-    description: 'Strategic marketing leadership for law firms',
-  },
-  {
-    id: 'law-firm-marketing',
-    label: 'Law Firm Marketing',
-    description: 'Comprehensive marketing strategies',
-  },
-  {
-    id: 'seo',
-    label: 'SEO',
-    description: 'Search engine optimization for attorneys',
-  },
-  {
-    id: 'ppc',
-    label: 'PPC & Paid Ads',
-    description: 'Pay-per-click advertising strategies',
-  },
-  {
-    id: 'lead-gen',
-    label: 'Lead Generation',
-    description: 'Attract and convert ideal clients',
-  },
-  {
-    id: 'budget',
-    label: 'Marketing Budget',
-    description: 'ROI-focused budget planning',
-  },
-];
-
-// Helper to format date
+// Format date helper
 function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
+  return new Intl.DateTimeFormat('en-US', {
     month: 'long',
     day: 'numeric',
-  });
+    year: 'numeric'
+  }).format(date);
 }
+
+// Featured guide (first one or marked as featured)
+const featuredGuide = sortedGuides.find(g => g.data.featured) || sortedGuides[0];
+const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
 ---
 
 <BaseLayout
@@ -76,271 +42,135 @@ function formatDate(date: Date): string {
   <!-- Hero Section -->
   <section class="guide-hero">
     <div class="container">
-      <div class="hero-content">
-        <span class="section-label">Resource Library</span>
-        <h1 class="hero-title">Law Firm Marketing Guides</h1>
-        <p class="hero-subtitle">
-          In-depth, expert-written guides to help you master law firm marketing.
-          From fractional CMO strategies to SEO and paid advertising, everything
-          you need to grow your practice.
-        </p>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">{sortedGuides.length}</span>
-            <span class="stat-label">Guides</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">5,000+</span>
-            <span class="stat-label">Words Each</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Free</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Topics Navigation -->
-  <section class="topics-section">
-    <div class="container">
-      <div class="topics-header">
-        <h2 class="topics-title">Browse by Topic</h2>
-      </div>
-      <div class="topics-grid">
-        {
-          clusters.map((cluster) => {
-            const count = sortedGuides.filter(
-              (g) => g.data.cluster === cluster.id
-            ).length;
-            return (
-              <a
-                href={`#${cluster.id}`}
-                class={`topic-card ${count === 0 ? 'topic-card-empty' : ''}`}
-              >
-                <span class="topic-label">{cluster.label}</span>
-                <span class="topic-count">
-                  {count} {count === 1 ? 'guide' : 'guides'}
-                </span>
-              </a>
-            );
-          })
-        }
-      </div>
+      <span class="section-label">LEXGRO Guides</span>
+      <h1 class="hero-title">In-Depth Marketing Guides</h1>
+      <p class="hero-subtitle">
+        Comprehensive, expert-written guides to help you master law firm marketing.
+        No fluff. Just actionable strategies that work.
+      </p>
     </div>
   </section>
 
   <!-- Featured Guide -->
-  {
-    mainPillars.length > 0 && (
-      <section class="featured-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-label">Featured Guide</span>
-            <h2 class="section-title">Start Here</h2>
+  {featuredGuide && (
+    <section class="featured-section">
+      <div class="container">
+        <a href={`/guide/${featuredGuide.data.slug}/`} class="featured-card">
+          <div class="featured-image">
+            <img
+              src={getGuideCardImage(featuredGuide.data.slug)}
+              alt={featuredGuide.data.title}
+              width="800"
+              height="450"
+              class="featured-img"
+              loading="eager"
+            />
+            <span class="featured-badge">Pillar Guide</span>
           </div>
+          <div class="featured-content">
+            <span class="guide-category">Fractional CMO</span>
+            <h2 class="featured-title">{featuredGuide.data.title}</h2>
+            <p class="featured-excerpt">{featuredGuide.data.description}</p>
+            <div class="guide-meta">
+              <span class="guide-date">{formatDate(featuredGuide.data.pubDate)}</span>
+              <span class="guide-time">
+                {featuredGuide.data.wordCount
+                  ? `${Math.ceil(featuredGuide.data.wordCount / 200)} min read`
+                  : '25+ min read'}
+              </span>
+              <span class="read-more">Read Guide →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
 
-          {mainPillars.map((guide) => (
-            <a href={`/guide/${guide.data.slug}/`} class="featured-card">
-              <div class="featured-image">
+  <!-- All Guides Grid -->
+  {regularGuides.length > 0 && (
+    <section class="guides-grid-section">
+      <div class="container">
+        <h2 class="grid-title">More Guides</h2>
+        <div class="guides-grid">
+          {regularGuides.map((guide) => (
+            <a href={`/guide/${guide.data.slug}/`} class="guide-card">
+              <div class="card-image">
                 <img
                   src={getGuideCardImage(guide.data.slug)}
                   alt={guide.data.title}
-                  width="600"
-                  height="340"
-                  class="featured-img"
-                  loading="eager"
+                  width="400"
+                  height="225"
+                  class="card-img"
+                  loading="lazy"
                 />
-                <div class="featured-badge">Pillar Guide</div>
               </div>
-              <div class="featured-content">
-                <span class="featured-cluster">
-                  {clusters.find((c) => c.id === guide.data.cluster)?.label ||
-                    guide.data.cluster}
-                </span>
-                <h3 class="featured-title">{guide.data.title}</h3>
-                <p class="featured-description">{guide.data.description}</p>
-                <div class="featured-meta">
-                  <span class="meta-item">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M12 6v6l4 2" />
-                    </svg>
-                    {guide.data.wordCount
-                      ? `${Math.ceil(guide.data.wordCount / 200)} min read`
-                      : '25+ min read'}
-                  </span>
-                  <span class="meta-item">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                      <line x1="16" y1="2" x2="16" y2="6" />
-                      <line x1="8" y1="2" x2="8" y2="6" />
-                      <line x1="3" y1="10" x2="21" y2="10" />
-                    </svg>
-                    {formatDate(guide.data.pubDate)}
-                  </span>
-                </div>
-                <span class="featured-cta">
-                  Read the Guide
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
+              <div class="card-content">
+                <span class="guide-category">Guide</span>
+                <h3 class="card-title">{guide.data.title}</h3>
+                <p class="card-excerpt">{guide.data.description}</p>
+                <span class="guide-date">{formatDate(guide.data.pubDate)}</span>
               </div>
             </a>
           ))}
         </div>
-      </section>
-    )
-  }
-
-  <!-- All Guides by Cluster -->
-  {
-    clusters.map((cluster) => {
-      const clusterGuides = sortedGuides.filter(
-        (g) => g.data.cluster === cluster.id
-      );
-      if (clusterGuides.length === 0) return null;
-
-      return (
-        <section id={cluster.id} class="cluster-section">
-          <div class="container">
-            <div class="cluster-header">
-              <div class="cluster-info">
-                <div>
-                  <h2 class="cluster-title">{cluster.label}</h2>
-                  <p class="cluster-description">{cluster.description}</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="guides-grid">
-              {clusterGuides.map((guide) => (
-                <a href={`/guide/${guide.data.slug}/`} class="guide-card">
-                  <div class="guide-card-header">
-                    {guide.data.pillarType === 'main' && (
-                      <span class="pillar-badge">Pillar</span>
-                    )}
-                    <span class="guide-reading-time">
-                      {guide.data.wordCount
-                        ? `${Math.ceil(guide.data.wordCount / 200)} min`
-                        : '25+ min'}
-                    </span>
-                  </div>
-                  <h3 class="guide-title">{guide.data.title}</h3>
-                  <p class="guide-description">{guide.data.description}</p>
-                  <div class="guide-footer">
-                    <span class="guide-date">
-                      {formatDate(guide.data.pubDate)}
-                    </span>
-                    <span class="guide-arrow">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    })
-  }
+      </div>
+    </section>
+  )}
 
   <!-- Coming Soon Section -->
   <section class="coming-soon-section">
     <div class="container">
       <div class="coming-soon-content">
-        <span class="section-label-dark">More Coming Soon</span>
-        <h2 class="coming-soon-title">We're Always Writing</h2>
+        <span class="section-label-dark">Coming Soon</span>
+        <h2 class="coming-soon-title">More Guides in Development</h2>
         <p class="coming-soon-text">
-          New guides are added regularly. Topics in development include SEO for
-          personal injury lawyers, PPC budget optimization, intake process
-          improvement, and practice-specific marketing strategies.
+          We're constantly creating new in-depth guides. Topics in development include:
         </p>
         <div class="upcoming-topics">
-          <span class="upcoming-tag">SEO for PI Lawyers</span>
-          <span class="upcoming-tag">PPC Budget Guide</span>
-          <span class="upcoming-tag">Intake Optimization</span>
+          <span class="upcoming-tag">SEO for Personal Injury</span>
+          <span class="upcoming-tag">PPC Budget Optimization</span>
+          <span class="upcoming-tag">Intake Process Mastery</span>
           <span class="upcoming-tag">Family Law Marketing</span>
+          <span class="upcoming-tag">Criminal Defense Growth</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Resource Types Section -->
+  <!-- Other Resources Section -->
   <section class="resources-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Our Content</span>
-        <h2 class="section-title">Different Resources for Different Needs</h2>
+        <span class="section-label">Explore More</span>
+        <h2 class="section-title">Other Resources</h2>
       </div>
 
       <div class="resources-grid">
-        <div class="resource-card resource-card-active">
-          <h3 class="resource-title">Guides</h3>
-          <p class="resource-description">
-            Comprehensive, 5,000+ word deep-dives into law firm marketing
-            topics. Our pillar content for serious learners.
-          </p>
-          <span class="resource-link">You're here</span>
-        </div>
-
-        <a href="/answers/" class="resource-card">
-          <h3 class="resource-title">Answers</h3>
-          <p class="resource-description">
-            Quick, focused answers to specific marketing questions. Get the info
-            you need in 5 minutes or less.
-          </p>
-          <span class="resource-link">Browse Answers →</span>
-        </a>
-
         <a href="/blog/" class="resource-card">
+          <div class="resource-icon">📝</div>
           <h3 class="resource-title">Blog</h3>
           <p class="resource-description">
-            Insights, case studies, and thought leadership on law firm marketing
-            trends and strategies.
+            Shorter articles on marketing tactics, trends, and strategies for law firms.
           </p>
           <span class="resource-link">Read Blog →</span>
         </a>
 
-        <a href="/services/" class="resource-card">
-          <h3 class="resource-title">Services</h3>
+        <a href="/answers/" class="resource-card">
+          <div class="resource-icon">💡</div>
+          <h3 class="resource-title">Quick Answers</h3>
           <p class="resource-description">
-            Ready for hands-on help? Explore our fractional CMO services and
-            marketing support options.
+            Get fast answers to common law firm marketing questions in 5 minutes or less.
           </p>
-          <span class="resource-link">View Services →</span>
+          <span class="resource-link">Browse Answers →</span>
+        </a>
+
+        <a href="/podcast/" class="resource-card">
+          <div class="resource-icon">🎙️</div>
+          <h3 class="resource-title">Podcast</h3>
+          <p class="resource-description">
+            Listen to Keith Dyer discuss law firm growth strategies with industry experts.
+          </p>
+          <span class="resource-link">Listen Now →</span>
         </a>
       </div>
     </div>
@@ -350,22 +180,14 @@ function formatDate(date: Date): string {
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2 class="cta-title">Prefer One-on-One Guidance?</h2>
+        <h2 class="cta-title">Ready for Personalized Strategy?</h2>
         <p class="cta-subtitle">
-          Our guides are great for self-study, but nothing beats personalized
-          strategy. Let's talk about your firm's specific marketing challenges.
+          Guides are great for learning, but nothing beats hands-on help.
+          Let's discuss your firm's specific marketing challenges.
         </p>
-        <div class="cta-buttons">
-          <a
-            href="https://calendly.com/lexgro/strategy-session"
-            class="btn btn-primary btn-lg"
-          >
-            Schedule a Free Consultation
-          </a>
-          <a href="/contact/" class="btn btn-secondary btn-lg">
-            Send Us a Message
-          </a>
-        </div>
+        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
+          Schedule a Free Consultation
+        </a>
       </div>
     </div>
   </section>
@@ -374,14 +196,9 @@ function formatDate(date: Date): string {
 <style>
   /* Hero Section */
   .guide-hero {
-    padding: 5rem 0 4rem;
+    padding: 5rem 0 3rem;
     background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
     text-align: center;
-  }
-
-  .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
   }
 
   .section-label {
@@ -405,10 +222,10 @@ function formatDate(date: Date): string {
   }
 
   .hero-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     color: var(--color-text-dark);
   }
 
@@ -416,121 +233,14 @@ function formatDate(date: Date): string {
     font-size: 1.125rem;
     color: var(--color-text-muted);
     line-height: 1.6;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--color-primary);
-  }
-
-  .stat-label {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-  }
-
-  /* Topics Navigation */
-  .topics-section {
-    padding: 3rem 0;
-    background: white;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .topics-header {
-    margin-bottom: 1.5rem;
-  }
-
-  .topics-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-dark);
-  }
-
-  .topics-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .topic-card {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    background: var(--color-bg-light);
-    border-radius: 100px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .topic-card:hover {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .topic-card:hover .topic-count {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .topic-card-empty {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  .topic-icon {
-    font-size: 1rem;
-  }
-
-  .topic-label {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
-  }
-
-  .topic-card:hover .topic-label {
-    color: white;
-  }
-
-  .topic-count {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-    background: white;
-    padding: 0.125rem 0.5rem;
-    border-radius: 100px;
-  }
-
-  .topic-card:hover .topic-count {
-    background: rgba(255, 255, 255, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   /* Featured Section */
   .featured-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background: white;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
-
-  .section-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    line-height: 1.2;
-    color: var(--color-text-dark);
   }
 
   .featured-card {
@@ -539,26 +249,27 @@ function formatDate(date: Date): string {
     gap: 2rem;
     background: white;
     border-radius: 24px;
-    border: 1px solid var(--color-border);
     overflow: hidden;
+    border: 1px solid var(--color-border);
     text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  @media (min-width: 768px) {
-    .featured-card {
-      grid-template-columns: 1fr 1fr;
-    }
+    color: inherit;
+    transition: box-shadow 0.3s ease;
   }
 
   .featured-card:hover {
-    transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+  }
+
+  @media (min-width: 900px) {
+    .featured-card {
+      grid-template-columns: 1.2fr 1fr;
+    }
   }
 
   .featured-image {
     position: relative;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16/9;
     overflow: hidden;
   }
 
@@ -589,119 +300,82 @@ function formatDate(date: Date): string {
     justify-content: center;
   }
 
-  .featured-cluster {
-    color: var(--color-primary);
+  .guide-category {
     font-size: 0.75rem;
     font-weight: 600;
+    color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .featured-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-
-  .featured-description {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: 1.25;
     margin-bottom: 1rem;
   }
 
-  .featured-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  .featured-excerpt {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
     margin-bottom: 1.5rem;
   }
 
-  .meta-item {
+  .guide-meta {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .guide-date {
     font-size: 0.875rem;
     color: var(--color-text-muted);
   }
 
-  .meta-item svg {
-    color: var(--color-primary);
+  .guide-time {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    padding-left: 1rem;
+    border-left: 1px solid var(--color-border);
   }
 
-  .featured-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-primary);
+  .read-more {
+    font-size: 0.9375rem;
     font-weight: 600;
-    font-size: 1rem;
+    color: var(--color-primary);
+    margin-left: auto;
   }
 
-  .featured-card:hover .featured-cta {
-    gap: 0.75rem;
-  }
-
-  /* Cluster Sections */
-  .cluster-section {
-    padding: 4rem 0;
+  /* Guides Grid */
+  .guides-grid-section {
+    padding: 3rem 0 5rem;
     background: var(--color-bg-light);
   }
 
-  .cluster-section:nth-child(even) {
-    background: white;
-  }
-
-  .cluster-header {
-    margin-bottom: 2rem;
-  }
-
-  .cluster-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .cluster-icon {
-    font-size: 2rem;
-    width: 60px;
-    height: 60px;
-    background: white;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .cluster-title {
+  .grid-title {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: 0.25rem;
-  }
-
-  .cluster-description {
-    font-size: 1rem;
-    color: var(--color-text-muted);
+    margin-bottom: 2rem;
   }
 
   .guides-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     .guides-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1000px) {
     .guides-grid {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -709,87 +383,61 @@ function formatDate(date: Date): string {
 
   .guide-card {
     background: white;
-    padding: 1.75rem;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    overflow: hidden;
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
+    color: inherit;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .guide-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
   }
 
-  .guide-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+  .card-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
   }
 
-  .pillar-badge {
-    background: var(--color-primary);
-    color: white;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    padding: 0.25rem 0.625rem;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
   }
 
-  .guide-reading-time {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-    background: var(--color-bg-light);
-    padding: 0.25rem 0.625rem;
-    border-radius: 100px;
+  .guide-card:hover .card-img {
+    transform: scale(1.05);
   }
 
-  .guide-title {
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-title {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: 0.5rem;
     line-height: 1.3;
+    margin-bottom: 0.75rem;
   }
 
-  .guide-description {
+  .card-excerpt {
     font-size: 0.9375rem;
     color: var(--color-text-muted);
     line-height: 1.5;
-    flex-grow: 1;
-    margin-bottom: 1.25rem;
-  }
-
-  .guide-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .guide-date {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-  }
-
-  .guide-arrow {
-    color: var(--color-primary);
-    transition: transform 0.2s ease;
-  }
-
-  .guide-card:hover .guide-arrow {
-    transform: translateX(4px);
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* Coming Soon Section */
   .coming-soon-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     background: var(--color-bg-dark);
     text-align: center;
   }
@@ -800,7 +448,7 @@ function formatDate(date: Date): string {
   }
 
   .coming-soon-title {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     color: white;
     margin-bottom: 1rem;
   }
@@ -809,7 +457,7 @@ function formatDate(date: Date): string {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .upcoming-topics {
@@ -834,21 +482,28 @@ function formatDate(date: Date): string {
     background: white;
   }
 
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    color: var(--color-text-dark);
+  }
+
   .resources-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   @media (min-width: 768px) {
     .resources-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .resources-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -857,22 +512,18 @@ function formatDate(date: Date): string {
     border-radius: 16px;
     border: 1px solid var(--color-border);
     text-decoration: none;
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .resource-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  }
-
-  .resource-card-active {
-    background: var(--color-bg-light);
-    border-color: var(--color-primary);
-    pointer-events: none;
+    text-decoration: none;
   }
 
   .resource-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
   }
 
@@ -899,11 +550,7 @@ function formatDate(date: Date): string {
   /* CTA Section */
   .cta-section {
     padding: 5rem 0;
-    background: linear-gradient(
-      135deg,
-      var(--color-primary) 0%,
-      var(--color-teal) 100%
-    );
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
     text-align: center;
   }
 
@@ -925,20 +572,6 @@ function formatDate(date: Date): string {
     line-height: 1.6;
   }
 
-  .cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  @media (min-width: 500px) {
-    .cta-buttons {
-      flex-direction: row;
-      justify-content: center;
-    }
-  }
-
   .cta-section .btn-primary {
     background: white;
     color: var(--color-primary);
@@ -946,15 +579,5 @@ function formatDate(date: Date): string {
 
   .cta-section .btn-primary:hover {
     background: rgba(255, 255, 255, 0.9);
-  }
-
-  .cta-section .btn-secondary {
-    border-color: white;
-    color: white;
-  }
-
-  .cta-section .btn-secondary:hover {
-    background: white;
-    color: var(--color-primary);
   }
 </style>
