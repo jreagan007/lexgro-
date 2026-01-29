@@ -5,7 +5,7 @@
  * The Law Firm Growth Podcast - Marketing insights for attorneys
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { episodes, getSortedEpisodes, formatDate } from '../../data/podcast-episodes';
+import { episodes, getSortedEpisodes, formatDate, podcastPlatforms } from '../../data/podcast-episodes';
 
 const sortedEpisodes = getSortedEpisodes();
 const latestEpisode = sortedEpisodes[0];
@@ -29,9 +29,9 @@ const latestEpisode = sortedEpisodes[0];
         <div class="podcast-platforms">
           <span class="platforms-label">Listen on:</span>
           <div class="platform-links">
-            <a href="#" class="platform-link">Apple Podcasts</a>
-            <a href="#" class="platform-link">Spotify</a>
-            <a href="#" class="platform-link">YouTube</a>
+            <a href={podcastPlatforms.apple} class="platform-link" target="_blank" rel="noopener">Apple Podcasts</a>
+            <a href={podcastPlatforms.spotify} class="platform-link" target="_blank" rel="noopener">Spotify</a>
+            <a href={podcastPlatforms.youtube} class="platform-link" target="_blank" rel="noopener">YouTube</a>
           </div>
         </div>
       </div>

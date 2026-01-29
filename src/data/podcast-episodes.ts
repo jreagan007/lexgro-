@@ -1,8 +1,10 @@
 /**
  * Podcast Episodes Data
  *
- * Central data file for podcast episodes.
- * Will be migrated to content collection later.
+ * The Circle of Trust Podcast - Law firm growth strategies
+ * YouTube: https://www.youtube.com/@LEXGRO
+ * Spotify: https://open.spotify.com/show/6CuYUevzKiCX9QL9NVfqJc
+ * Apple: https://podcasts.apple.com/us/podcast/the-law-firm-cmo-podcast-honest-insights-and/id1824425192
  */
 
 export interface Episode {
@@ -15,9 +17,59 @@ export interface Episode {
   duration: string;
   pubDate: string;
   topics: string[];
+  youtubeId?: string;
 }
 
 export const episodes: Episode[] = [
+  // Newer episodes (2025-2026)
+  {
+    slug: 'law-firm-marketing-metrics',
+    title: 'Law Firm Marketing Metrics: What to Track (and What to Ignore)',
+    description: 'Learn which marketing metrics actually matter for law firm growth and which ones are just vanity numbers.',
+    longDescription: 'Stop chasing vanity metrics. In this episode, we break down the marketing metrics that actually drive law firm growth—and which ones you can safely ignore. Learn how to build a dashboard that tells you the truth about your marketing ROI.',
+    guest: '',
+    number: 30,
+    duration: '13 min',
+    pubDate: '2026-01-01',
+    topics: ['Marketing Metrics', 'ROI', 'Analytics'],
+    youtubeId: 'tYBJ0i9C5hc',
+  },
+  {
+    slug: 'improve-law-firm-website',
+    title: 'How to Improve Your Law Firm Website to Get More Clients',
+    description: 'Practical website improvements that convert more visitors into consultations.',
+    longDescription: 'Your website is your 24/7 salesperson. Learn the specific changes you can make today to improve conversion rates, build trust with potential clients, and turn more visitors into signed cases.',
+    guest: '',
+    number: 29,
+    duration: '16 min',
+    pubDate: '2025-12-04',
+    topics: ['Website', 'Conversion', 'UX'],
+    youtubeId: 'g5dEjxuRVnA',
+  },
+  {
+    slug: 'fast-growth-vs-smart-growth',
+    title: 'Fast Growth vs. Smart Growth: How to Avoid the Plateau Trap',
+    description: 'Why rapid growth often leads to stagnation and how to build sustainable momentum.',
+    longDescription: 'Many law firms hit a growth plateau after initial success. Learn why fast growth often backfires and how to build systems that support sustainable, predictable growth over the long term.',
+    guest: '',
+    number: 28,
+    duration: '17 min',
+    pubDate: '2025-11-06',
+    topics: ['Growth Strategy', 'Scaling', 'Operations'],
+    youtubeId: 'PTfy4zMLGM4',
+  },
+  {
+    slug: 'build-law-firm-intake-system',
+    title: 'How to Build a Law Firm Intake System That Drives Growth',
+    description: 'Create an intake process that converts leads and maximizes your marketing spend.',
+    longDescription: 'Your intake process can make or break your marketing ROI. Learn how to build an intake system that converts more leads, provides excellent client experience, and gives you the data you need to optimize.',
+    guest: '',
+    number: 27,
+    duration: '15 min',
+    pubDate: '2025-10-09',
+    topics: ['Intake', 'Conversion', 'Systems'],
+    youtubeId: '6FVCy7vI7kQ',
+  },
   {
     slug: 'crafting-content-for-legal-visibility',
     title: 'Crafting Content for Legal Visibility',
@@ -28,6 +80,7 @@ export const episodes: Episode[] = [
     duration: '45 min',
     pubDate: '2024-12-15',
     topics: ['Content Marketing', 'SEO', 'Social Media'],
+    youtubeId: 'GYgxuzQBs0g',
   },
   {
     slug: 'marketing-mastery-for-law-firm-growth',
@@ -39,6 +92,7 @@ export const episodes: Episode[] = [
     duration: '42 min',
     pubDate: '2024-12-01',
     topics: ['Marketing Strategy', 'Growth', 'Client Acquisition'],
+    youtubeId: 'cS2Hgrykg0U',
   },
   {
     slug: 'the-new-era-of-legal-referrals',
@@ -50,6 +104,7 @@ export const episodes: Episode[] = [
     duration: '38 min',
     pubDate: '2024-11-15',
     topics: ['Referrals', 'Networking', 'Lead Generation'],
+    youtubeId: '8QEV7ijAYR4',
   },
   {
     slug: 'legal-challenges-and-triumphs-in-the-caribbean',
@@ -61,6 +116,7 @@ export const episodes: Episode[] = [
     duration: '51 min',
     pubDate: '2024-11-01',
     topics: ['International Law', 'Niche Markets', 'Business Development'],
+    youtubeId: 'bs9m4QG3cSA',
   },
   {
     slug: 'innovating-in-crime-and-defense-law',
@@ -72,6 +128,7 @@ export const episodes: Episode[] = [
     duration: '44 min',
     pubDate: '2024-10-15',
     topics: ['Criminal Defense', 'Branding', 'Digital Marketing'],
+    youtubeId: 'v5O8jBVhtRU',
   },
   {
     slug: 'entrepreneurial-lessons-for-lawyers',
@@ -83,6 +140,7 @@ export const episodes: Episode[] = [
     duration: '47 min',
     pubDate: '2024-10-01',
     topics: ['Entrepreneurship', 'Business', 'Leadership'],
+    youtubeId: 'SYJSRztxFqg',
   },
   {
     slug: 'ai-the-new-frontier-in-legal-mediation',
@@ -94,6 +152,7 @@ export const episodes: Episode[] = [
     duration: '39 min',
     pubDate: '2024-09-15',
     topics: ['AI', 'Mediation', 'Legal Tech'],
+    youtubeId: 'KSkmrn0wEz8',
   },
   {
     slug: 'ai-and-the-future-of-law-firms',
@@ -105,6 +164,7 @@ export const episodes: Episode[] = [
     duration: '52 min',
     pubDate: '2024-09-01',
     topics: ['AI', 'Technology', 'Efficiency'],
+    youtubeId: 'M8TnMZbOZRY',
   },
   {
     slug: 'transform-your-law-firm-with-the-eos-approach',
@@ -116,6 +176,7 @@ export const episodes: Episode[] = [
     duration: '48 min',
     pubDate: '2024-08-15',
     topics: ['EOS', 'Operations', 'Management'],
+    youtubeId: 'TEoGAQJv5AU',
   },
   {
     slug: 'growing-a-law-practice-in-a-saturated-market',
@@ -127,6 +188,7 @@ export const episodes: Episode[] = [
     duration: '41 min',
     pubDate: '2024-08-01',
     topics: ['Competition', 'Differentiation', 'Marketing Strategy'],
+    youtubeId: '1w2PflQ56Xc',
   },
   {
     slug: 'ai-legal-tech-for-modern-law-firms',
@@ -138,6 +200,7 @@ export const episodes: Episode[] = [
     duration: '46 min',
     pubDate: '2024-07-15',
     topics: ['Legal Tech', 'AI Tools', 'Automation'],
+    youtubeId: 'RcYt9ozk9dU',
   },
   {
     slug: 'law-firm-growth-and-innovation',
@@ -149,6 +212,7 @@ export const episodes: Episode[] = [
     duration: '43 min',
     pubDate: '2024-07-01',
     topics: ['Growth', 'Innovation', 'Scaling'],
+    youtubeId: 'SCFk5-u8btY',
   },
   {
     slug: 'strategic-marketing-for-personal-injury-attorneys',
@@ -160,6 +224,7 @@ export const episodes: Episode[] = [
     duration: '49 min',
     pubDate: '2024-06-15',
     topics: ['Personal Injury', 'PPC', 'Case Acquisition'],
+    youtubeId: 'mTsrli1dlnU',
   },
   {
     slug: 'revolutionizing-law-firm-growth-through-flexible-staffing',
@@ -171,6 +236,7 @@ export const episodes: Episode[] = [
     duration: '44 min',
     pubDate: '2024-06-01',
     topics: ['Staffing', 'Virtual Teams', 'Operations'],
+    youtubeId: 'd8B9AK8qSQY',
   },
   {
     slug: 'building-a-compassionate-legal-practice',
@@ -182,6 +248,7 @@ export const episodes: Episode[] = [
     duration: '40 min',
     pubDate: '2024-05-15',
     topics: ['Client Experience', 'Referrals', 'Culture'],
+    youtubeId: '7rDb-eOwuro',
   },
   {
     slug: 'innovative-branding-for-law-firm-success',
@@ -193,6 +260,7 @@ export const episodes: Episode[] = [
     duration: '45 min',
     pubDate: '2024-05-01',
     topics: ['Branding', 'Positioning', 'Marketing'],
+    youtubeId: 'Mumr651O4Xk',
   },
   {
     slug: 'amplify-your-law-firm-s-growth-through-traditional-media',
@@ -204,6 +272,7 @@ export const episodes: Episode[] = [
     duration: '47 min',
     pubDate: '2024-04-15',
     topics: ['Traditional Media', 'TV Advertising', 'Billboards'],
+    youtubeId: 'D-dvakpIZSI',
   },
   {
     slug: 'budgeting-for-law-firms',
@@ -215,6 +284,7 @@ export const episodes: Episode[] = [
     duration: '42 min',
     pubDate: '2024-04-01',
     topics: ['Budgeting', 'Finance', 'Planning'],
+    youtubeId: 'QJFI7UDazGk',
   },
   {
     slug: 'marketing-beyond-the-verdict',
@@ -226,6 +296,7 @@ export const episodes: Episode[] = [
     duration: '38 min',
     pubDate: '2024-03-15',
     topics: ['Client Retention', 'Referrals', 'Relationship Building'],
+    youtubeId: 'nsTFVKkXCps',
   },
   {
     slug: 'redefining-legal-mediation-in-a-digital-age',
@@ -237,29 +308,33 @@ export const episodes: Episode[] = [
     duration: '44 min',
     pubDate: '2024-03-01',
     topics: ['Mediation', 'ADR', 'Technology'],
+    youtubeId: 'qK0gIa1VacQ',
   },
   {
     slug: 'building-the-ultimate-law-firm-sales-team',
     title: 'Building the Ultimate Law Firm Sales Team',
     description: 'Creating an intake process that converts leads to clients.',
     longDescription: 'Your intake team is your sales team. Learn how to build, train, and optimize an intake process that maximizes conversion rates.',
-    guest: '',
+    guest: 'Chris Mullins',
     number: 6,
     duration: '51 min',
     pubDate: '2024-02-15',
     topics: ['Intake', 'Sales', 'Conversion'],
+    youtubeId: 'nz97GdGnsaQ',
   },
   {
     slug: 'scaling-law-firms-through-virtual-hiring',
     title: 'Scaling Law Firms Through Virtual Hiring',
     description: 'Best practices for building remote legal teams.',
     longDescription: 'Virtual hiring opens up a world of talent. Learn best practices for recruiting, managing, and retaining remote team members.',
-    guest: '',
+    guest: 'Alex Miranda',
     number: 5,
     duration: '46 min',
     pubDate: '2024-02-01',
     topics: ['Remote Work', 'Hiring', 'Team Building'],
+    youtubeId: '74gtzmYnoB0',
   },
+  // Episodes 1-4 don't appear to have YouTube videos yet
   {
     slug: 'unveiling-law-firm-funding-tactics',
     title: 'Unveiling Law Firm Funding Tactics',
@@ -306,6 +381,30 @@ export const episodes: Episode[] = [
   },
 ];
 
+// Additional videos that are standalone (not numbered episodes)
+export const additionalVideos = [
+  {
+    slug: 'welcome-to-circle-of-trust',
+    title: 'Welcome to The Circle of Trust: Meet Keith Dyer & The Mission Behind Law Firm Growth',
+    youtubeId: 'YNN2H_BdUWs',
+  },
+  {
+    slug: 'do-you-need-to-advertise',
+    title: 'Do You Really Need to Advertise? The Truth About Law Firm Marketing Spend',
+    youtubeId: 'BiuzJfqashM',
+  },
+  {
+    slug: 'referrals-to-reliable-revenue',
+    title: 'From Referrals to Reliable Revenue: Building a Marketing System That Delivers',
+    youtubeId: 'Bql--NqmaTA',
+  },
+  {
+    slug: 'why-growth-stalled',
+    title: "Why Your Law Firm's Growth Stalled (And How to Restart the Momentum)",
+    youtubeId: 'k_qwayeUX_s',
+  },
+];
+
 // Helper to get sorted episodes (newest first)
 export function getSortedEpisodes(): Episode[] {
   return [...episodes].sort((a, b) => b.number - a.number);
@@ -319,3 +418,10 @@ export function formatDate(dateStr: string): string {
     day: 'numeric',
   });
 }
+
+// Platform links
+export const podcastPlatforms = {
+  youtube: 'https://www.youtube.com/@LEXGRO',
+  spotify: 'https://open.spotify.com/show/6CuYUevzKiCX9QL9NVfqJc',
+  apple: 'https://podcasts.apple.com/us/podcast/the-law-firm-cmo-podcast-honest-insights-and/id1824425192',
+};
