@@ -19,7 +19,7 @@ import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 import { glob } from 'glob'
 import matter from 'gray-matter'
-import { PROMPTS, HEX_COLORS, getPromptKeyFromSlug, BLOG_SLUG_GRADIENTS, NEGATIVE_PROMPT, type PromptKey } from '../src/lib/og/prompts'
+import { PROMPTS, HEX_COLORS, getPromptKeyFromSlug, BLOG_SLUG_GRADIENTS, NEGATIVE_PROMPT, CARD_PROMPTS, getCardPromptKey, type PromptKey } from '../src/lib/og/prompts'
 
 dotenv.config()
 
@@ -144,20 +144,40 @@ async function generateAIImage(prompt: string, cacheKey: string): Promise<Buffer
 
 /**
  * Create background - AI generated or gradient fallback
+ * @param isCard - If true, use CARD_PROMPTS (abstract geometric style), else use PROMPTS (documentary photography)
  */
 async function createBackground(
   promptKey: PromptKey,
   width: number,
   height: number,
   slug?: string,
-  useAI: boolean = true
+  useAI: boolean = true,
+  isCard: boolean = false
 ): Promise<Buffer> {
-  const config = PROMPTS[promptKey] || PROMPTS.default
-  const cacheKey = slug || promptKey
+  let prompt: string
+  let fallbackGradient: [[number, number, number], [number, number, number]]
+  let cacheKey: string
+
+  if (isCard) {
+    // Use card-specific prompts (abstract geometric style)
+    const cardKey = slug ? getCardPromptKey(slug) : 'default-card'
+    const cardConfig = CARD_PROMPTS[cardKey] || CARD_PROMPTS['default-card']
+    prompt = cardConfig.prompt
+    fallbackGradient = cardConfig.fallbackGradient
+    // Use flat cache key without subdirectories
+    const slugForCache = slug ? slug.replace(/\//g, '-') : cardKey
+    cacheKey = `card-${slugForCache}`
+  } else {
+    // Use OG prompts (documentary photography style)
+    const config = PROMPTS[promptKey] || PROMPTS.default
+    prompt = config.prompt
+    fallbackGradient = config.fallbackGradient
+    cacheKey = slug || promptKey
+  }
 
   // Try AI generation first
   if (useAI && API_KEY) {
-    const aiImage = await generateAIImage(config.prompt, cacheKey)
+    const aiImage = await generateAIImage(prompt, cacheKey)
     if (aiImage) {
       // Resize to target dimensions
       return await sharp(aiImage)
@@ -171,10 +191,10 @@ async function createBackground(
   let startColor: [number, number, number]
   let endColor: [number, number, number]
 
-  if (slug && BLOG_SLUG_GRADIENTS[slug]) {
+  if (!isCard && slug && BLOG_SLUG_GRADIENTS[slug]) {
     [startColor, endColor] = BLOG_SLUG_GRADIENTS[slug]
   } else {
-    ;[startColor, endColor] = config.fallbackGradient
+    ;[startColor, endColor] = fallbackGradient
   }
 
   const svg = `
@@ -358,7 +378,8 @@ async function compositeImage(
   const actualSlug = slugParts.length > 1 ? slugParts[slugParts.length - 1] : config.slug
 
   // Create AI background (or gradient fallback)
-  const baseImage = await createBackground(config.promptKey, width, height, actualSlug, !isCard)
+  // OG images use documentary photography style, cards use abstract geometric style
+  const baseImage = await createBackground(config.promptKey, width, height, config.slug, true, isCard)
 
   // Create all overlays
   const overlayBuffer = Buffer.from(createOverlaySVG(width, height))

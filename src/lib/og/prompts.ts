@@ -429,3 +429,167 @@ export const HEX_COLORS = {
   white: '#FFFFFF',
   lightBg: '#C0E9CA',
 }
+
+/**
+ * CARD IMAGE PROMPTS - Abstract Geometric Style
+ *
+ * Card images (800x450) use a different aesthetic than OG images:
+ * - Abstract data visualizations
+ * - Geometric shapes and patterns
+ * - Growth/progress metaphors (upward arrows, networks, pathways)
+ * - Dark green background with orange/coral and green accents
+ * - Clean, modern, illustrative (NOT photographic)
+ * - No text, no people, no logos
+ */
+export interface CardPromptConfig {
+  prompt: string
+  /** Fallback gradient when API unavailable */
+  fallbackGradient: [[number, number, number], [number, number, number]]
+}
+
+export const CARD_PROMPTS: Record<string, CardPromptConfig> = {
+  // === GROWTH / GENERAL ===
+  'growth': {
+    prompt: `Abstract geometric data visualization on dark forest green background, glowing orange upward trending line graph with illuminated nodes at data points, thin parallel diagonal lines in corner, minimalist growth chart aesthetic, warm orange and gold accent colors, clean modern vector illustration style, no text, no people, no logos, corporate data visualization art`,
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  'network': {
+    prompt: `Abstract network diagram on dark green background, interconnected nodes in orange coral and mint green colors, glowing connection lines between circular nodes of varying sizes, data visualization aesthetic, clean geometric shapes, modern abstract illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
+  },
+
+  'pathway': {
+    prompt: `Abstract minimalist pathway leading to glowing orange sunrise on horizon, dark teal green sky and ground, geometric white stepping stones or ladder rungs receding into distance, hope and progress metaphor, clean vector illustration style, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [255, 129, 88]],
+  },
+
+  'chart': {
+    prompt: `Abstract bar chart or graph visualization on dark green background, glowing orange and mint green bars ascending upward, subtle grid lines, minimalist data visualization, modern geometric illustration, no text, no numbers, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
+
+  // === PRACTICE AREAS ===
+  'personal-injury-card': {
+    prompt: `Abstract shield or protection symbol made of glowing orange geometric lines on dark green background, strength and advocacy visual metaphor, interconnected nodes forming protective shape, modern data visualization aesthetic, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [255, 129, 88]],
+  },
+
+  'family-law-card': {
+    prompt: `Abstract interconnected circles representing family bonds on dark green background, warm coral orange and soft green glowing nodes, supportive connected network visualization, clean geometric illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  'bankruptcy-card': {
+    prompt: `Abstract pathway or staircase leading upward toward glowing orange sunrise on dark green background, fresh start and new beginning metaphor, clean geometric minimalist illustration, hope and progress visualization, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
+
+  'criminal-defense-card': {
+    prompt: `Abstract balanced scales made of glowing geometric lines on dark purple-green background, justice and defense visual metaphor, modern minimalist data visualization style, subtle purple and green accents, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [103, 58, 228]],
+  },
+
+  'immigration-card': {
+    prompt: `Abstract globe or world map made of interconnected glowing nodes on dark green background, teal and orange connection lines spanning continents, global network visualization, modern geometric illustration, no text, no people, no flags, no logos`,
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
+  },
+
+  'divorce-card': {
+    prompt: `Abstract two paths diverging then finding parallel harmony on dark green background, warm supportive orange and green tones, geometric line illustration showing transition and new direction, minimalist metaphor visualization, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  'workers-comp-card': {
+    prompt: `Abstract protective gear or shield shape made of glowing orange geometric nodes and lines on dark green background, worker protection and support metaphor, modern data visualization aesthetic, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [255, 129, 88]],
+  },
+
+  'dui-card': {
+    prompt: `Abstract balanced scales of justice with glowing purple and green geometric elements on dark background, defense and fairness metaphor, modern minimalist legal visualization, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [103, 58, 228]],
+  },
+
+  'estate-card': {
+    prompt: `Abstract tree with branching geometric lines representing legacy and growth on dark green background, warm orange and green nodes at branch points, family tree data visualization metaphor, modern illustration, no text, no people, no logos`,
+    fallbackGradient: [[35, 59, 41], [41, 140, 66]],
+  },
+
+  // === SERVICES ===
+  'fractional-cmo-card': {
+    prompt: `Abstract upward trending arrow made of glowing orange line with illuminated data nodes on dark forest green background, growth trajectory visualization, thin parallel accent lines, clean modern executive aesthetic, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [255, 129, 88]],
+  },
+
+  'marketing-card': {
+    prompt: `Abstract funnel or conversion flow made of glowing geometric shapes on dark green background, orange and mint green nodes showing progression, marketing data visualization, modern minimalist illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
+
+  'seo-card': {
+    prompt: `Abstract upward climbing graph or ranking visualization on dark green background, glowing orange and green ascending nodes connected by lines, search visibility metaphor, modern data visualization, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
+  },
+
+  'training-card': {
+    prompt: `Abstract ascending steps or levels made of glowing geometric shapes on dark green background, skill progression visualization, orange and green illuminated platforms, learning journey metaphor, modern illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  'consulting-card': {
+    prompt: `Abstract two overlapping circles or venn diagram with glowing intersection on dark green background, partnership and collaboration visualization, orange and teal geometric elements, modern minimalist illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
+  },
+
+  // === CONTENT TYPES ===
+  'blog-card': {
+    prompt: `Abstract network of interconnected ideas represented by glowing nodes on dark green background, orange and mint green connection lines, knowledge network visualization, modern data illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  'guide-card': {
+    prompt: `Abstract roadmap or journey path with glowing waypoints on dark green background, orange milestone nodes connected by green pathway lines, navigation and guidance metaphor, modern geometric illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
+
+  'default-card': {
+    prompt: `Abstract upward growth visualization on dark forest green background, glowing orange trending line with connected data nodes, subtle diagonal accent lines, clean modern corporate aesthetic, minimalist geometric illustration, no text, no people, no logos`,
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+}
+
+/**
+ * Get card prompt key from content slug
+ */
+export function getCardPromptKey(slug: string): string {
+  const normalizedSlug = slug.toLowerCase()
+
+  // Practice areas
+  if (normalizedSlug.includes('personal-injury') || normalizedSlug.includes('pi-')) return 'personal-injury-card'
+  if (normalizedSlug.includes('family-law')) return 'family-law-card'
+  if (normalizedSlug.includes('bankruptcy')) return 'bankruptcy-card'
+  if (normalizedSlug.includes('criminal')) return 'criminal-defense-card'
+  if (normalizedSlug.includes('immigration')) return 'immigration-card'
+  if (normalizedSlug.includes('divorce')) return 'divorce-card'
+  if (normalizedSlug.includes('workers-comp')) return 'workers-comp-card'
+  if (normalizedSlug.includes('dui')) return 'dui-card'
+  if (normalizedSlug.includes('estate') || normalizedSlug.includes('elder')) return 'estate-card'
+
+  // Services
+  if (normalizedSlug.includes('fractional-cmo') || normalizedSlug.includes('cmo')) return 'fractional-cmo-card'
+  if (normalizedSlug.includes('seo')) return 'seo-card'
+  if (normalizedSlug.includes('training') || normalizedSlug.includes('sales')) return 'training-card'
+  if (normalizedSlug.includes('consult')) return 'consulting-card'
+
+  // Content types
+  if (normalizedSlug.includes('marketing') || normalizedSlug.includes('lead')) return 'marketing-card'
+  if (normalizedSlug.includes('budget') || normalizedSlug.includes('cost')) return 'chart'
+  if (normalizedSlug.includes('growth') || normalizedSlug.includes('scale')) return 'growth'
+  if (normalizedSlug.includes('digital') || normalizedSlug.includes('online')) return 'network'
+
+  // Fallback based on content type prefix
+  if (normalizedSlug.startsWith('guide/')) return 'guide-card'
+  if (normalizedSlug.startsWith('blog/')) return 'blog-card'
+
+  return 'default-card'
+}

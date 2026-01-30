@@ -1,18 +1,109 @@
 # Lexgro - Astro Site Project
 
-## Writing Rules
-- **No em-dashes (—)** - Use periods, commas, colons, or parentheses instead. Em-dashes sound machine-like.
-- **Human, conversational tone** - Write like Keith talks: direct, no fluff, actionable
-- **No marketing jargon** - Avoid buzzwords like "synergy", "leverage", "holistic"
-- **Active voice** - "We build growth systems" not "Growth systems are built"
-- **Specificity over abstraction** - Use real numbers, examples, and outcomes
+## ⚠️ CRITICAL: Read Style Guide First
+
+**Before writing or editing ANY content, you MUST read `docs/STYLE_GUIDE.md` first.**
+
+This is non-negotiable. The style guide contains essential rules that must be followed for all copy, including:
+- No em-dashes (use periods, commas, colons)
+- "25 percent" not "25%"
+- Paragraphs under 5 lines
+- Flesch score 50-60
+- Sources section with numbered references
+- Active voice (max 20 percent passive)
+- No jargon (synergy, leverage, utilize, holistic)
+
+**Read the full guide before proceeding with any content work.**
+
+### Content Workflow
+
+**Before writing or editing content:**
+1. Read `docs/STYLE_GUIDE.md` for all rules
+2. Run `npm run audit` to see current issues
+
+**After writing or editing content:**
+1. Run `npm run fix:style` to auto-fix common issues
+2. Run `npm run audit` to check remaining issues
+3. Fix any remaining issues manually
+4. Verify `lastModified` is updated (auto-fix does this for MDX)
+
+```bash
+npm run audit           # Quick summary of issues
+npm run audit:verbose   # Detailed issues with context
+npm run audit:fix       # Show suggested fixes
+npm run fix:style       # Auto-fix: %, em-dashes, &, jargon, etc.
+npm run fix:style:dry   # Preview fixes without applying
+```
+
+### Auto-Fixed Issues
+The `fix:style` script automatically handles:
+- `%` → `percent` (e.g., "25%" → "25 percent")
+- Em-dashes (—) → periods
+- Ampersands (&) → "and"
+- `w/` → "with"
+- `U.S.` → "US"
+- `1990's` → "1990s"
+- `.5` → `0.5`
+- `in order to` → "to"
+- `whether or not` → "whether"
+- `utilize` → "use"
+- `move the needle` → "produce results"
+- `leverage your/the` → "use your/the"
+- Various "very [word]" improvements
+
+### Manual Review Required
+These issues need human judgment:
+- Passive voice (rewrite to active)
+- Titles over 60 characters (shorten)
+- "really" and remaining "very" in context
+- "leverage", "synergy", "holistic" in technical contexts
+
+### Last Modified
+**CRITICAL:** When editing ANY content file, update `lastModified` in frontmatter:
+```yaml
+lastModified: '2026-01-29'  # Always use today's date YYYY-MM-DD
+```
+The `fix:style` script updates this automatically for MDX files.
+
+---
+
+## Writing Rules Summary
+
+See `docs/STYLE_GUIDE.md` for comprehensive guidelines. Key rules:
+
+### Absolute Rules
+- **No em-dashes (—):** Use periods, commas, colons, or parentheses instead
+- **No jargon:** Never use "utilize," "leverage" (as verb), "synergy," "holistic"
+- **Active voice:** "We build growth systems" not "Growth systems are built"
+- **Human tone:** Write like Keith talks: direct, no fluff, actionable
+
+### Content Standards
+- Paragraphs under 5 lines
+- Cite sources for all statistics and claims
+- Flesch reading score: 50-60
+- Specificity over abstraction (real numbers, real examples)
+
+### Research Protocol
+When creating content that requires statistics or research:
+1. Use Perplexity API for research (`PERPLEXITY_API_KEY` in .env)
+2. Verify claims against primary sources
+3. Always cite the original source
+4. Include a "Sources" section with numbered references
 
 ## OG Image Style
-- **Documentary photography aesthetic** - 35mm film grain, muted tones
-- **Film stocks**: Kodak Portra 400, Tri-X, Ektachrome, Kodak Gold 200
-- **Era references**: 1970s-1990s documentary, journalistic style
-- **Imperfect authenticity**: dust, grain, natural imperfections
-- **Never include**: people, faces, text, logos, perfect lighting
+
+See `docs/OG-IMAGE-STYLE-GUIDE.md` for comprehensive guidelines. Key points:
+
+- **Documentary photography aesthetic:** 35mm film grain, muted tones
+- **Film stocks:** Kodak Portra 400, Kodak Gold 200, Fuji Pro 400H
+- **Era references:** 1970s-1990s documentary, journalistic style
+- **Imperfect authenticity:** natural grain, warm muted tones
+- **Never include:** people, faces, readable text, logos, perfect lighting
+- **Both OG images (1200x630) and card images (800x450) use AI-generated backgrounds**
+
+### Gemini API
+- **Model:** `gemini-2.0-flash-exp-image-generation` - NEVER change this model
+- If quota is exceeded, wait for reset. Do not switch models.
 
 ## Project Status
 **Current Phase:** Site Migration from Framer to Astro
