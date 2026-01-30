@@ -65,7 +65,7 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
   // === HOMEPAGE ===
 
   homepage: {
-    prompt: `Empty executive boardroom at dawn, floor-to-ceiling windows overlooking city skyline, leather chairs pushed back from long table, coffee cup left behind, golden hour light casting long shadows across polished wood surface, sense of recent strategic meeting, 1990s corporate documentary style, shot on Kodak Portra 400, slight grain, warm muted professional tones, no people, no text, no logos, authentic ambitious atmosphere`,
+    prompt: `Upward view through glass atrium of modern office building, morning light streaming through skylights, green plants visible on interior balconies, architectural lines converging toward bright sky, sense of growth and ambition, warm golden hour tones with deep shadows, shot on Kodak Portra 400 35mm film, natural grain and imperfections, documentary architectural photography, no people visible, no text, no logos, authentic aspirational business atmosphere`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },

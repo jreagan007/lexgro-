@@ -30,7 +30,7 @@ const PROJECT_ROOT = path.resolve(__dirname, '..')
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'public/og')
 const CARDS_DIR = path.join(PROJECT_ROOT, 'public/cards')
 const CONTENT_DIR = path.join(PROJECT_ROOT, 'src/content')
-const LOGO_PATH = path.join(PROJECT_ROOT, 'src/assets/images/logos/lexgro-wordmark.png')
+const LOGO_PATH = path.join(PROJECT_ROOT, 'src/assets/images/logos/lexgro-wordmark-white.png')
 
 // Dimensions
 const OG_WIDTH = 1200

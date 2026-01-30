@@ -31,7 +31,7 @@ const PROJECT_ROOT = path.resolve(__dirname, '..')
 const CACHE_DIR = path.join(PROJECT_ROOT, '.cache/og-bases')
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'public/og')
 const ASSETS_DIR = path.join(PROJECT_ROOT, 'src/assets/images')
-const LOGO_PATH = path.join(ASSETS_DIR, 'logos/lexgro-wordmark.png')
+const LOGO_PATH = path.join(ASSETS_DIR, 'logos/lexgro-wordmark-white.png')
 const BRAND_CARDS_DIR = path.join(ASSETS_DIR, 'brand-cards')
 
 // OG image dimensions
@@ -332,7 +332,7 @@ async function compositeHomepageOG(): Promise<void> {
   ])
   buffer = await composite.toBuffer()
 
-  // Layer 6: LEXGRO logo (bottom right)
+  // Layer 6: LEXGRO white logo (bottom right)
   if (fs.existsSync(LOGO_PATH)) {
     try {
       const logo = await sharp(LOGO_PATH)
