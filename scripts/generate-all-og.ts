@@ -19,15 +19,21 @@ import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 import { glob } from 'glob'
 import matter from 'gray-matter'
-import { PROMPTS, HEX_COLORS, getPromptKeyFromSlug, BLOG_SLUG_GRADIENTS, type PromptKey } from '../src/lib/og/prompts'
+import { PROMPTS, HEX_COLORS, getPromptKeyFromSlug, BLOG_SLUG_GRADIENTS, NEGATIVE_PROMPT, type PromptKey } from '../src/lib/og/prompts'
 
 dotenv.config()
+
+// Gemini API config
+const API_KEY = process.env.GEMINI_API_KEY
+const IMAGE_MODEL = 'gemini-2.0-flash-exp-image-generation'
+const API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${IMAGE_MODEL}:generateContent`
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PROJECT_ROOT = path.resolve(__dirname, '..')
 
 // Paths
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'public/og')
+const CACHE_DIR = path.join(PROJECT_ROOT, '.cache/og-bases')
 const CARDS_DIR = path.join(PROJECT_ROOT, 'public/cards')
 const CONTENT_DIR = path.join(PROJECT_ROOT, 'src/content')
 const LOGO_PATH = path.join(PROJECT_ROOT, 'src/assets/images/logos/lexgro-wordmark-white.png')
@@ -77,22 +83,97 @@ interface PageConfig {
 }
 
 /**
- * Create gradient background
+ * Generate AI image via Gemini API
  */
-async function createGradientBackground(
+async function generateAIImage(prompt: string, cacheKey: string): Promise<Buffer | null> {
+  if (!API_KEY) {
+    return null
+  }
+
+  // Check cache first
+  const cachePath = path.join(CACHE_DIR, `${cacheKey}.png`)
+  if (fs.existsSync(cachePath)) {
+    return fs.readFileSync(cachePath)
+  }
+
+  try {
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-goog-api-key': API_KEY
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: prompt
+          }]
+        }],
+        generationConfig: {
+          responseModalities: ['TEXT', 'IMAGE']
+        }
+      })
+    })
+
+    const data = await response.json()
+
+    if (data.error) {
+      console.log(`    ⚠️ API error: ${data.error.message}`)
+      return null
+    }
+
+    const parts = data.candidates?.[0]?.content?.parts || []
+    for (const part of parts) {
+      if (part.inlineData?.data) {
+        const buffer = Buffer.from(part.inlineData.data, 'base64')
+
+        // Cache it
+        fs.mkdirSync(CACHE_DIR, { recursive: true })
+        fs.writeFileSync(cachePath, buffer)
+
+        return buffer
+      }
+    }
+
+    return null
+  } catch (error: any) {
+    console.log(`    ⚠️ API error: ${error.message}`)
+    return null
+  }
+}
+
+/**
+ * Create background - AI generated or gradient fallback
+ */
+async function createBackground(
   promptKey: PromptKey,
   width: number,
   height: number,
-  slug?: string
+  slug?: string,
+  useAI: boolean = true
 ): Promise<Buffer> {
-  // Check for per-slug gradient first (for blog posts)
+  const config = PROMPTS[promptKey] || PROMPTS.default
+  const cacheKey = slug || promptKey
+
+  // Try AI generation first
+  if (useAI && API_KEY) {
+    const aiImage = await generateAIImage(config.prompt, cacheKey)
+    if (aiImage) {
+      // Resize to target dimensions
+      return await sharp(aiImage)
+        .resize(width, height, { fit: 'cover', position: 'center' })
+        .png()
+        .toBuffer()
+    }
+  }
+
+  // Fallback to gradient
   let startColor: [number, number, number]
   let endColor: [number, number, number]
 
   if (slug && BLOG_SLUG_GRADIENTS[slug]) {
     [startColor, endColor] = BLOG_SLUG_GRADIENTS[slug]
   } else {
-    const config = PROMPTS[promptKey] || PROMPTS.default
     ;[startColor, endColor] = config.fallbackGradient
   }
 
@@ -272,12 +353,12 @@ async function compositeImage(
   outputPath: string,
   isCard: boolean = false
 ): Promise<void> {
-  // Extract actual slug for per-slug gradient lookup
+  // Extract actual slug for cache key
   const slugParts = config.slug.split('/')
   const actualSlug = slugParts.length > 1 ? slugParts[slugParts.length - 1] : config.slug
 
-  // Create gradient background with per-slug override support
-  const baseImage = await createGradientBackground(config.promptKey, width, height, actualSlug)
+  // Create AI background (or gradient fallback)
+  const baseImage = await createBackground(config.promptKey, width, height, actualSlug, !isCard)
 
   // Create all overlays
   const overlayBuffer = Buffer.from(createOverlaySVG(width, height))
