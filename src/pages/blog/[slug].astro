@@ -4,14 +4,47 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((entry) => ({
-    params: { slug: entry.data.slug },
-    props: { entry },
-  }));
+
+  return posts.map((entry) => {
+    // Find related posts based on matching tags
+    const currentTags = entry.data.tags || [];
+    const relatedPosts = posts
+      .filter(p => p.data.slug !== entry.data.slug) // Exclude current post
+      .map(p => {
+        // Count matching tags
+        const postTags = p.data.tags || [];
+        const matchingTags = currentTags.filter(tag => postTags.includes(tag)).length;
+        return { post: p, matchingTags };
+      })
+      .filter(item => item.matchingTags > 0) // Only posts with at least one matching tag
+      .sort((a, b) => b.matchingTags - a.matchingTags) // Sort by most matching tags
+      .slice(0, 3) // Take top 3
+      .map(item => ({
+        title: item.post.data.title,
+        slug: item.post.data.slug,
+        category: item.post.data.category
+      }));
+
+    return {
+      params: { slug: entry.data.slug },
+      props: { entry, relatedPosts },
+    };
+  });
 }
 
-const { entry } = Astro.props;
+const { entry, relatedPosts } = Astro.props;
 const { Content } = await render(entry);
+
+// Calculate reading time if not provided (approx 200 words per minute)
+function calculateReadingTime(content: string): string {
+  const text = content.replace(/<[^>]*>/g, ''); // Strip HTML
+  const words = text.split(/\s+/).length;
+  const minutes = Math.ceil(words / 200);
+  return `${minutes} min read`;
+}
+
+// Use provided reading time or default
+const readingTime = entry.data.readingTime || '5 min read';
 ---
 
 <BlogLayout
@@ -22,6 +55,9 @@ const { Content } = await render(entry);
   updatedDate={entry.data.updatedDate}
   tags={entry.data.tags}
   slug={entry.data.slug}
+  category={entry.data.category}
+  readingTime={readingTime}
+  relatedPosts={relatedPosts}
 >
   <Content />
 </BlogLayout>

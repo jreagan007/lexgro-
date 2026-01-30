@@ -48,7 +48,7 @@ const categoryNames: Record<string, string> = {
 };
 
 function getCategoryDisplay(category: string): string {
-  return categoryNames[category] || category.replace(/-/g, ' ').replace(/\b\withg, l => l.toUpperCase());
+  return categoryNames[category] || category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
 ---
 
