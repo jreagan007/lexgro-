@@ -255,14 +255,14 @@ function escapeXml(str: string): string {
 
 /**
  * Extract a punchy headline for cards - not just parroting the full title
- * Focuses on the main keyword phrase and keeps it short
+ * Focuses on the main keyword phrase and keeps it readable
  */
 function getCardHeadline(title: string): string {
-  // Extract main phrase (before : or - or | or —)
-  const mainPhrase = title.split(/[:\-|—]/)[0].trim()
+  // Extract main phrase (before : or | or — but NOT hyphens which are often in keywords)
+  const mainPhrase = title.split(/[:|—]/)[0].trim()
 
-  // Remove common filler words for punchier headlines
-  const fillers = ['How to', 'How a', 'The Ultimate', 'A Guide to', 'Why ', 'What is']
+  // Remove common filler prefixes for punchier headlines
+  const fillers = ['How to', 'How a', 'The Ultimate', 'A Guide to', 'Why ', 'What is', 'Top ']
   let headline = mainPhrase
   for (const filler of fillers) {
     if (headline.toLowerCase().startsWith(filler.toLowerCase())) {
@@ -273,10 +273,10 @@ function getCardHeadline(title: string): string {
     }
   }
 
-  // If still too long, take first 4-5 words
+  // Keep it readable - limit to 7 words max for cards
   const words = headline.split(' ')
-  if (words.length > 5) {
-    headline = words.slice(0, 5).join(' ')
+  if (words.length > 7) {
+    headline = words.slice(0, 7).join(' ')
   }
 
   return headline
