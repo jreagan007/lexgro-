@@ -560,6 +560,12 @@ export const CARD_PROMPTS: Record<string, CardPromptConfig> = {
     prompt: `Modern law office detail: green plant on credenza, natural light through window, professional welcoming atmosphere, editorial interiors style, Kodak Portra 400 warm colors, shallow depth of field, no people, no text, no logos`,
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
+
+  // === SPECIAL TOPICS ===
+  'fresh-start-card': {
+    prompt: `Clean minimalist desk with fresh notebook opened to blank page, quality pen beside it, morning light streaming through window, new beginning atmosphere, decisive moment of change, Kodak Portra 160 soft warm colors, editorial lifestyle photography, shallow depth of field, no people, no text, no logos`,
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
 }
 
 /**
@@ -584,6 +590,9 @@ export function getCardPromptKey(slug: string): string {
   if (normalizedSlug.includes('seo')) return 'seo-card'
   if (normalizedSlug.includes('training') || normalizedSlug.includes('sales')) return 'training-card'
   if (normalizedSlug.includes('consult')) return 'consulting-card'
+
+  // Special topics
+  if (normalizedSlug.includes('fail') || normalizedSlug.includes('wrong') || normalizedSlug.includes('mistake')) return 'fresh-start-card'
 
   // Content types
   if (normalizedSlug.includes('marketing') || normalizedSlug.includes('lead')) return 'marketing-card'
