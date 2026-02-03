@@ -1,7 +1,8 @@
 ---
 /**
- * GuideLayout - For pillar/guide pages (5000-8000 words)
- * Features: Table of contents, related content, long-form styling, breadcrumbs, schema
+ * GuideLayout - Premium Pillar Content Template
+ * For comprehensive guides (5000-8000 words)
+ * Unique design: chapter-style navigation, reading progress, premium feel
  */
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -12,11 +13,22 @@ interface Props {
   author?: string;
   pubDate?: Date;
   updatedDate?: Date;
-  heroImage?: string;
   slug?: string;
+  wordCount?: number;
 }
 
-const { title, description, author = 'Keith Dyer', pubDate, updatedDate, heroImage, slug = '' } = Astro.props;
+const {
+  title,
+  description,
+  author = 'Keith Dyer',
+  pubDate,
+  updatedDate,
+  slug = '',
+  wordCount = 5000
+} = Astro.props;
+
+// Calculate reading time (200 words per minute)
+const readingTime = Math.ceil(wordCount / 200);
 
 // Breadcrumb items
 const breadcrumbItems = [
@@ -25,7 +37,7 @@ const breadcrumbItems = [
   { label: title }
 ];
 
-// Article schema for guide
+// Article schema
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -33,7 +45,8 @@ const articleSchema = {
   "description": description,
   "author": {
     "@type": "Person",
-    "name": author
+    "name": author,
+    "url": "https://lexgro.com/about/"
   },
   "publisher": {
     "@type": "Organization",
@@ -50,170 +63,738 @@ const articleSchema = {
     "@id": `https://lexgro.com/guide/${slug}/`
   }
 };
+
+// Format date
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={`/og/guide/${slug}.png`}>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
+  <!-- Reading Progress -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
   <article class="guide-article">
-    <header class="guide-header">
+    <!-- Hero Header -->
+    <header class="guide-hero">
       <div class="container">
         <Breadcrumbs items={breadcrumbItems} />
-        <p class="guide-label">Complete Guide</p>
-        <h1>{title}</h1>
-        <p class="guide-description">{description}</p>
-        <div class="guide-meta">
-          {author && <span class="author">By {author}</span>}
-          {pubDate && (
-            <time datetime={pubDate.toISOString()}>
-              {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-          )}
+
+        <div class="hero-content">
+          <div class="hero-meta">
+            <span class="guide-badge">Complete Guide</span>
+            <span class="reading-time">{readingTime} min read</span>
+          </div>
+
+          <h1 class="hero-title">{title}</h1>
+          <p class="hero-description">{description}</p>
+
+          <div class="author-strip">
+            <img
+              src="/images/keith-dyer.jpg"
+              alt={author}
+              class="author-img"
+              width="48"
+              height="48"
+              onerror="this.src='/images/avatar-placeholder.svg'"
+            />
+            <div class="author-details">
+              <a href="/about/" class="author-name">{author}</a>
+              <span class="author-title">Fractional CMO for Law Firms</span>
+            </div>
+            {pubDate && (
+              <time datetime={pubDate.toISOString()} class="pub-date">
+                Updated {formatDate(pubDate)}
+              </time>
+            )}
+          </div>
         </div>
       </div>
     </header>
 
-    <div class="guide-content container">
-      <aside class="guide-toc">
-        <nav>
-          <p class="toc-title">In This Guide</p>
-          <div id="toc-links">
-            <!-- TOC populated by JS -->
-          </div>
-        </nav>
-      </aside>
+    <!-- Main Content Grid -->
+    <div class="guide-main">
+      <div class="container">
+        <div class="guide-grid">
+          <!-- Sidebar -->
+          <aside class="guide-sidebar">
+            <div class="sidebar-inner">
+              <!-- Table of Contents -->
+              <nav class="toc-card">
+                <div class="toc-header">
+                  <span class="toc-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="3" y1="6" x2="21" y2="6"></line>
+                      <line x1="3" y1="12" x2="15" y2="12"></line>
+                      <line x1="3" y1="18" x2="18" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span class="toc-title">In This Guide</span>
+                </div>
+                <div class="toc-links" id="toc-links">
+                  <!-- Populated by JS -->
+                </div>
+              </nav>
 
-      <div class="guide-body prose">
-        <slot />
+              <!-- Sidebar CTA -->
+              <div class="sidebar-cta">
+                <div class="cta-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <h4>Need Help Implementing?</h4>
+                <p>Get personalized guidance for your firm.</p>
+                <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-full">
+                  Book a Free Call
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Article Content -->
+          <div class="guide-content">
+            <div class="prose" id="guide-content">
+              <slot />
+            </div>
+
+            <!-- Author Card -->
+            <div class="author-card">
+              <img
+                src="/images/keith-dyer.jpg"
+                alt={author}
+                class="author-card-img"
+                width="80"
+                height="80"
+                onerror="this.src='/images/avatar-placeholder.svg'"
+              />
+              <div class="author-card-body">
+                <span class="author-card-label">Written by</span>
+                <h4 class="author-card-name">{author}</h4>
+                <p class="author-card-bio">
+                  Keith Dyer is a Fractional CMO helping law firms build predictable, sustainable growth.
+                  With 15+ years in legal marketing, he's helped firms across the country transform their client acquisition.
+                </p>
+                <a href="/about/" class="author-card-link">Learn more about Keith →</a>
+              </div>
+            </div>
+
+            <!-- Share Row -->
+            <div class="share-row">
+              <span class="share-label">Share this guide:</span>
+              <div class="share-buttons">
+                <button class="share-btn" data-share="twitter" title="Share on X">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </button>
+                <button class="share-btn" data-share="linkedin" title="Share on LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </button>
+                <button class="share-btn" data-share="copy" title="Copy link">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <footer class="guide-footer container">
-      <div class="cta-block">
-        <h3>Ready to Transform Your Law Firm's Marketing?</h3>
-        <p>Get a free marketing and intake audit to identify growth opportunities.</p>
-        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary">
-          Schedule Your Free Audit
-        </a>
+    <!-- Bottom CTA -->
+    <section class="guide-cta">
+      <div class="container">
+        <div class="cta-inner">
+          <h2>Ready to Put This Guide Into Action?</h2>
+          <p>Every law firm is different. Let's discuss how to apply these strategies to your specific situation.</p>
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-white btn-lg">
+            Schedule a Strategy Call
+          </a>
+        </div>
       </div>
-    </footer>
+    </section>
   </article>
 </BaseLayout>
 
 <style>
-  .guide-article {
-    --content-max-width: 800px;
+  /* Progress Bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(41, 140, 66, 0.1);
+    z-index: 1000;
   }
 
-  .guide-header {
-    background: var(--color-bg-dark);
-    color: white;
-    padding: 4rem 0 3rem;
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-teal));
+    width: 0%;
+    transition: width 0.1s ease;
   }
 
-  .guide-label {
-    color: var(--color-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
+  /* Hero */
+  .guide-hero {
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-dark-alt) 100%);
+    padding: 3rem 0 4rem;
   }
 
-  .guide-header h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    max-width: 900px;
+  .hero-content {
+    max-width: 800px;
   }
 
-  .guide-description {
-    font-size: 1.25rem;
-    color: var(--color-text-light);
-    max-width: 700px;
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 1.5rem;
   }
 
-  .guide-meta {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 0.875rem;
-    color: var(--color-text-light);
+  .guide-badge {
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  .guide-content {
+  .reading-time {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  .author-strip {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .author-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .author-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+
+  .author-name:hover {
+    color: var(--color-mint);
+  }
+
+  .author-title {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8125rem;
+  }
+
+  .pub-date {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8125rem;
+    margin-left: auto;
+  }
+
+  @media (max-width: 600px) {
+    .pub-date {
+      margin-left: 0;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
+
+  /* Main Content Area */
+  .guide-main {
+    padding: 3rem 0 4rem;
+  }
+
+  .guide-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-    padding-top: 3rem;
-    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .guide-grid {
+      grid-template-columns: 280px 1fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Sidebar */
+  .guide-sidebar {
+    order: 2;
+  }
+
+  @media (min-width: 1024px) {
+    .guide-sidebar {
+      order: 1;
+    }
+
+    .sidebar-inner {
+      position: sticky;
+      top: 100px;
+    }
+  }
+
+  /* TOC Card */
+  .toc-card {
+    background: var(--color-bg-light);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding-bottom: 0.875rem;
+    border-bottom: 1px solid rgba(41, 140, 66, 0.15);
+    margin-bottom: 0.875rem;
+  }
+
+  .toc-icon {
+    color: var(--color-primary);
+  }
+
+  .toc-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-dark);
+  }
+
+  .toc-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-links :global(.toc-link) {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    margin-left: -0.75rem;
+    transition: all 0.15s ease;
+  }
+
+  .toc-links :global(.toc-link:hover) {
+    color: var(--color-primary);
+  }
+
+  .toc-links :global(.toc-link.active) {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .toc-links :global(.toc-link--sub) {
+    font-size: 0.8125rem;
+    padding-left: 1.5rem;
+    margin-left: -0.75rem;
+  }
+
+  /* Sidebar CTA */
+  .sidebar-cta {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .cta-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: var(--color-primary);
+  }
+
+  .sidebar-cta h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.375rem;
+  }
+
+  .sidebar-cta p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .btn-full {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Guide Content */
+  .guide-content {
+    order: 1;
+    max-width: 720px;
   }
 
   @media (min-width: 1024px) {
     .guide-content {
-      grid-template-columns: 250px 1fr;
+      order: 2;
     }
   }
 
-  .guide-toc {
-    position: sticky;
-    top: 100px;
-    height: fit-content;
+  /* Prose Styles */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-text-dark);
   }
 
-  .toc-title {
-    font-weight: 600;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+  .prose :global(h2) {
+    font-size: 1.625rem;
+    font-weight: 700;
+    margin-top: 3rem;
     margin-bottom: 1rem;
-  }
-
-  .guide-body {
-    max-width: var(--content-max-width);
-  }
-
-  .guide-footer {
-    padding: 4rem 0;
+    color: var(--color-text-dark);
+    scroll-margin-top: 100px;
+    padding-top: 1rem;
     border-top: 1px solid var(--color-border);
   }
 
-  .cta-block {
-    background: var(--color-bg-light);
-    padding: 3rem;
-    border-radius: 14px;
-    text-align: center;
+  .prose :global(h2:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
   }
 
-  .cta-block h3 {
-    font-size: 1.5rem;
+  .prose :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-dark);
+    scroll-margin-top: 100px;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .prose :global(ul), .prose :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid var(--color-primary);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--color-bg-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 1.0625rem;
+    color: var(--color-text-dark);
+  }
+
+  .prose :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .prose :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--color-primary-dark);
+  }
+
+  .prose :global(strong) {
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  /* Author Card */
+  .author-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-bg-light);
+    border-radius: 12px;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    .author-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+  }
+
+  .author-card-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .author-card-body {
+    flex: 1;
+  }
+
+  .author-card-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .author-card-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0.25rem 0 0.5rem;
+    color: var(--color-text-dark);
+  }
+
+  .author-card-bio {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
     margin-bottom: 0.75rem;
   }
 
-  .cta-block p {
+  .author-card-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .author-card-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Share Row */
+  .share-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .share-label {
+    font-size: 0.875rem;
     color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: white;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .share-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-bg-light);
+  }
+
+  .share-btn.copied {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+  }
+
+  /* Bottom CTA */
+  .guide-cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    padding: 4rem 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .guide-cta h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: white;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  .guide-cta p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--color-primary);
+    border: none;
+  }
+
+  .btn-white:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
   }
 </style>
 
 <script>
-  // Generate TOC from headings
   document.addEventListener('DOMContentLoaded', () => {
+    // Generate TOC from H2 and H3 headings
     const tocContainer = document.getElementById('toc-links');
-    const headings = document.querySelectorAll('.guide-body h2, .guide-body h3');
+    const content = document.getElementById('guide-content');
+    const headings = content?.querySelectorAll('h2, h3');
 
-    if (tocContainer && headings.length > 0) {
+    if (tocContainer && headings && headings.length > 0) {
       headings.forEach((heading, index) => {
         if (!heading.id) {
-          heading.id = `section-${index}`;
+          heading.id = heading.textContent
+            ?.toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '') || `section-${index}`;
         }
+
         const link = document.createElement('a');
         link.href = `#${heading.id}`;
         link.textContent = heading.textContent;
         link.className = heading.tagName === 'H3' ? 'toc-link toc-link--sub' : 'toc-link';
         tocContainer.appendChild(link);
       });
+
+      // Active section tracking
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = entry.target.getAttribute('id');
+          const tocLink = tocContainer.querySelector(`a[href="#${id}"]`);
+
+          if (entry.isIntersecting) {
+            tocContainer.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+            tocLink?.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-100px 0px -70% 0px', threshold: 0 });
+
+      headings.forEach(heading => observer.observe(heading));
     }
+
+    // Reading progress bar
+    const progressBar = document.getElementById('progress-bar');
+    const article = document.querySelector('.guide-article');
+
+    if (progressBar && article) {
+      window.addEventListener('scroll', () => {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+
+        const progress = Math.min(
+          Math.max((scrollY - articleTop + windowHeight * 0.3) / (articleHeight - windowHeight * 0.5), 0),
+          1
+        );
+
+        progressBar.style.width = `${progress * 100}%`;
+      });
+    }
+
+    // Share buttons
+    const shareButtons = document.querySelectorAll('.share-btn');
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    shareButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-share');
+
+        if (type === 'twitter') {
+          window.open(`https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`, '_blank', 'width=550,height=420');
+        } else if (type === 'linkedin') {
+          window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`, '_blank', 'width=550,height=420');
+        } else if (type === 'copy') {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            btn.classList.add('copied');
+            setTimeout(() => btn.classList.remove('copied'), 2000);
+          });
+        }
+      });
+    });
   });
 </script>
