@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lexgro.com',
+  site: process.env.URL || 'https://lexgro.netlify.app',
 
   redirects: {
     '/services/': '/how-we-work/',
