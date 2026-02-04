@@ -73,6 +73,10 @@ const STATIC_PAGES: { slug: string; title: string; category: string }[] = [
   { slug: 'guide', title: 'Marketing Guides for Law Firms', category: 'GUIDES' },
   { slug: 'blog', title: 'Law Firm Marketing Blog', category: 'BLOG' },
   { slug: 'answers', title: 'Marketing Answers', category: 'ANSWERS' },
+  // Preview pages
+  { slug: 'preview', title: 'Your Growth Partner', category: 'PREVIEW' },
+  { slug: 'preview-how-we-work', title: 'How We Work', category: 'PREVIEW' },
+  { slug: 'preview-lexxly', title: 'The LEXXLY Suite', category: 'PREVIEW' },
 ]
 
 interface PageConfig {

@@ -22,6 +22,9 @@ export type PromptKey =
   | 'careers'
   | 'calculator'
   | 'tips'
+  | 'preview'
+  | 'preview-how-we-work'
+  | 'preview-lexxly'
   // Services
   | 'fractional-cmo'
   | 'marketing-strategy'
@@ -118,6 +121,24 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
     prompt: `Worn leather executive chair behind cluttered desk, afternoon light through window blinds, framed photos out of focus, coffee mug left behind, mentorship atmosphere, 1980s executive office documentary style, Portra 400 warm tones, slight grain, no people visible, no text, authentic expert wisdom environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  preview: {
+    prompt: `Executive strategy room overlooking city at golden hour, long conference table with scattered strategic documents, whiteboard with growth charts visible but blurred, tall green plants near floor-to-ceiling windows, CMO leadership atmosphere, ambitious forward-thinking mood, 1990s corporate editorial photography, Kodak Portra 400 warm tones with cool city blues, no people visible, no readable text, no logos, authentic fractional C-suite partnership aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  'preview-how-we-work': {
+    prompt: `Three-tiered workflow visualization, layered architectural office interior with morning light cascading through multiple levels, interconnected balconies with green plants, editorial documentation scattered on desks at each level, systematic process atmosphere, methodical organized mood, 1990s corporate architecture photography, Fuji Pro 400H warm colors with architectural depth, no people visible, no readable text, no logos, authentic multi-layered operations aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
+  },
+
+  'preview-lexxly': {
+    prompt: `Research command center with warm lamp light on data visualization screens softly glowing, multiple monitors showing blurred charts and graphs, worn leather chair at intelligence desk, reference materials stacked nearby, strategic analysis atmosphere, focused analytical mood, 1990s tech operations editorial photography, Kodak Portra 400 warm tech tones, no people visible, no readable text on screens, no logos, authentic intelligence platform aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [103, 58, 228]],
   },
 
   // === SERVICES ===
@@ -287,6 +308,9 @@ export function getPromptKeyFromSlug(slug: string): PromptKey {
   if (normalizedSlug === 'calculator') return 'calculator'
   if (normalizedSlug.includes('tips-from-keith') || normalizedSlug.includes('tips')) return 'tips'
   if (normalizedSlug.includes('podcast') || normalizedSlug.includes('cmo-podcast')) return 'podcast'
+  if (normalizedSlug === 'preview-how-we-work' || normalizedSlug.includes('preview/how-we-work')) return 'preview-how-we-work'
+  if (normalizedSlug === 'preview-lexxly' || normalizedSlug.includes('preview/lexxly')) return 'preview-lexxly'
+  if (normalizedSlug.includes('preview')) return 'preview'
 
   // Services
   if (normalizedSlug.includes('fractional-cmo')) return 'fractional-cmo'
