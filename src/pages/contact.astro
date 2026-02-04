@@ -74,7 +74,9 @@ const auditIncludes = [
 
         <!-- Form Card -->
         <div class="form-card" id="audit-form">
-          <form class="audit-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form class="audit-form" name="growth-audit" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="growth-audit" />
+            <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -217,6 +219,11 @@ const auditIncludes = [
 </BaseLayout>
 
 <style>
+  /* Hidden honeypot field */
+  .hidden {
+    display: none;
+  }
+
   /* Hero Section */
   .audit-hero {
     padding: 4rem 0 5rem;
