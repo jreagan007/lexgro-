@@ -77,22 +77,10 @@ async function createFallbackBase(promptKey: PromptKey): Promise<Buffer> {
 }
 
 /**
- * Create dark gradient overlay for text readability
+ * Create dark overlay for text readability (simple solid works better with Sharp)
  */
 function createOverlaySVG(): string {
-  return `
-    <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="overlay" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:${HEX_COLORS.darkBg};stop-opacity:0.15" />
-          <stop offset="30%" style="stop-color:${HEX_COLORS.darkBg};stop-opacity:0.35" />
-          <stop offset="60%" style="stop-color:${HEX_COLORS.darkBg};stop-opacity:0.7" />
-          <stop offset="100%" style="stop-color:${HEX_COLORS.darkBg};stop-opacity:0.9" />
-        </linearGradient>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#overlay)" />
-    </svg>
-  `
+  return `<svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="rgba(0,0,0,0.45)"/></svg>`
 }
 
 /**
@@ -157,64 +145,30 @@ const FONT_DISPLAY = "'Be Vietnam Pro', 'DM Sans', 'Inter', system-ui, -apple-sy
 const FONT_BODY = "'DM Sans', 'Inter', system-ui, sans-serif"
 
 /**
- * Create text overlay SVG with category and title
+ * Create text overlay SVG with category, title, URL - all in safe area
  */
 function createTextOverlaySVG(title: string, category?: string): string {
-  const SAFE_PADDING = 80
-  const availableWidth = WIDTH - SAFE_PADDING * 2
-  const avgCharWidth = 30
-  const maxChars = Math.floor(availableWidth / avgCharWidth)
+  const P = 80
+  const maxChars = 26
 
   const titleLines = wrapTitle(title, maxChars)
   const isTwoLines = titleLines.length === 2
+  const titleSize = isTwoLines ? 44 : 52
 
-  const titleSize = isTwoLines ? 48 : 56
-  const titleLineHeight = titleSize * 1.2
-
-  // Position title in upper-middle area
-  const titleFirstY = category ? HEIGHT * 0.42 : HEIGHT * 0.4
-  const titleSecondY = titleFirstY + titleLineHeight
-
-  const leftX = SAFE_PADDING
-
-  // Category label above title
-  const categoryY = titleFirstY - 50
-
-  const titleTspans = titleLines.map((line, i) => {
-    const y = i === 0 ? titleFirstY : titleSecondY
-    return `<tspan x="${leftX}" y="${y}">${escapeXml(line)}</tspan>`
-  }).join('')
+  const titleElements = titleLines.map((line, i) => {
+    const y = P + 120 + (i * titleSize * 1.2)
+    return `<text x="${P}" y="${y}" font-family="sans-serif" font-size="${titleSize}" font-weight="bold" fill="${HEX_COLORS.white}">${escapeXml(line)}</text>`
+  }).join('\n      ')
 
   const categoryElement = category ? `
-    <text x="${leftX}" y="${categoryY}" class="category" fill="${HEX_COLORS.mint}">
-      ${escapeXml(category.toUpperCase())}
-    </text>
-  ` : ''
+      <text x="${P}" y="${P + 40}" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="4" fill="${HEX_COLORS.mint}">${escapeXml(category.toUpperCase())}</text>` : ''
 
   return `
-    <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-      <style>
-        .title {
-          font-family: ${FONT_DISPLAY};
-          font-size: ${titleSize}px;
-          font-weight: 700;
-          line-height: ${titleLineHeight}px;
-        }
-        .category {
-          font-family: ${FONT_BODY};
-          font-size: 14px;
-          font-weight: 600;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-        }
-      </style>
+    <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">${categoryElement}
 
-      ${categoryElement}
+      ${titleElements}
 
-      <!-- Title (1-2 lines) -->
-      <text class="title" fill="${HEX_COLORS.white}">
-        ${titleTspans}
-      </text>
+      <text x="${P}" y="${HEIGHT - P + 5}" font-family="sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">lexgro.com</text>
     </svg>
   `
 }
@@ -223,183 +177,85 @@ function createTextOverlaySVG(title: string, category?: string): string {
  * Create branding element for bottom
  */
 function createBrandingSVG(): string {
-  const SAFE_PADDING = 80
-  const brandX = SAFE_PADDING
-  const brandY = HEIGHT - SAFE_PADDING
-
+  const P = 80
   return `
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-      <style>
-        .brand {
-          font-family: ${FONT_BODY};
-          font-size: 18px;
-          font-weight: 600;
-          letter-spacing: 0.05em;
-        }
-      </style>
-      <text x="${brandX}" y="${brandY}" class="brand" fill="${HEX_COLORS.white}" opacity="0.7" text-anchor="start">
-        LEXGRO • Law Firm CMO
-      </text>
+      <text x="${WIDTH - P}" y="${HEIGHT - P}" font-family="sans-serif" font-size="16" font-weight="bold" fill="rgba(255,255,255,0.7)" text-anchor="end">LEXGRO</text>
     </svg>
   `
 }
 
 /**
- * Create homepage-specific text overlay with brand messaging
- * Layout:
- * - Eyebrow: "YOUR GROWTH PARTNER" (mint, uppercase, tracked)
- * - Headline: "Marketing That" (large, white, bold)
- * - Subheadline: "Actually Works." (large, white, bold)
- * - All within 80px safe area
+ * Create CTA button as PNG
+ */
+async function createCTAButton(text: string, width: number = 280): Promise<Buffer> {
+  const height = 44
+
+  // Create solid green rectangle
+  const greenBtn = await sharp({
+    create: {
+      width: width,
+      height: height,
+      channels: 4,
+      background: { r: 41, g: 140, b: 66, alpha: 1 }
+    }
+  }).png().toBuffer()
+
+  // Add text
+  const textSvg = `<svg width="${width}" height="${height}"><text x="${width / 2}" y="28" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">${text}</text></svg>`
+
+  const result = await sharp(greenBtn)
+    .composite([{ input: Buffer.from(textSvg), blend: 'over' }])
+    .png()
+    .toBuffer()
+
+  return result
+}
+
+/**
+ * Create homepage-specific text overlay - punchy, safe area
  */
 function createHomepageTextOverlaySVG(): string {
-  const SAFE_PADDING = 80
-
-  // Vertical positioning (centered in upper 2/3)
-  const eyebrowY = HEIGHT * 0.32
-  const headlineY = HEIGHT * 0.48
-  const subheadlineY = HEIGHT * 0.62
+  const P = 80
 
   return `
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-      <style>
-        .eyebrow {
-          font-family: ${FONT_BODY};
-          font-size: 16px;
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-        }
-        .headline {
-          font-family: ${FONT_DISPLAY};
-          font-size: 64px;
-          font-weight: 800;
-          letter-spacing: -0.02em;
-        }
-        .subheadline {
-          font-family: ${FONT_DISPLAY};
-          font-size: 52px;
-          font-weight: 600;
-          letter-spacing: -0.01em;
-        }
-      </style>
-
-      <!-- Eyebrow: YOUR GROWTH PARTNER -->
-      <text x="${SAFE_PADDING}" y="${eyebrowY}" class="eyebrow" fill="${HEX_COLORS.mint}">
-        YOUR GROWTH PARTNER
-      </text>
-
-      <!-- Headline: Marketing That -->
-      <text x="${SAFE_PADDING}" y="${headlineY}" class="headline" fill="${HEX_COLORS.white}">
-        Marketing That
-      </text>
-
-      <!-- Subheadline: Actually Works. -->
-      <text x="${SAFE_PADDING}" y="${subheadlineY}" class="subheadline" fill="${HEX_COLORS.white}" opacity="0.9">
-        Actually Works.
-      </text>
+      <text x="${P}" y="${P + 40}" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="4" fill="${HEX_COLORS.mint}">THE LAW FIRM CMO</text>
+      <text x="${P}" y="${P + 120}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Marketing That</text>
+      <text x="${P}" y="${P + 185}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Actually Works.</text>
+      <text x="${P}" y="${HEIGHT - P + 5}" font-family="sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">lexgro.com</text>
     </svg>
   `
 }
 
 /**
- * Create How We Work text overlay
- * - Eyebrow: "THE SYSTEM"
- * - Headline: "A System."
- * - Subheadline: "Not Services."
+ * Create How We Work text overlay - punchy, safe area
  */
 function createHowWeWorkTextOverlaySVG(): string {
-  const SAFE_PADDING = 80
-  const eyebrowY = HEIGHT * 0.32
-  const headlineY = HEIGHT * 0.48
-  const subheadlineY = HEIGHT * 0.62
+  const P = 80
 
   return `
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-      <style>
-        .eyebrow {
-          font-family: ${FONT_BODY};
-          font-size: 16px;
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-        }
-        .headline {
-          font-family: ${FONT_DISPLAY};
-          font-size: 64px;
-          font-weight: 800;
-          letter-spacing: -0.02em;
-        }
-        .subheadline {
-          font-family: ${FONT_DISPLAY};
-          font-size: 52px;
-          font-weight: 600;
-          letter-spacing: -0.01em;
-        }
-      </style>
-
-      <text x="${SAFE_PADDING}" y="${eyebrowY}" class="eyebrow" fill="${HEX_COLORS.mint}">
-        THE SYSTEM
-      </text>
-
-      <text x="${SAFE_PADDING}" y="${headlineY}" class="headline" fill="${HEX_COLORS.white}">
-        A System.
-      </text>
-
-      <text x="${SAFE_PADDING}" y="${subheadlineY}" class="subheadline" fill="${HEX_COLORS.white}" opacity="0.9">
-        Not Services.
-      </text>
+      <text x="${P}" y="${P + 40}" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="4" fill="${HEX_COLORS.mint}">THE SYSTEM</text>
+      <text x="${P}" y="${P + 120}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">A System.</text>
+      <text x="${P}" y="${P + 185}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Not Services.</text>
+      <text x="${P}" y="${HEIGHT - P + 5}" font-family="sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">lexgro.com</text>
     </svg>
   `
 }
 
 /**
- * Create LEXXLY text overlay
- * - Eyebrow: "INTELLIGENCE PLATFORM"
- * - Headline: "Data That Drives"
- * - Subheadline: "Decisions."
+ * Create LEXXLY text overlay - punchy, safe area
  */
 function createLexxlyTextOverlaySVG(): string {
-  const SAFE_PADDING = 80
-  const eyebrowY = HEIGHT * 0.32
-  const headlineY = HEIGHT * 0.48
-  const subheadlineY = HEIGHT * 0.62
+  const P = 80
 
   return `
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-      <style>
-        .eyebrow {
-          font-family: ${FONT_BODY};
-          font-size: 16px;
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-        }
-        .headline {
-          font-family: ${FONT_DISPLAY};
-          font-size: 64px;
-          font-weight: 800;
-          letter-spacing: -0.02em;
-        }
-        .subheadline {
-          font-family: ${FONT_DISPLAY};
-          font-size: 52px;
-          font-weight: 600;
-          letter-spacing: -0.01em;
-        }
-      </style>
-
-      <text x="${SAFE_PADDING}" y="${eyebrowY}" class="eyebrow" fill="${HEX_COLORS.mint}">
-        INTELLIGENCE PLATFORM
-      </text>
-
-      <text x="${SAFE_PADDING}" y="${headlineY}" class="headline" fill="${HEX_COLORS.white}">
-        Data That Drives
-      </text>
-
-      <text x="${SAFE_PADDING}" y="${subheadlineY}" class="subheadline" fill="${HEX_COLORS.white}" opacity="0.9">
-        Decisions.
-      </text>
+      <text x="${P}" y="${P + 40}" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="4" fill="${HEX_COLORS.mint}">INTELLIGENCE PLATFORM</text>
+      <text x="${P}" y="${P + 120}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Data That Drives</text>
+      <text x="${P}" y="${P + 185}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Decisions.</text>
+      <text x="${P}" y="${HEIGHT - P + 5}" font-family="sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">lexgro.com</text>
     </svg>
   `
 }
@@ -453,33 +309,37 @@ export async function compositeOGImage(options: CompositeOptions): Promise<Buffe
   }
   const brandingBuffer = Buffer.from(createBrandingSVG())
 
-  // Start compositing
+  // CTA Button setup
+  let ctaText = 'Learn More →'
+  let ctaWidth = 180
+  if (promptKey === 'homepage') {
+    ctaText = 'Get Your Free Audit →'
+    ctaWidth = 280
+  } else if (promptKey === 'how-we-work' || promptKey === 'preview-how-we-work') {
+    ctaText = 'See How It Works →'
+    ctaWidth = 240
+  } else if (promptKey === 'lexxly' || promptKey === 'preview-lexxly') {
+    ctaText = 'Explore LEXXLY →'
+    ctaWidth = 220
+  } else if (promptKey === 'contact') {
+    ctaText = 'Get Started →'
+    ctaWidth = 180
+  }
+  const SAFE_PADDING = 80
+  const ctaButton = await createCTAButton(ctaText, ctaWidth)
+
+  // Composite all layers in one operation
   let composite = sharp(baseImage)
     .resize(WIDTH, HEIGHT, { fit: 'cover', position: 'center' })
-    .png()
-
-  // Layer 1: Dark gradient overlay
-  composite = sharp(await composite.toBuffer()).composite([
-    { input: overlayBuffer, blend: 'over' },
-  ])
-
-  // Layer 2: Green accent bar
-  composite = sharp(await composite.toBuffer()).composite([
-    { input: accentBuffer, blend: 'over' },
-  ])
-
-  // Layer 3: Text (category + title)
-  composite = sharp(await composite.toBuffer()).composite([
-    { input: textBuffer, blend: 'over' },
-  ])
-
-  // Layer 4: Branding
-  composite = sharp(await composite.toBuffer()).composite([
-    { input: brandingBuffer, blend: 'over' },
-  ])
+    .composite([
+      { input: overlayBuffer, blend: 'over' },
+      { input: accentBuffer, blend: 'over' },
+      { input: textBuffer, blend: 'over' },
+      { input: ctaButton, top: HEIGHT - SAFE_PADDING - 100, left: SAFE_PADDING },
+      { input: brandingBuffer, blend: 'over' },
+    ])
 
   // Add LEXGRO logo (bottom right)
-  const SAFE_PADDING = 80
   if (fs.existsSync(LOGO_PATH)) {
     try {
       const logo = await sharp(LOGO_PATH)

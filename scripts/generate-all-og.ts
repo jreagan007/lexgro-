@@ -220,21 +220,27 @@ async function createBackground(
 }
 
 /**
- * Create dark overlay gradient
+ * Create dark overlay (simple solid works better with Sharp)
  */
 function createOverlaySVG(width: number, height: number): string {
-  return `
-    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="overlay" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:${HEX_COLORS.darkBg};stop-opacity:0.9" />
-          <stop offset="50%" style="stop-color:${HEX_COLORS.darkBg};stop-opacity:0.6" />
-          <stop offset="100%" style="stop-color:${HEX_COLORS.darkAlt};stop-opacity:0.3" />
-        </linearGradient>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#overlay)" />
-    </svg>
-  `
+  return `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="rgba(0,0,0,0.45)"/></svg>`
+}
+
+/**
+ * Create CTA button as PNG
+ */
+async function createCTAButton(text: string, width: number = 280): Promise<Buffer> {
+  const height = 44
+  const greenBtn = await sharp({
+    create: { width, height, channels: 4, background: { r: 41, g: 140, b: 66, alpha: 1 } }
+  }).png().toBuffer()
+
+  const textSvg = `<svg width="${width}" height="${height}"><text x="${width / 2}" y="28" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">${text}</text></svg>`
+
+  return await sharp(greenBtn)
+    .composite([{ input: Buffer.from(textSvg), blend: 'over' }])
+    .png()
+    .toBuffer()
 }
 
 /**
@@ -449,7 +455,30 @@ async function compositeImage(
     .composite([{ input: brandingBuffer, blend: 'over' }])
     .toBuffer()
 
-  // Layer 5: Logo (bottom right) - OG images only, not cards
+  // Layer 5: CTA Button (OG images only, not cards)
+  if (!isCard) {
+    let ctaText = 'Learn More →'
+    let ctaWidth = 180
+    if (config.promptKey === 'homepage') {
+      ctaText = 'Get Your Free Audit →'
+      ctaWidth = 280
+    } else if (config.promptKey === 'how-we-work') {
+      ctaText = 'See How It Works →'
+      ctaWidth = 240
+    } else if (config.promptKey === 'lexxly') {
+      ctaText = 'Explore LEXXLY →'
+      ctaWidth = 220
+    } else if (config.promptKey === 'contact') {
+      ctaText = 'Get Started →'
+      ctaWidth = 180
+    }
+    const ctaButton = await createCTAButton(ctaText, ctaWidth)
+    buffer = await sharp(buffer)
+      .composite([{ input: ctaButton, top: height - SAFE_PADDING - 100, left: SAFE_PADDING }])
+      .toBuffer()
+  }
+
+  // Layer 6: Logo (bottom right) - OG images only, not cards
   if (!isCard && fs.existsSync(LOGO_PATH)) {
     try {
       const logoSize = { w: 140, h: 40 }

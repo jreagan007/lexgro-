@@ -28,8 +28,8 @@ const {
   noIndex = false,
 } = Astro.props;
 
-const siteTitle = "LEXGRO | Law Firm CMO";
-const fullTitle = title === "Home" ? siteTitle : `${title} | ${siteTitle}`;
+const siteTitle = "LEXGRO";
+const fullTitle = title.includes("LEXGRO") ? title : `${title} | ${siteTitle}`;
 const canonical = canonicalUrl || Astro.url.href;
 ---
 

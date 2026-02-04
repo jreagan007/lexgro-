@@ -311,7 +311,7 @@ export function getPromptKeyFromSlug(slug: string): PromptKey {
   const normalizedSlug = slug.replace(/^\/+|\/+$/g, '').toLowerCase()
 
   // Homepage
-  if (normalizedSlug === '' || normalizedSlug === 'index' || normalizedSlug === 'home') return 'homepage'
+  if (normalizedSlug === '' || normalizedSlug === 'index' || normalizedSlug === 'home' || normalizedSlug === 'homepage') return 'homepage'
 
   // Static pages (exact matches)
   if (normalizedSlug === 'about') return 'about'
