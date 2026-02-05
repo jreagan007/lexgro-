@@ -61,22 +61,51 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
   </section>
 
   <!-- Problem -->
-  <section class="section-light">
+  <section class="section-problem">
     <div class="container">
-      <div class="content-narrow">
+      <div class="problem-header">
+        <span class="problem-label">The Problem</span>
         <h2>You Know Something's Wrong</h2>
         <p class="lead">Agencies promise results. They deliver reports. You spend money. Nobody knows what actually drives cases.</p>
       </div>
       <div class="problem-grid">
-        <div class="problem-item">
+        <div class="problem-card">
+          <span class="problem-num">01</span>
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="3"/>
+              <circle cx="18" cy="6" r="3"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="18" r="3"/>
+              <path d="M6 9v6M18 9v6" opacity="0.3"/>
+            </svg>
+          </div>
           <h3>Channels Don't Talk</h3>
           <p>SEO runs one direction. Paid runs another. TV looks nothing like the website. Nobody owns the full picture.</p>
         </div>
-        <div class="problem-item">
+        <div class="problem-card">
+          <span class="problem-num">02</span>
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
           <h3>Content Blends In</h3>
           <p>Stock photos. Template copy. The same FAQ every firm publishes. Nothing that earns trust.</p>
         </div>
-        <div class="problem-item">
+        <div class="problem-card">
+          <span class="problem-num">03</span>
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 8v4"/>
+              <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+              <path d="M8.5 8.5l-3-3M15.5 8.5l3-3M8.5 15.5l-3 3M15.5 15.5l3 3" opacity="0.4"/>
+            </svg>
+          </div>
           <h3>Attribution Is Broken</h3>
           <p>Which channels drive cases? Not clicks. Not impressions. Cases. Most firms have no idea.</p>
         </div>
@@ -85,142 +114,369 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
   </section>
 
   <!-- Partnership Model -->
-  <section class="section-white">
+  <section class="section-system">
     <div class="container">
-      <div class="content-narrow">
+      <div class="system-header">
         <p class="section-label">How It Works</p>
         <h2>A System. Not Services.</h2>
-        <p class="lead">We don't sell hours. We build systems. Intelligence finds opportunities. Editorial produces content. Distribution gets it everywhere. Each layer feeds the next.</p>
+        <p class="lead">We don't sell hours. We build systems that compound.</p>
+      </div>
+      <div class="system-flow">
+        <div class="system-step">
+          <div class="system-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <span class="system-label">Intelligence</span>
+          <p>Find opportunities</p>
+        </div>
+        <div class="system-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </div>
+        <div class="system-step">
+          <div class="system-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+              <circle cx="11" cy="11" r="2"/>
+            </svg>
+          </div>
+          <span class="system-label">Editorial</span>
+          <p>Produce content</p>
+        </div>
+        <div class="system-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </div>
+        <div class="system-step">
+          <div class="system-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <span class="system-label">Distribution</span>
+          <p>Reach everywhere</p>
+        </div>
+        <div class="system-arrow system-arrow-loop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 1l4 4-4 4"/>
+            <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+            <path d="M7 23l-4-4 4-4"/>
+            <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+          </svg>
+        </div>
+        <div class="system-step system-step-feedback">
+          <div class="system-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <span class="system-label">Learn</span>
+          <p>Each layer feeds the next</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Three Pillars -->
-  <section class="section-dark">
+  <section class="section-pillars">
     <div class="container">
+      <div class="pillars-header">
+        <p class="section-label">The Framework</p>
+        <h2>Three Pillars. One System.</h2>
+        <p class="lead">Each layer builds on the last. Intelligence informs editorial. Editorial feeds distribution. Distribution generates data. The cycle compounds.</p>
+      </div>
       <div class="pillars">
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
           <span class="pillar-num">01</span>
           <h3>Intelligence</h3>
           <p class="pillar-tagline">The LEXXLY Suite</p>
-          <p>Our team uses data to decide what to build. Keyword gaps. Pain points. Attribution. We know where to focus before we write a single word.</p>
+          <p>Data decides what to build. Keyword gaps. Pain points. Attribution. We know where to focus before writing a single word.</p>
           <ul class="pillar-list">
-            <li>LexxlyRank: Where to compete and win</li>
-            <li>LexxlyPulse: What people actually ask</li>
-            <li>LexxlyIQ: What channels drive cases</li>
-            <li>LexxlyAIO: Visibility in AI search</li>
+            <li>
+              <strong>LexxlyRank</strong>
+              <span>Where to compete and win</span>
+            </li>
+            <li>
+              <strong>LexxlyPulse</strong>
+              <span>What people actually ask</span>
+            </li>
+            <li>
+              <strong>LexxlyIQ</strong>
+              <span>What channels drive cases</span>
+            </li>
+            <li>
+              <strong>LexxlyAIO</strong>
+              <span>Visibility in AI search</span>
+            </li>
           </ul>
-          <a href="/lexxly/" class="pillar-link">Explore LEXXLY</a>
+          <a href="/lexxly/" class="pillar-link">
+            Explore LEXXLY
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
         </div>
-        <div class="pillar">
+        <div class="pillar pillar-featured">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+              <circle cx="11" cy="11" r="2"/>
+            </svg>
+          </div>
           <span class="pillar-num">02</span>
           <h3>Editorial</h3>
           <p class="pillar-tagline">Content That Converts</p>
-          <p>Research before writing. Review before publishing. Documentary visuals. No stock images. Writers and editors, not content farms.</p>
+          <p>Research before writing. Review before publishing. Documentary visuals. Writers and editors, not content farms.</p>
           <ul class="pillar-list">
-            <li>Research with real citations</li>
-            <li>Style guide every piece follows</li>
-            <li>Documentary photography</li>
-            <li>Quality review before publish</li>
+            <li>
+              <strong>Research</strong>
+              <span>Real citations, verified facts</span>
+            </li>
+            <li>
+              <strong>Style Guide</strong>
+              <span>Every piece follows the standard</span>
+            </li>
+            <li>
+              <strong>Documentary Photography</strong>
+              <span>No stock, no templates</span>
+            </li>
+            <li>
+              <strong>Quality Review</strong>
+              <span>Editor approval before publish</span>
+            </li>
           </ul>
-          <a href="/how-we-work/#editorial" class="pillar-link">See Editorial Process</a>
+          <a href="/how-we-work/#editorial" class="pillar-link">
+            See Editorial Process
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
         </div>
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
           <span class="pillar-num">03</span>
-          <h3>Full Funnel</h3>
+          <h3>Distribution</h3>
           <p class="pillar-tagline">First Impression to Signed Case</p>
-          <p>Same visual language everywhere. CTV reaches households before they search. LSAs capture intent. Meta retargets. All channels aligned.</p>
+          <p>Same visual language everywhere. CTV reaches households before they search. LSAs capture intent. All channels aligned.</p>
           <ul class="pillar-list">
-            <li>CTV behavioral targeting. Market exclusive.</li>
-            <li>Local Services Ads. Google Verified.</li>
-            <li>Paid media across Search and Social</li>
-            <li>Conversion optimization</li>
+            <li>
+              <strong>CTV</strong>
+              <span>Behavioral targeting, market exclusive</span>
+            </li>
+            <li>
+              <strong>Local Services Ads</strong>
+              <span>Google Verified, top placement</span>
+            </li>
+            <li>
+              <strong>Paid Media</strong>
+              <span>Search and Social, unified</span>
+            </li>
+            <li>
+              <strong>Conversion</strong>
+              <span>Optimized from click to case</span>
+            </li>
           </ul>
-          <a href="/how-we-work/#funnel" class="pillar-link">See Full Funnel</a>
+          <a href="/how-we-work/#funnel" class="pillar-link">
+            See Full Funnel
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Why Different -->
-  <section class="section-light">
+  <section class="section-compare">
     <div class="container">
-      <div class="compare-grid">
-        <div class="compare-content">
-          <p class="section-label">The Difference</p>
-          <h2>System vs. Agency</h2>
-          <p>Agencies sell hours. We build systems. Intelligence learns your market. Editorial produces consistently. Distribution reaches everywhere. Each layer feeds the next.</p>
+      <div class="compare-header">
+        <p class="section-label">The Difference</p>
+        <h2>System vs. Agency</h2>
+        <p class="lead">Agencies sell hours. We build systems that compound over time.</p>
+      </div>
+      <div class="compare-cards">
+        <div class="compare-card compare-card-agency">
+          <div class="compare-card-header">
+            <span class="compare-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12h8"/>
+              </svg>
+            </span>
+            <h3>Traditional Agency</h3>
+          </div>
+          <ul class="compare-list">
+            <li>
+              <span class="compare-x">–</span>
+              <div>
+                <strong>Quarterly keyword updates</strong>
+                <p>Manual research, outdated by publication</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-x">–</span>
+              <div>
+                <strong>Template content</strong>
+                <p>Stock photos, generic copy</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-x">–</span>
+              <div>
+                <strong>Siloed channels</strong>
+                <p>Each vendor runs their own strategy</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-x">–</span>
+              <div>
+                <strong>Last-click attribution</strong>
+                <p>No visibility into the full journey</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-x">–</span>
+              <div>
+                <strong>Vendor relationship</strong>
+                <p>You manage them, they bill hours</p>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="compare-table">
-          <div class="compare-row compare-header">
-            <span></span>
-            <span>Traditional Agency</span>
-            <span>LEXGRO Partnership</span>
+        <div class="compare-card compare-card-lexgro">
+          <div class="compare-card-header">
+            <span class="compare-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12l3 3 5-6"/>
+              </svg>
+            </span>
+            <h3>LEXGRO Partnership</h3>
           </div>
-          <div class="compare-row">
-            <span>Keyword Research</span>
-            <span>Manual, quarterly updates</span>
-            <span>Ongoing, updated as markets shift</span>
-          </div>
-          <div class="compare-row">
-            <span>Content</span>
-            <span>Template copy, stock photos</span>
-            <span>Researched, documentary visuals</span>
-          </div>
-          <div class="compare-row">
-            <span>Channels</span>
-            <span>Siloed, separate strategies</span>
-            <span>Integrated, unified visual language</span>
-          </div>
-          <div class="compare-row">
-            <span>Attribution</span>
-            <span>Last click only</span>
-            <span>Full journey, true contribution</span>
-          </div>
-          <div class="compare-row">
-            <span>Relationship</span>
-            <span>Vendor you manage</span>
-            <span>Partner invested in your growth</span>
-          </div>
+          <ul class="compare-list">
+            <li>
+              <span class="compare-check">✓</span>
+              <div>
+                <strong>Continuous intelligence</strong>
+                <p>Updated as markets shift</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-check">✓</span>
+              <div>
+                <strong>Researched editorial</strong>
+                <p>Documentary visuals, cited sources</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-check">✓</span>
+              <div>
+                <strong>Integrated channels</strong>
+                <p>Unified visual language everywhere</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-check">✓</span>
+              <div>
+                <strong>Full-journey attribution</strong>
+                <p>True contribution by channel</p>
+              </div>
+            </li>
+            <li>
+              <span class="compare-check">✓</span>
+              <div>
+                <strong>Partner relationship</strong>
+                <p>We win when you win</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTV Blue Ocean -->
-  <section class="section-green">
+  <section class="section-ctv">
     <div class="container">
+      <div class="ctv-header">
+        <span class="ctv-badge">Market Exclusive</span>
+        <h2>Reach Them Before They Search</h2>
+        <p class="lead">Most firms fight over the 10 percent actively searching. We reach the 90 percent who will need a lawyer but have not typed a query yet.</p>
+      </div>
       <div class="ctv-grid">
-        <div class="ctv-content">
-          <p class="section-label">Blue Ocean</p>
-          <h2>Before They Search</h2>
-          <p>Ninety percent of people who will need a lawyer have not searched yet. Paid search fights over the 10% who have.</p>
-          <p>CTV behavioral targeting reaches households before they type a query. First to establish trust. First call when ready.</p>
-          <div class="ctv-points">
-            <div class="ctv-point">
-              <strong>Behavioral audiences</strong>
-              <span>Target qualifying events. Not demographics.</span>
+        <div class="ctv-visual">
+          <div class="ctv-funnel">
+            <div class="ctv-funnel-top">
+              <span class="ctv-funnel-label">Before Search</span>
+              <span class="ctv-funnel-value">90%</span>
+              <span class="ctv-funnel-desc">CTV reaches households here</span>
             </div>
-            <div class="ctv-point">
-              <strong>Market exclusivity</strong>
-              <span>One firm per geography. Competitors locked out.</span>
-            </div>
-            <div class="ctv-point">
-              <strong>Full attribution</strong>
-              <span>Commercial view to signed case. Tracked.</span>
+            <div class="ctv-funnel-bottom">
+              <span class="ctv-funnel-label">Actively Searching</span>
+              <span class="ctv-funnel-value">10%</span>
+              <span class="ctv-funnel-desc">Everyone else fights here</span>
             </div>
           </div>
         </div>
-        <div class="ctv-stats">
-          <div class="ctv-stat">
-            <span class="ctv-stat-num">10%</span>
-            <span class="ctv-stat-label">Actively searching</span>
-            <span class="ctv-stat-note">Traditional paid search fights here</span>
+        <div class="ctv-features">
+          <div class="ctv-feature">
+            <div class="ctv-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="ctv-feature-text">
+              <strong>Behavioral Targeting</strong>
+              <p>We target life events, not demographics. Job changes. Property purchases. Medical visits. Real signals.</p>
+            </div>
           </div>
-          <div class="ctv-stat ctv-stat-highlight">
-            <span class="ctv-stat-num">90%</span>
-            <span class="ctv-stat-label">Before they search</span>
-            <span class="ctv-stat-note">CTV behavioral targeting reaches here</span>
+          <div class="ctv-feature">
+            <div class="ctv-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div class="ctv-feature-text">
+              <strong>Market Exclusivity</strong>
+              <p>One firm per geography. Your competitors cannot buy their way in. The market is yours.</p>
+            </div>
+          </div>
+          <div class="ctv-feature">
+            <div class="ctv-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div class="ctv-feature-text">
+              <strong>Full Attribution</strong>
+              <p>Commercial view to signed case. Every touchpoint tracked. Know exactly what drove the call.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -390,167 +646,591 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     color: var(--color-text-muted);
   }
 
+  /* Problem Section */
+  .section-problem {
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+  .section-problem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(199, 80, 0, 0.2), transparent);
+  }
+  .problem-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .problem-label {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #b84600;
+    background: linear-gradient(135deg, rgba(199, 80, 0, 0.12) 0%, rgba(199, 80, 0, 0.06) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(199, 80, 0, 0.15);
+  }
+  .problem-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .problem-header .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #64748b;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
   /* Problem Grid */
   .problem-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     .problem-grid {
       grid-template-columns: 1fr;
-      max-width: 500px;
+      max-width: 420px;
+      gap: 1.5rem;
     }
   }
-  .problem-item {
+  .problem-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #c75000, #e07830);
+    border-radius: 16px 16px 0 0;
+    opacity: 0.9;
+  }
+  .problem-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(199, 80, 0, 0.15);
+  }
+  .problem-num {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(199, 80, 0, 0.3);
+    letter-spacing: 0.05em;
+  }
+  .problem-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(199, 80, 0, 0.1) 0%, rgba(199, 80, 0, 0.05) 100%);
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(199, 80, 0, 0.1);
+  }
+  .problem-icon svg {
+    width: 28px;
+    height: 28px;
+    color: #c75000;
+  }
+  .problem-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.01em;
+  }
+  .problem-card p {
+    font-size: 0.9375rem;
+    color: #64748b;
+    line-height: 1.65;
+  }
+
+  /* System Section */
+  .section-system {
+    padding: 6rem 1.5rem;
+    background: #fff;
+  }
+  .system-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
     text-align: center;
   }
-  .problem-item h3 {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
+  .system-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
   }
-  .problem-item p {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
+  .system-header .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #64748b;
+  }
+  .system-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 900px) {
+    .system-flow {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+  .system-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    min-width: 140px;
+  }
+  .system-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 16px rgba(41, 140, 66, 0.25);
+  }
+  .system-icon svg {
+    width: 28px;
+    height: 28px;
+    color: #fff;
+  }
+  .system-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+  }
+  .system-step p {
+    font-size: 0.8125rem;
+    color: #64748b;
+    margin: 0;
+  }
+  .system-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+  .system-arrow svg {
+    width: 24px;
+    height: 24px;
+    color: #cbd5e1;
+  }
+  .system-arrow-loop {
+    width: 48px;
+    height: 48px;
+  }
+  .system-arrow-loop svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-primary);
+    opacity: 0.6;
+  }
+  .system-step-feedback {
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.08) 0%, rgba(41, 140, 66, 0.03) 100%);
+    border-radius: 16px;
+    border: 1px dashed rgba(41, 140, 66, 0.2);
+  }
+  .system-step-feedback .system-icon {
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.15) 0%, rgba(41, 140, 66, 0.1) 100%);
+    box-shadow: none;
+  }
+  .system-step-feedback .system-icon svg {
+    color: var(--color-primary);
+  }
+  @media (max-width: 900px) {
+    .system-arrow {
+      transform: rotate(90deg);
+    }
+    .system-arrow-loop {
+      transform: none;
+    }
   }
 
   /* Pillars */
+  .section-pillars {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(180deg, var(--color-bg-dark) 0%, #0a1f0f 100%);
+    color: #fff;
+  }
+  .pillars-header {
+    max-width: 650px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .pillars-header .section-label {
+    color: var(--color-primary-light);
+  }
+  .pillars-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .pillars-header .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+  }
   .pillars {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
   }
   @media (max-width: 900px) {
     .pillars {
       grid-template-columns: 1fr;
-      max-width: 500px;
+      max-width: 480px;
     }
   }
   .pillar {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
     padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .pillar:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+  }
+  .pillar-featured {
+    background: rgba(41, 140, 66, 0.08);
+    border-color: rgba(41, 140, 66, 0.2);
+  }
+  .pillar-featured:hover {
+    background: rgba(41, 140, 66, 0.12);
+    border-color: rgba(41, 140, 66, 0.3);
+  }
+  .pillar-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 16px rgba(41, 140, 66, 0.3);
+  }
+  .pillar-icon svg {
+    width: 26px;
+    height: 26px;
+    color: #fff;
   }
   .pillar-num {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 700;
     color: var(--color-primary-light);
-    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
   }
   .pillar h3 {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #fff;
     margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
   }
   .pillar-tagline {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.6);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   .pillar > p:not(.pillar-tagline) {
     font-size: 0.9375rem;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
   .pillar-list {
     list-style: none;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
   .pillar-list li {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.7);
-    padding: 0.375rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
   .pillar-list li:last-child {
     border-bottom: none;
+    padding-bottom: 0;
+  }
+  .pillar-list strong {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .pillar-list span {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.55);
   }
   .pillar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-primary-light);
     text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+  .pillar-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
   }
   .pillar-link:hover {
-    text-decoration: underline;
+    gap: 0.75rem;
+  }
+  .pillar-link:hover svg {
+    transform: translateX(2px);
   }
 
-  /* Compare */
-  .compare-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 3rem;
-    align-items: start;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  @media (max-width: 900px) {
-    .compare-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  .compare-content h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin-bottom: 1rem;
-  }
-  .compare-content p {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-  }
-  .compare-table {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-  .compare-row {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    font-size: 0.875rem;
-  }
-  .compare-row span {
-    padding: 0.875rem 1rem;
-    border-bottom: 1px solid #eee;
+  /* Compare Section */
+  .section-compare {
+    padding: 6rem 1.5rem;
+    background: #f8fafc;
   }
   .compare-header {
-    background: var(--color-bg-dark);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    text-align: center;
   }
-  .compare-header span {
-    border-bottom: none;
-  }
-  .compare-row:not(.compare-header) span:first-child {
-    font-weight: 500;
+  .compare-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
     color: var(--color-text-dark);
+    letter-spacing: -0.02em;
   }
-  .compare-row:not(.compare-header) span:nth-child(2) {
-    color: var(--color-text-muted);
+  .compare-header .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #64748b;
   }
-  .compare-row:not(.compare-header) span:nth-child(3) {
-    color: var(--color-primary);
-    font-weight: 500;
-  }
-  .compare-row:last-child span {
-    border-bottom: none;
-  }
-
-  /* CTV */
-  .ctv-grid {
+  .compare-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  @media (max-width: 800px) {
+    .compare-cards {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+    }
+  }
+  .compare-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+  .compare-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .compare-card-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+  .compare-card-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .compare-card-agency .compare-card-icon {
+    background: rgba(100, 116, 139, 0.1);
+  }
+  .compare-card-agency .compare-card-icon svg {
+    color: #64748b;
+  }
+  .compare-card-lexgro .compare-card-icon {
+    background: rgba(41, 140, 66, 0.1);
+  }
+  .compare-card-lexgro .compare-card-icon svg {
+    color: var(--color-primary);
+  }
+  .compare-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+  .compare-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .compare-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .compare-x,
+  .compare-check {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+  .compare-x {
+    background: rgba(100, 116, 139, 0.1);
+    color: #64748b;
+  }
+  .compare-check {
+    background: rgba(41, 140, 66, 0.15);
+    color: var(--color-primary);
+  }
+  .compare-list strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.125rem;
+  }
+  .compare-list p {
+    font-size: 0.8125rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .compare-card-agency {
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    opacity: 0.85;
+  }
+  .compare-card-agency h3 {
+    color: #64748b;
+  }
+  .compare-card-lexgro {
+    border: 2px solid var(--color-primary);
+    position: relative;
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.03) 0%, #fff 100%);
+    box-shadow: 0 8px 32px rgba(41, 140, 66, 0.15), 0 0 0 1px rgba(41, 140, 66, 0.1);
+  }
+  .compare-card-lexgro::before {
+    content: 'Recommended';
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.375rem 0.75rem;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(41, 140, 66, 0.3);
+  }
+
+  /* CTV Section */
+  .section-ctv {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0a2912 100%);
+    color: #fff;
+  }
+  .ctv-header {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .ctv-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .ctv-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .ctv-header .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .ctv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
     align-items: center;
     max-width: 1100px;
@@ -559,77 +1239,111 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
   @media (max-width: 900px) {
     .ctv-grid {
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 3rem;
     }
   }
-  .ctv-content h2 {
-    color: #fff;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin-bottom: 1rem;
+
+  /* Funnel Visual */
+  .ctv-visual {
+    display: flex;
+    justify-content: center;
   }
-  .ctv-content > p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  .ctv-points {
-    margin-top: 1.5rem;
+  .ctv-funnel {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
+    max-width: 320px;
   }
-  .ctv-point {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-  }
-  .ctv-point strong {
-    font-size: 0.9375rem;
-    color: var(--color-primary-light);
-  }
-  .ctv-point span {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.7);
-  }
-  .ctv-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .ctv-stat {
-    background: rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
-    padding: 1.5rem;
+  .ctv-funnel-top,
+  .ctv-funnel-bottom {
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
     text-align: center;
   }
-  .ctv-stat-highlight {
-    background: rgba(41, 140, 66, 0.25);
-    border-color: var(--color-primary);
+  .ctv-funnel-top {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    box-shadow: 0 8px 32px rgba(41, 140, 66, 0.3);
   }
-  .ctv-stat-num {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 0.25rem;
+  .ctv-funnel-bottom {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
-  .ctv-stat-highlight .ctv-stat-num {
-    color: var(--color-primary-light);
-  }
-  .ctv-stat-label {
-    display: block;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 0.25rem;
-  }
-  .ctv-stat-note {
+  .ctv-funnel-label {
     display: block;
     font-size: 0.75rem;
-    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+  }
+  .ctv-funnel-value {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .ctv-funnel-top .ctv-funnel-value {
+    color: #fff;
+  }
+  .ctv-funnel-bottom .ctv-funnel-value {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .ctv-funnel-desc {
+    display: block;
+    font-size: 0.8125rem;
+    opacity: 0.8;
+  }
+
+  /* Features */
+  .ctv-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .ctv-feature {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+  }
+  .ctv-feature:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .ctv-feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(41, 140, 66, 0.2);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  .ctv-feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary-light);
+  }
+  .ctv-feature-text strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.375rem;
+  }
+  .ctv-feature-text p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.55;
+    margin: 0;
   }
 
   /* CTA */
