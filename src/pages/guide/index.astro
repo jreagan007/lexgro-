@@ -2,7 +2,9 @@
 /**
  * Guide Index Page
  *
- * Clean, visual layout matching the blog page design.
+ * Visual design aligned with homepage patterns:
+ * dark hero, slate badges, #fafafa light sections,
+ * cards with top gradient borders, green icon containers.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
@@ -42,7 +44,7 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   <!-- Hero Section -->
   <section class="guide-hero">
     <div class="container">
-      <span class="section-label">LEXGRO Guides</span>
+      <span class="hero-label">LEXGRO Guides</span>
       <h1 class="hero-title">In-Depth Marketing Guides</h1>
       <p class="hero-subtitle">
         Comprehensive, expert-written guides to help you master law firm marketing.
@@ -90,7 +92,10 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   {regularGuides.length > 0 && (
     <section class="guides-grid-section">
       <div class="container">
-        <h2 class="grid-title">More Guides</h2>
+        <div class="grid-header">
+          <span class="section-badge">Browse Guides</span>
+          <h2 class="grid-title">More Guides</h2>
+        </div>
         <div class="guides-grid">
           {regularGuides.map((guide) => (
             <a href={`/guide/${guide.data.slug}/`} class="guide-card">
@@ -121,17 +126,42 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   <section class="coming-soon-section">
     <div class="container">
       <div class="coming-soon-content">
-        <span class="section-label-dark">Coming Soon</span>
+        <span class="coming-soon-label">Coming Soon</span>
         <h2 class="coming-soon-title">More Guides in Development</h2>
         <p class="coming-soon-text">
           We're constantly creating new in-depth guides. Topics in development include:
         </p>
         <div class="upcoming-topics">
-          <span class="upcoming-tag">SEO for Personal Injury</span>
-          <span class="upcoming-tag">PPC Budget Optimization</span>
-          <span class="upcoming-tag">Intake Process Mastery</span>
-          <span class="upcoming-tag">Family Law Marketing</span>
-          <span class="upcoming-tag">Criminal Defense Growth</span>
+          <span class="upcoming-tag">
+            <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+            SEO for Personal Injury
+          </span>
+          <span class="upcoming-tag">
+            <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            PPC Budget Optimization
+          </span>
+          <span class="upcoming-tag">
+            <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            Intake Process Mastery
+          </span>
+          <span class="upcoming-tag">
+            <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            Family Law Marketing
+          </span>
+          <span class="upcoming-tag">
+            <svg class="tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+            Criminal Defense Growth
+          </span>
         </div>
       </div>
     </div>
@@ -141,12 +171,18 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   <section class="resources-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Explore More</span>
+        <span class="section-badge">Explore More</span>
         <h2 class="section-title">Other Resources</h2>
       </div>
 
       <div class="resources-grid">
         <a href="/blog/" class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
           <h3 class="resource-title">Blog</h3>
           <p class="resource-description">
             Shorter articles on marketing tactics, trends, and strategies for law firms.
@@ -155,6 +191,11 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
         </a>
 
         <a href="/answers/" class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
           <h3 class="resource-title">Quick Answers</h3>
           <p class="resource-description">
             Get fast answers to common law firm marketing questions in 5 minutes or less.
@@ -163,6 +204,12 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
         </a>
 
         <a href="/podcast/" class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+            </svg>
+          </div>
           <h3 class="resource-title">Podcast</h3>
           <p class="resource-description">
             Listen to Keith Dyer discuss law firm growth strategies with industry experts.
@@ -182,7 +229,7 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
           Guides are great for learning, but nothing beats hands-on help.
           Let's discuss your firm's specific marketing challenges.
         </p>
-        <a href="/contact/" class="btn btn-primary btn-lg">
+        <a href="/contact/" class="btn btn-white btn-lg">
           Schedule a Free Consultation
         </a>
       </div>
@@ -191,29 +238,21 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
 </BaseLayout>
 
 <style>
-  /* Hero Section */
+  /* =============================================
+     HERO SECTION - Dark bg matching homepage
+     ============================================= */
   .guide-hero {
-    padding: 5rem 0 3rem;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    padding: 5rem 1.5rem 3.5rem;
+    background: var(--color-bg-dark);
     text-align: center;
   }
 
-  .section-label {
-    color: var(--color-primary);
-    font-size: 0.75rem;
+  .hero-label {
+    font-size: 0.8125rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .section-label-dark {
-    color: var(--color-mint);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-light);
     margin-bottom: 0.75rem;
     display: block;
   }
@@ -223,38 +262,65 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1rem;
-    color: var(--color-text-dark);
+    color: #fff;
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
-    color: var(--color-text-muted);
+    color: #b0b8b3;
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
   }
 
-  /* Featured Section */
+  /* =============================================
+     FEATURED SECTION - White bg, enhanced card
+     ============================================= */
   .featured-section {
-    padding: 3rem 0;
-    background: white;
+    padding: 4rem 0;
+    background: #fff;
+    position: relative;
+  }
+  .featured-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .featured-card {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    background: white;
-    border-radius: 24px;
+    gap: 0;
+    background: #fff;
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     text-decoration: none;
     color: inherit;
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  .featured-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-mint));
+    border-radius: 20px 20px 0 0;
+    z-index: 1;
   }
 
   .featured-card:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     text-decoration: none;
   }
 
@@ -280,7 +346,7 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
     font-size: 0.75rem;
     font-weight: 600;
@@ -288,6 +354,7 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     border-radius: 100px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(41, 140, 66, 0.3);
   }
 
   .featured-content {
@@ -312,11 +379,12 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     color: var(--color-text-dark);
     line-height: 1.25;
     margin-bottom: 1rem;
+    letter-spacing: -0.01em;
   }
 
   .featured-excerpt {
     font-size: 1rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
@@ -330,14 +398,14 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
 
   .guide-date {
     font-size: 0.875rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
   }
 
   .guide-time {
     font-size: 0.875rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     padding-left: 1rem;
-    border-left: 1px solid var(--color-border);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .read-more {
@@ -347,17 +415,48 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     margin-left: auto;
   }
 
-  /* Guides Grid */
+  /* =============================================
+     GUIDES GRID - #fafafa bg, slate badge, enhanced cards
+     ============================================= */
   .guides-grid-section {
-    padding: 3rem 0 5rem;
-    background: var(--color-bg-light);
+    padding: 5rem 0;
+    background: #fafafa;
+    position: relative;
+  }
+  .guides-grid-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
+  }
+
+  .grid-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(100, 116, 139, 0.15);
   }
 
   .grid-title {
-    font-size: 1.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
   }
 
   .guides-grid {
@@ -379,17 +478,31 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   }
 
   .guide-card {
-    background: white;
+    position: relative;
+    background: #fff;
     border-radius: 20px;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.06);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .guide-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-mint));
+    border-radius: 20px 20px 0 0;
+    z-index: 1;
   }
 
   .guide-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     text-decoration: none;
   }
 
@@ -427,7 +540,7 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
 
   .card-excerpt {
     font-size: 0.9375rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     line-height: 1.5;
     margin-bottom: 1rem;
     display: -webkit-box;
@@ -436,22 +549,39 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     overflow: hidden;
   }
 
-  /* Coming Soon Section */
+  /* =============================================
+     COMING SOON SECTION - Dark with gradient, tag icons
+     ============================================= */
   .coming-soon-section {
-    padding: 5rem 0;
-    background: var(--color-bg-dark);
+    padding: 5rem 1.5rem;
+    background: linear-gradient(180deg, var(--color-bg-dark) 0%, #0a1f0f 100%);
     text-align: center;
   }
 
   .coming-soon-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
+  }
+
+  .coming-soon-label {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
   }
 
   .coming-soon-title {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     color: white;
     margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .coming-soon-text {
@@ -469,36 +599,66 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   }
 
   .upcoming-tag {
-    background: rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.06);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1.25rem;
     border-radius: 100px;
     font-size: 0.875rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.2s ease;
+  }
+  .upcoming-tag:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* Resources Section */
+  .tag-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+  }
+
+  /* =============================================
+     RESOURCES SECTION - #fafafa bg, icon containers, gradient borders
+     ============================================= */
   .resources-section {
     padding: 5rem 0;
-    background: white;
+    background: #fafafa;
+    position: relative;
+  }
+  .resources-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
 
   .section-title {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     line-height: 1.2;
     color: var(--color-text-dark);
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .resources-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
@@ -509,18 +669,49 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   }
 
   .resource-card {
+    position: relative;
     padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
     text-decoration: none;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+  .resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-mint));
+    border-radius: 20px 20px 0 0;
   }
 
   .resource-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     text-decoration: none;
+  }
+
+  .resource-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 14px;
+    margin: 0 auto 1.25rem;
+    box-shadow: 0 4px 16px rgba(41, 140, 66, 0.3);
+  }
+  .resource-icon svg {
+    width: 22px;
+    height: 22px;
+    color: #fff;
   }
 
   .resource-title {
@@ -532,7 +723,7 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
 
   .resource-description {
     font-size: 0.9375rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     line-height: 1.5;
     margin-bottom: 1rem;
   }
@@ -543,10 +734,12 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     color: var(--color-primary);
   }
 
-  /* CTA Section */
+  /* =============================================
+     CTA SECTION - Dark green gradient
+     ============================================= */
   .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
   }
 
@@ -559,21 +752,14 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: white;
     margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .cta-subtitle {
     font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #b0b8b3;
     margin-bottom: 2rem;
     line-height: 1.6;
-  }
-
-  .cta-section .btn-primary {
-    background: white;
-    color: var(--color-primary);
-  }
-
-  .cta-section .btn-primary:hover {
-    background: rgba(255, 255, 255, 0.9);
   }
 </style>

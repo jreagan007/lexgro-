@@ -149,7 +149,7 @@ const podcastSchema = {
   /* Hero Section */
   .podcast-hero {
     padding: 5rem 0 4rem;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    background: var(--color-bg-dark);
   }
 
   .hero-content {
@@ -157,7 +157,7 @@ const podcastSchema = {
   }
 
   .section-label {
-    color: var(--color-primary);
+    color: var(--color-primary-light);
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -171,12 +171,12 @@ const podcastSchema = {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.25rem;
-    color: var(--color-text-dark);
+    color: #fff;
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
-    color: var(--color-text-muted);
+    color: #b0b8b3;
     line-height: 1.6;
     margin-bottom: 2rem;
   }
@@ -190,7 +190,7 @@ const podcastSchema = {
 
   .platforms-label {
     font-size: 0.875rem;
-    color: var(--color-text-muted);
+    color: #b0b8b3;
     font-weight: 500;
   }
 
@@ -202,19 +202,20 @@ const podcastSchema = {
 
   .platform-link {
     padding: 0.5rem 1rem;
-    background: white;
-    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 100px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-text-dark);
+    color: #fff;
     text-decoration: none;
     transition: all 0.2s ease;
   }
 
   .platform-link:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
   }
 
   /* Latest Section */
@@ -269,7 +270,7 @@ const podcastSchema = {
 
   .latest-description {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #b0b8b3;
     line-height: 1.6;
     margin-bottom: 1rem;
   }
@@ -287,7 +288,7 @@ const podcastSchema = {
   }
 
   .meta-divider {
-    color: rgba(255, 255, 255, 0.4);
+    color: #b0b8b3;
   }
 
   .latest-cta {
@@ -305,7 +306,7 @@ const podcastSchema = {
   /* Episodes Section */
   .episodes-section {
     padding: 4rem 0 5rem;
-    background: var(--color-bg-light);
+    background: #fafafa;
   }
 
   .section-title {
@@ -334,7 +335,8 @@ const podcastSchema = {
     padding: 1.5rem;
     background: white;
     border-radius: 16px;
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
@@ -359,7 +361,7 @@ const podcastSchema = {
   .episode-number {
     width: 56px;
     height: 56px;
-    background: var(--color-bg-light);
+    background: rgba(41, 140, 66, 0.08);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -431,7 +433,7 @@ const podcastSchema = {
   /* CTA Section */
   .cta-section {
     padding: 5rem 0;
-    background: var(--color-bg-dark);
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
   }
 
