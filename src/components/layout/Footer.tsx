@@ -134,7 +134,7 @@ export function Footer() {
           </Text>
           <Flex gap={6}>
             <Link
-              href="https://calendly.com/lexgro/strategy-session"
+              href="/contact/"
               fontSize="sm"
               color="brand.400"
               fontWeight="medium"

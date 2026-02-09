@@ -277,8 +277,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <style>
   /* Hero */
   .service-hero {
-    padding: 5rem 0;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    padding: 4rem 1.5rem 3rem;
+    background: var(--color-bg-dark);
+    color: white;
   }
 
   .hero-content {
@@ -286,23 +287,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .section-label {
-    color: var(--color-primary);
-    font-size: 0.75rem;
+    display: inline-block;
+    font-size: 0.6875rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-    display: block;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12), rgba(100, 116, 139, 0.06));
+    border: 1px solid rgba(100, 116, 139, 0.15);
+    padding: 0.375rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
   }
 
   .section-label-dark {
-    color: var(--color-mint);
-    font-size: 0.75rem;
+    display: inline-block;
+    font-size: 0.6875rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-    display: block;
+    letter-spacing: 0.2em;
+    color: var(--color-slate-light);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12), rgba(100, 116, 139, 0.06));
+    border: 1px solid rgba(100, 116, 139, 0.15);
+    padding: 0.375rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
   }
 
   .hero-title {
@@ -310,20 +319,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.25rem;
-    color: var(--color-text-dark);
+    color: white;
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
-    color: var(--color-text-muted);
+    color: #b0b8b3;
     line-height: 1.6;
     margin-bottom: 2rem;
   }
 
   /* Who Section */
   .who-section {
-    padding: 5rem 0;
-    background: white;
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+  .who-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .section-header {
@@ -349,9 +368,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .who-card {
     padding: 2rem;
-    background: var(--color-bg-light);
+    background: white;
     border-radius: 16px;
     text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
   }
 
   .who-card h3 {
@@ -363,13 +383,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .who-card p {
     font-size: 1rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     line-height: 1.6;
   }
 
   /* Included Section */
   .included-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: var(--color-bg-dark);
   }
 
@@ -415,8 +435,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* Comparison Section */
   .comparison-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: white;
+    position: relative;
+  }
+  .comparison-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .comparison-table {
@@ -434,14 +464,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .comparison-header {
-    background: var(--color-bg-light);
+    background: #fafafa;
   }
 
   .comparison-cell {
     padding: 1rem;
     text-align: center;
     font-size: 0.9375rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     border-bottom: 1px solid var(--color-border);
   }
 
@@ -468,8 +498,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* Pricing Section */
   .pricing-section {
-    padding: 5rem 0;
-    background: var(--color-bg-light);
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+  .pricing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .pricing-card-single {
@@ -494,12 +534,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .period {
     font-size: 1.25rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
   }
 
   .price-description {
     font-size: 1rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     margin-bottom: 2rem;
     line-height: 1.6;
   }
@@ -529,8 +569,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* FAQ Section */
   .faq-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: white;
+    position: relative;
+  }
+  .faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .faq-list {
@@ -575,14 +625,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .faq-answer p {
     font-size: 1rem;
-    color: var(--color-text-muted);
+    color: #4b5563;
     line-height: 1.7;
   }
 
   /* CTA */
   .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
   }
 

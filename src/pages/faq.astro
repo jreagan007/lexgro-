@@ -196,8 +196,8 @@ const faqCategories: FAQCategory[] = [
 <style>
   /* Hero */
   .faq-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    padding: 4rem 1.5rem 3rem;
+    background: var(--color-bg-dark);
   }
 
   .hero-content {
@@ -209,17 +209,17 @@ const faqCategories: FAQCategory[] = [
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1rem;
-    color: var(--color-text-dark);
+    color: white;
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
-    color: #4b5563;
+    color: #b0b8b3;
     line-height: 1.6;
   }
 
   .hero-subtitle a {
-    color: var(--color-primary);
+    color: var(--color-mint);
     text-decoration: none;
   }
 
@@ -229,8 +229,19 @@ const faqCategories: FAQCategory[] = [
 
   /* FAQ Section */
   .faq-section {
-    padding: 3rem 0 5rem;
+    padding: 6rem 1.5rem;
     background: white;
+    position: relative;
+  }
+
+  .faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .faq-layout {
@@ -299,7 +310,7 @@ const faqCategories: FAQCategory[] = [
     color: var(--color-text-dark);
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid var(--color-bg-light);
+    border-bottom: 2px solid rgba(100, 116, 139, 0.15);
   }
 
   .faq-list {
@@ -354,8 +365,8 @@ const faqCategories: FAQCategory[] = [
 
   /* CTA */
   .cta-section {
-    padding: 5rem 0;
-    background: var(--color-bg-dark);
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
   }
 
@@ -398,7 +409,7 @@ const faqCategories: FAQCategory[] = [
   @media (max-width: 899px) {
     .faq-nav {
       position: static;
-      background: var(--color-bg-light);
+      background: #fafafa;
       padding: 1.5rem;
       border-radius: 16px;
     }

@@ -231,8 +231,8 @@ const practiceAreas = [
 <style>
   /* Hero Section */
   .services-hero {
-    padding: 5rem 0;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    padding: 4rem 1.5rem 3rem;
+    background: var(--color-bg-dark);
   }
 
   .hero-layout {
@@ -249,13 +249,23 @@ const practiceAreas = [
   }
 
   .section-label {
-    color: var(--color-primary);
+    display: inline-block;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12), rgba(100, 116, 139, 0.06));
+    border: 1px solid rgba(100, 116, 139, 0.15);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
     margin-bottom: 0.75rem;
-    display: block;
+  }
+
+  .services-hero .section-label {
+    color: #b0b8b3;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
   .section-label-dark {
@@ -273,12 +283,12 @@ const practiceAreas = [
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.25rem;
-    color: var(--color-text-dark);
+    color: white;
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
-    color: #4b5563;
+    color: #b0b8b3;
     line-height: 1.6;
     margin-bottom: 2rem;
   }
@@ -299,10 +309,10 @@ const practiceAreas = [
     bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     padding: 1rem 1.5rem;
     border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
     min-width: 200px;
   }
@@ -333,8 +343,19 @@ const practiceAreas = [
 
   /* Services Grid */
   .services-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: white;
+    position: relative;
+  }
+
+  .services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .services-grid {
@@ -352,8 +373,9 @@ const practiceAreas = [
   .service-card {
     background: white;
     padding: 2.5rem;
-    border-radius: 24px;
+    border-radius: 16px;
     border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -436,7 +458,7 @@ const practiceAreas = [
 
   /* Practice Areas Section */
   .practice-areas-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: var(--color-bg-dark);
     text-align: center;
   }
@@ -474,8 +496,19 @@ const practiceAreas = [
 
   /* Process Section */
   .process-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: white;
+    position: relative;
+  }
+
+  .process-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .process-header {
@@ -537,8 +570,8 @@ const practiceAreas = [
 
   /* CTA Section */
   .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
   }
 

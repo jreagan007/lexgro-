@@ -252,8 +252,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   /* Hero */
   .calc-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    padding: 4rem 1.5rem 3rem;
+    background: var(--color-bg-dark);
   }
 
   .hero-content {
@@ -261,13 +261,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .section-label {
-    color: var(--color-primary);
+    display: inline-block;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
+    color: #b0b8b3;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
     margin-bottom: 0.75rem;
-    display: block;
   }
 
   .hero-title {
@@ -275,19 +279,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1rem;
-    color: var(--color-text-dark);
+    color: white;
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
-    color: #4b5563;
+    color: #b0b8b3;
     line-height: 1.6;
   }
 
   /* Calculator Section */
   .calculator-section {
-    padding: 0 0 5rem;
+    padding: 6rem 1.5rem;
     background: white;
+    position: relative;
+  }
+
+  .calculator-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .calculator-layout {
@@ -304,8 +319,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .calculator-card {
     padding: 2rem;
-    background: var(--color-bg-light);
-    border-radius: 24px;
+    background: #fafafa;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   }
 
   .calc-form {
@@ -453,8 +469,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* Benchmarks Section */
   .benchmarks-section {
-    padding: 5rem 0;
-    background: var(--color-bg-light);
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+
+  .benchmarks-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .section-header {
@@ -485,6 +512,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: white;
     border-radius: 16px;
     border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   }
 
   .benchmark-card h3 {
@@ -519,8 +547,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* CTA */
   .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
   }
 

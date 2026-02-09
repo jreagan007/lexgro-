@@ -329,8 +329,8 @@ const expertise = [
 <style>
   /* Hero Section */
   .about-hero {
-    padding: 6rem 0 4rem;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    padding: 4rem 1.5rem 3rem;
+    background: var(--color-bg-dark);
     text-align: center;
   }
 
@@ -344,12 +344,12 @@ const expertise = [
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--color-text-dark);
+    color: white;
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
-    color: #4b5563;
+    color: #b0b8b3;
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
@@ -357,13 +357,23 @@ const expertise = [
 
   /* Section Labels */
   .section-label {
-    color: var(--color-primary);
+    display: inline-block;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12), rgba(100, 116, 139, 0.06));
+    border: 1px solid rgba(100, 116, 139, 0.15);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
     margin-bottom: 0.75rem;
-    display: block;
+  }
+
+  .about-hero .section-label {
+    color: #b0b8b3;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
   .section-label-dark {
@@ -403,8 +413,19 @@ const expertise = [
 
   /* Mission Section */
   .mission-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: white;
+    position: relative;
+  }
+
+  .mission-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .mission-layout {
@@ -438,7 +459,7 @@ const expertise = [
   .vision-block {
     margin-top: 2rem;
     padding: 1.5rem;
-    background: var(--color-bg-light);
+    background: #fafafa;
     border-radius: 12px;
     border-left: 4px solid var(--color-primary);
   }
@@ -472,7 +493,7 @@ const expertise = [
 
   /* Stats Section */
   .stats-section {
-    padding: 4rem 0;
+    padding: 4rem 1.5rem;
     background: var(--color-bg-dark);
   }
 
@@ -509,8 +530,19 @@ const expertise = [
 
   /* Bio Section */
   .bio-section {
-    padding: 6rem 0;
-    background: linear-gradient(180deg, white 0%, var(--color-bg-light) 100%);
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+
+  .bio-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .bio-layout {
@@ -603,9 +635,20 @@ const expertise = [
 
   /* Values Section */
   .values-section {
-    padding: 6rem 0;
+    padding: 6rem 1.5rem;
     background: white;
     text-align: center;
+    position: relative;
+  }
+
+  .values-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
 
   .values-header {
@@ -637,13 +680,14 @@ const expertise = [
     padding: 1.5rem;
     border-radius: 16px;
     border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .value-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(41, 140, 66, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   }
 
   .value-icon {
@@ -716,7 +760,7 @@ const expertise = [
 
   /* Social Proof Section */
   .proof-section {
-    padding: 5rem 0;
+    padding: 6rem 1.5rem;
     background: var(--color-bg-dark);
     text-align: center;
   }
@@ -761,8 +805,8 @@ const expertise = [
 
   /* CTA Section */
   .cta-section {
-    padding: 6rem 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
   }
 
