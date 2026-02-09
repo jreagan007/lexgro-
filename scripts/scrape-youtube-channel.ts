@@ -3,7 +3,7 @@
  * Uses Firecrawl to get video titles and IDs
  */
 import 'dotenv/config';
-import FirecrawlApp from '@mendable/firecrawl-js';
+import { FirecrawlClient } from '@mendable/firecrawl-js';
 import * as fs from 'fs';
 
 const FIRECRAWL_API_KEY = process.env.FIRECRAWL_API_KEY;
@@ -16,13 +16,13 @@ async function scrapeYouTubeChannel() {
     process.exit(1);
   }
 
-  const firecrawl = new FirecrawlApp({ apiKey: FIRECRAWL_API_KEY });
+  const firecrawl = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
 
   console.log('Scraping YouTube channel:', YOUTUBE_CHANNEL);
 
   try {
     // Scrape the videos page
-    const result = await firecrawl.scrapeUrl(YOUTUBE_CHANNEL, {
+    const result = await firecrawl.scrape(YOUTUBE_CHANNEL, {
       formats: ['markdown', 'html'],
     });
 
