@@ -92,7 +92,7 @@ export function Header() {
 
           <Button
             as="a"
-            href="https://calendly.com/lexgro/strategy-session"
+            href="/contact/"
             size="sm"
             bg="brand.500"
             color="white"
@@ -139,7 +139,7 @@ export function Header() {
               ))}
               <Button
                 as="a"
-                href="https://calendly.com/lexgro/strategy-session"
+                href="/contact/"
                 w="full"
                 bg="brand.500"
                 color="white"
