@@ -220,9 +220,9 @@ function createHomepageTextOverlaySVG(): string {
 
   return `
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-      <text x="${P}" y="${P + 40}" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="4" fill="${HEX_COLORS.mint}">FRACTIONAL CMO FOR LAW FIRMS</text>
-      <text x="${P}" y="${P + 120}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Your Fractional</text>
-      <text x="${P}" y="${P + 185}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">CMO.</text>
+      <text x="${P}" y="${P + 40}" font-family="sans-serif" font-size="18" font-weight="bold" letter-spacing="4" fill="${HEX_COLORS.mint}">THE LAW FIRM CMO</text>
+      <text x="${P}" y="${P + 120}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Your CMO.</text>
+      <text x="${P}" y="${P + 185}" font-family="sans-serif" font-size="56" font-weight="bold" fill="${HEX_COLORS.white}">Your Growth Partner.</text>
       <text x="${P}" y="${HEIGHT - P + 5}" font-family="sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">lexgro.com</text>
     </svg>
   `
