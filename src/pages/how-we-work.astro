@@ -28,6 +28,10 @@ import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
       <p class="hero-label">The System</p>
       <h1>How We Work</h1>
       <p class="hero-text">Three layers. Each feeds the next. Intelligence tells us what to build. Editorial produces it. Full funnel gets it everywhere.</p>
+      <div class="hero-actions">
+        <a href="/contact/" class="btn btn-primary btn-lg">Apply for Growth Diagnostic</a>
+        <a href="#intelligence" class="btn btn-ghost btn-lg">See the System</a>
+      </div>
     </div>
   </section>
 
@@ -433,8 +437,14 @@ import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
     font-size: 1.0625rem;
     color: #b0b8b3;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   /* Sections */
