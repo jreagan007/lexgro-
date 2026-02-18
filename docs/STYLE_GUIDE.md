@@ -84,22 +84,25 @@ Try to get anchor text that uses keywords if possible. Also if possible, do not 
 
 At the bottom of the page, provide a list of every source used.
 
-Title the list "References" with an H2. Use this compact format:
+Title the list "References" with an H2. Use APA 7th edition format:
 
 ```
 ## References
 
-Organization Name. [Article Title](https://url)
+Author, A. A. (Year, Month Day). *Title of article in sentence case*. Site Name. https://url
 
-Organization Name. [Article Title](https://url)
+Organization Name. (Year, Month Day). *Title of article in sentence case*. Site Name. https://url
 ```
 
-**Format rules:**
+**APA format rules:**
 - No numbers or bullets
-- Organization/publisher name first, followed by period
-- Linked article title in brackets
+- Author or organization name first, then year in parentheses
+- Article title in sentence case, italicized with asterisks
+- Site name in plain text (omit if same as author/organization)
+- Bare URL at end (no hyperlink brackets, no period after URL)
 - One blank line between each reference
-- No descriptions after the link
+- If no date is available, use `(n.d.)`
+- No descriptions after the URL
 
 ---
 
@@ -403,7 +406,7 @@ Use these terms consistently:
 - [ ] Paragraphs under 5 lines
 - [ ] Headers include keywords
 - [ ] All statistics have source links
-- [ ] Sources section at bottom with numbered list
+- [ ] References section at bottom in APA 7th edition format
 - [ ] Meta title under 60 characters
 - [ ] Meta description under 160 characters
 - [ ] Flesch score 50-60

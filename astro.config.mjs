@@ -18,6 +18,21 @@ export default defineConfig({
     '/privacy-policy': '/privacy/',
     '/privacy-policy/': '/privacy/',
 
+    // Blog consolidation (duplicate clusters → keeper posts)
+    '/blog/how-bankruptcy-lawyers-can-generate-more-leads-with-smart-marketing/': '/blog/bankruptcy-lawyer-marketing-guide/',
+    '/blog/marketing-for-bankruptcy-lawyers/': '/blog/bankruptcy-lawyer-marketing-guide/',
+    '/blog/workers-comp-lawyer-marketing-strategies-that-actually-work/': '/blog/get-more-workers-comp-clients/',
+    '/blog/dui-lawyer-marketing-tips/': '/blog/market-your-dui-law-practice/',
+    '/blog/mastering-divorce-lawyer-marketing/': '/blog/divorce-lawyer-seo/',
+    '/blog/personal-injury-lawyer-marketing-a-winning-strategy/': '/blog/personal-injury-lawyer-marketing/',
+    '/blog/personal-injury-lawyer-marketing-tips/': '/blog/personal-injury-lawyer-marketing/',
+    '/blog/how-a-fractional-cmo-can-transform/': '/blog/fractional-cmo-for-law-firms/',
+    '/blog/how-cmos-help-law-firms-scale-with-digital-channels/': '/blog/fractional-cmo-for-law-firms/',
+    '/blog/top-fractional-cmo-benefits/': '/blog/fractional-cmo-for-law-firms/',
+    '/blog/law-firm-budgeting-101/': '/blog/law-firm-budgeting-for-growth/',
+    '/blog/why-every-law-firm-needs-sales-training/': '/blog/law-firm-sales-training/',
+    '/blog/understanding-fractional-cmo/': '/blog/fractional-cmo-for-law-firms/',
+
     // Vendor pages (redirect to main vendor page until subpages built)
     '/vendors/': '/services/vendor/',
     '/vendors/hire-a-trained-smi': '/services/vendor/',

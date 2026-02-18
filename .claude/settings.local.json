@@ -35,7 +35,23 @@
       "Bash(npm run content:priority:*)",
       "Bash(npm run research:citations:*)",
       "Bash(npm run audit:verbose:*)",
-      "Bash(npm run fix:style:*)"
+      "Bash(npm run fix:style:*)",
+      "Bash(npm ls:*)",
+      "Bash(node -e \"const fc = require\\(''@mendable/firecrawl-js''\\); console.log\\(Object.keys\\(fc\\)\\); const inst = new \\(fc.default || fc.Firecrawl || fc.FirecrawlClient\\)\\({ apiKey: ''test'' }\\); console.log\\(Object.getOwnPropertyNames\\(Object.getPrototypeOf\\(inst\\)\\).filter\\(n => n !== ''constructor''\\)\\)\")",
+      "Bash(node -e:*)",
+      "Bash(node --eval:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(python3:*)",
+      "Bash(npx astro build:*)",
+      "Bash(git -C /Users/jaredreagan/Projects/lexgro status)",
+      "Bash(git -C /Users/jaredreagan/Projects/lexgro diff --stat)",
+      "Bash(git -C /Users/jaredreagan/Projects/lexgro push)",
+      "Bash(NODE_PATH=/Users/jaredreagan/Projects/lexgro/node_modules npx tsx:*)",
+      "Bash(NODE_PATH=/Users/jaredreagan/Projects/lexgro/node_modules node:*)",
+      "Bash(xargs cat:*)",
+      "Bash(git -C /Users/jaredreagan/Projects/lexgro log --oneline -5)",
+      "Bash(git -C /Users/jaredreagan/Projects/lexgro add src/pages/how-we-work.astro)",
+      "Bash(git -C:*)"
     ]
   }
 }

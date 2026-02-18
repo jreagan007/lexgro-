@@ -1,0 +1,122 @@
+# Research: personal injury attorney website conversion rate optimization reviews reputation management intake speed benchmarks 2025 2026
+
+Generated: 2/18/2026, 1:52:53 AM
+
+---
+
+## Executive Summary
+
+# Personal Injury Attorney Website Conversion Rate Optimization, Reputation Management, and Intake Speed: 2025-2026 Benchmarks
+
+---
+
+## Key Facts & Statistics
+
+- **79%** of legal consumers hire the first attorney who responds[1]
+- Leads contacted within **one minute are 391% more likely to convert** than those contacted later[1]
+- Firms with response times **under 60 seconds convert leads 3X faster** than those waiting 5+ minutes[1][3]
+- **Average lead conversion time: 3 days** for personal injury firms (fastest across all practice areas)[2]
+- PI firms using Local Services Ads (LSAs) report **18% conversion rate** vs. 3-6% for Google Ads[1]
+- Legal sector overall: **2.6% conversion rate for inbound calls**[5]
+- **70%+** of legal website visitors arrive via mobile devices[1]
+- Mobile-optimized sites see **up to 52% more conversions** than non-optimized sites[1]
+- Conversion rates peak when pages load in **0-2 seconds** (3× better than 5-second load times)[3]
+- Including video on landing pages increases conversions by **86%**[1]
+
+---
+
+## Sources
+
+1. [Source 1](https://sanguinesa.com/maximizing-lead-conversions-for-personal-injury-attorneys-what-works-in-2025/)
+2. [Source 2](https://www.casepeer.com/blog/personal-injury-statistics/)
+3. [Source 3](https://seoprofy.com/blog/personal-injury-lawyer-marketing/)
+4. [Source 4](https://www.paperstreet.com/blog/florida-personal-injury-firm-gets-6500-leads-a-year-from-internet-marketing/)
+5. [Source 5](https://www.mycase.com/blog/law-firm-marketing/law-firm-marketing-statistics/)
+6. [Source 6](https://www.ontoplist.com/blog/personal-injury-lawyer-marketing-ideas/)
+7. [Source 7](https://attorneyatlawmagazine.com/legal-marketing/website-design/best-law-firm-websites)
+8. [Source 8](https://www.exults.com/blog/marketing-guide-for-injury-workers-comp-law-firms/)
+9. [Source 9](https://growwithelevate.com/best-way-market-personal-injury-law-firm-2026/)
+
+---
+
+## Article Outline
+
+### Headline
+**6-18% PI Website Conversions: 2025 Benchmarks**
+
+### Subheadline
+Respond in 60 seconds. Optimize mobile speed. Double revenue without more ad spend.
+
+### Meta Description
+Boost PI firm conversions from 2.8% to 6-18% in 2025-2026. Master 60-second responses, mobile sites, LSA ads, and video trust signals. Get benchmarks and steps to cut $150/click waste now.
+
+### Category
+Digital Marketing
+
+### Sections
+
+#### Why Speed Wins: 79% Hire First Responder
+- 79% of legal consumers hire the first attorney who responds[1]
+- Leads contacted in 1 minute convert 391% more[1]
+- Under 60 seconds: 3X faster conversions vs. 5+ minutes[1][3]
+
+#### Website Speed & Mobile Benchmarks
+- 70%+ traffic mobile; optimized sites convert 52% more[1]
+- 0-2 second loads: 3X better than 5 seconds[3]
+- Video on pages lifts conversions 86%[1]
+
+#### Conversion Rate Benchmarks 2025-2026
+- Top PI firms hit 6-18%; baseline 2.8-3.6%[1]
+- LSAs: 18% vs. Google Ads 3-6%[1]
+- Organic search drives 66% of calls[6]
+
+#### Intake & Reputation Management Keys
+- Average PI conversion: 3 days (fastest practice area)[2]
+- Target 2-3 Google reviews weekly; respond in 24 hours[1]
+- Time to first payment: 38 days post-intake[5]
+
+#### Action Plan: Weeks 1-4 Fixes
+- Audit response time; add live chat (40-80% lift)[1][3]
+- Mobile test site; fix load under 3 seconds[3]
+- Add 30-second attorney video (30-40% boost)[1]
+
+#### Avoid These Conversion Killers
+- Ignore volume over conversion: 3% vs. 6% doubles cases[1]
+- Desktop sites lose 52% mobile potential[1]
+- Long forms cause abandonment; keep to name/contact/case[3]
+
+---
+
+## Social Media Posts
+
+### LinkedIn
+```
+79% of legal consumers hire the first attorney who responds. In PI, speed wins cases.[1]
+
+Top firms are hitting 6-18% website conversion rates in 2025-2026, doubling revenue from the same ad spend. Baseline? Just 2.8-3.6%.[1][2] Keys: sub-60-second responses, mobile-first sites loading in 0-2 seconds (3x better conversions), AI chat, and video trust signals.[1][3]
+
+One Florida firm pulls 6,800+ leads yearly via optimized internet channels, outpacing referrals.[key research] With Google Ads at $150+ per click, conversion is your survival edge.[1]
+
+Ready to benchmark your PI site's performance? DM us for a free audit.
+
+#PILaw #LegalMarketing #ConversionOptimization #LawFirmGrowth #ReputationManagement
+```
+
+### Twitter/X
+```
+PI firms: 6-18% conversions in 2025 beat 2.8% baseline—double revenue, no extra ads. 79% hire fastest responder.[1][2] Speed + mobile + AI wins. Audit your site? LEXGRO #PILaw #LegalMarketing
+```
+
+---
+
+## Next Steps
+
+1. [ ] Review and refine outline
+2. [ ] Write full article in MDX
+3. [ ] Add to `src/content/blog/`
+4. [ ] Generate OG image: `npx tsx scripts/generate-all-og.ts --content`
+5. [ ] Schedule social posts
+
+---
+
+*Generated by LEXGRO Research Tool*
