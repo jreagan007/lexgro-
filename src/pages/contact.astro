@@ -1,9 +1,9 @@
 ---
 /**
- * Free Growth Audit - Lead Capture Page
+ * Executive Growth Diagnostic - Application Page
  *
- * Clean, focused form for capturing qualified leads.
- * Simple form → Email follow-up with calendar invite.
+ * Application-based lead capture for qualified PI firms.
+ * Simple form with qualification fields.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
@@ -11,8 +11,8 @@ import { Image } from 'astro:assets';
 // Images
 import keithPhoto from '../assets/images/sections/keith-cmo-photo.png';
 
-// What you get in the audit (top 4 cards)
-const auditCards = [
+// What you get in the diagnostic (top 4 cards)
+const diagnosticCards = [
   {
     icon: 'search',
     title: 'Competitive Intelligence Report',
@@ -45,8 +45,8 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
 ---
 
 <BaseLayout
-  title="Free Growth Audit | LEXGRO"
-  description="Get a free marketing audit for your law firm. We review your website, SEO, ads, and competitors. Then we give you a clear roadmap to grow."
+  title="Executive Growth Diagnostic | LEXGRO"
+  description="Apply for a free Growth Diagnostic for your injury law firm. We review your market, vendors, and numbers. Then we tell you exactly what we'd do."
   image="/og/contact.png"
 >
   <!-- Hero Section -->
@@ -54,10 +54,10 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
     <div class="container">
       <div class="hero-layout">
         <div class="hero-content">
-          <span class="section-label">Free for Qualified Firms</span>
-          <h1 class="hero-title">Get Your Free Growth Audit</h1>
+          <span class="section-label">Executive Growth Diagnostic</span>
+          <h1 class="hero-title">Apply for Your Growth Diagnostic</h1>
           <p class="hero-subtitle">
-            Find out what's working, what's not, and exactly what to do next.
+            We review your market, your vendors, and your numbers. Then we tell you exactly what we'd do.
             No sales pitch. Just honest analysis and a clear action plan.
           </p>
 
@@ -69,7 +69,7 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
               width={48}
             />
             <p class="trust-text">
-              <strong>Keith Dyer</strong> personally reviews every audit request.
+              <strong>Keith Dyer</strong> personally reviews every application.
               If we can help, you'll hear from us within 24 hours.
             </p>
           </div>
@@ -77,8 +77,8 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
 
         <!-- Form Card -->
         <div class="form-card" id="audit-form">
-          <form class="audit-form" name="growth-audit" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="growth-audit" />
+          <form class="audit-form" name="growth-diagnostic" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="growth-diagnostic" />
             <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
             <div class="form-row">
               <div class="form-group">
@@ -102,6 +102,11 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
             </div>
 
             <div class="form-group">
+              <label for="firmName">Firm Name</label>
+              <input type="text" id="firmName" name="firmName" required placeholder="Smith Law Firm" />
+            </div>
+
+            <div class="form-group">
               <label for="practiceArea">Primary Practice Area</label>
               <select id="practiceArea" name="practiceArea" required>
                 <option value="">Select your main practice area</option>
@@ -119,16 +124,52 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
             </div>
 
             <div class="form-group">
-              <label for="challenge">Biggest Marketing Challenge (Optional)</label>
-              <textarea id="challenge" name="challenge" rows="3" placeholder="What's the #1 thing you'd fix about your marketing if you could?"></textarea>
+              <label for="revenue">Annual Revenue Range</label>
+              <select id="revenue" name="revenue" required>
+                <option value="">Select your revenue range</option>
+                <option value="under-1m">Under $1M</option>
+                <option value="1m-2m">$1M - $2M</option>
+                <option value="2m-5m">$2M - $5M</option>
+                <option value="5m-10m">$5M - $10M</option>
+                <option value="10m-15m">$10M - $15M</option>
+                <option value="15m-plus">$15M+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="marketingSpend">Monthly Marketing Spend</label>
+              <select id="marketingSpend" name="marketingSpend" required>
+                <option value="">Select your monthly spend</option>
+                <option value="under-5k">Under $5K</option>
+                <option value="5k-10k">$5K - $10K</option>
+                <option value="10k-25k">$10K - $25K</option>
+                <option value="25k-50k">$25K - $50K</option>
+                <option value="50k-plus">$50K+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="marketingStructure">Current Marketing Structure</label>
+              <select id="marketingStructure" name="marketingStructure" required>
+                <option value="">How is your marketing managed?</option>
+                <option value="all-inhouse">All in-house</option>
+                <option value="all-outsourced">All outsourced</option>
+                <option value="mix">Mix of both</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="whyNow">Why Now? (Optional)</label>
+              <textarea id="whyNow" name="whyNow" rows="3" placeholder="What prompted you to look into this?"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-lg submit-btn">
-              Request My Free Audit
+              Submit Application
             </button>
 
             <p class="form-disclaimer">
-              No commitment required. We'll review your info and follow up with next steps.
+              Applications are reviewed within 24 hours. We'll follow up with next steps if it's a fit.
             </p>
           </form>
         </div>
@@ -140,14 +181,14 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
   <section class="audit-includes">
     <div class="container">
       <div class="includes-header">
-        <h2 class="includes-title">What's Included in Your Audit</h2>
+        <h2 class="includes-title">What's Included in Your Diagnostic</h2>
         <p class="includes-subtitle">
-          A complete diagnostic of your law firm's marketing. No fluff, just actionable insights.
+          A complete diagnostic of your law firm's marketing. No fluff. Just practical insights you can use.
         </p>
       </div>
 
       <div class="includes-grid">
-        {auditCards.map((item) => (
+        {diagnosticCards.map((item) => (
           <div class="include-card">
             <div class="include-icon">
               {item.icon === 'chart' && (
@@ -177,7 +218,7 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
                 </svg>
               )}
             </div>
-            <div class="include-number">{String(auditCards.indexOf(item) + 1).padStart(2, '0')}</div>
+            <div class="include-number">{String(diagnosticCards.indexOf(item) + 1).padStart(2, '0')}</div>
             <h3 class="include-title">{item.title}</h3>
             <p class="include-description">{item.description}</p>
           </div>
@@ -204,7 +245,7 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
           <h3 class="roadmap-title">{roadmap.title}</h3>
           <p class="roadmap-description">{roadmap.description}</p>
           <a href="#audit-form" class="roadmap-cta">
-            Get Your Roadmap
+            Apply Now
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>

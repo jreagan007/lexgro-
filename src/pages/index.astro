@@ -1,23 +1,29 @@
 ---
 /**
  * LEXGRO Homepage
- * Fractional CMO for injury law firms
+ * Fractional CMO for injury law firms doing $2M-$15M
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
+import { testimonials } from '../data/testimonials';
 
 // Import trust assets
 import trustAvatars1 from '../assets/images/heroes/trust-avatars-1.png';
 import trustAvatars2 from '../assets/images/heroes/trust-avatars-2.png';
 import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
+
+// Get the 3 featured testimonials with quotes
+const featuredTestimonials = testimonials.filter(t =>
+  ['Clarke Speaks', 'Matthew Albrecht', 'Riah Greathouse'].includes(t.name)
+);
 ---
 
 <BaseLayout
   title="Your Fractional CMO for Law Firms | LEXGRO"
-  description="We lead your marketing so you can lead your firm. Fractional CMO for injury law firms. Strategy, vendors, intake. When you win, we win."
+  description="We run marketing for injury law firms doing $2M to $15M. We coordinate your vendors, fix your intake, and build systems that drive signed cases."
   image="/og/homepage.png"
 >
-  <!-- Hero -->
+  <!-- 1. Hero -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
@@ -25,11 +31,11 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
           <p class="hero-label">The Law Firm CMO</p>
           <h1>Your CMO. Your Growth Partner.</h1>
           <p class="hero-text">
-            We lead your marketing so you can lead your firm. Strategy, vendors, intake. All accountable to one number: signed cases. When you win, we win.
+            We run marketing for injury law firms doing $2M to $15M. We coordinate your vendors, fix your intake, and build systems that drive signed cases. Not clicks. When you win, we win.
           </p>
           <div class="hero-actions">
-            <a href="/contact/" class="btn btn-primary btn-lg">Get Your Free Growth Audit</a>
-            <a href="/how-we-work/" class="btn btn-ghost btn-lg">How It Works</a>
+            <a href="/contact/" class="btn btn-primary btn-lg">Apply for Growth Diagnostic</a>
+            <a href="/how-we-work/" class="btn btn-ghost btn-lg">How We Work</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -60,13 +66,42 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     </div>
   </section>
 
-  <!-- Problem -->
+  <!-- 2. Social Proof -->
+  <section class="section-social-proof">
+    <div class="container">
+      <div class="social-proof-header">
+        <span class="section-badge">Real Results</span>
+        <h2>What Our Partners Say</h2>
+      </div>
+      <div class="testimonial-grid">
+        {featuredTestimonials.map((t) => (
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l0.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l0.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <p>"{t.quote}"</p>
+            </div>
+            <div class="testimonial-author">
+              <img src={t.photo} alt={t.name} class="testimonial-photo" width="48" height="48" loading="lazy" />
+              <div class="testimonial-info">
+                <strong>{t.name}</strong>
+                <span>{t.firm} · {t.location}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Problem -->
   <section class="section-problem">
     <div class="container">
       <div class="problem-header">
-        <span class="problem-label">The Real Problem</span>
-        <h2>You Don't Have a Marketing Problem. You Have a Leadership Gap.</h2>
-        <p class="lead">You have vendors. You have a budget. What's missing is someone who owns the full picture and is accountable for cases, not clicks.</p>
+        <span class="section-badge">The Real Problem</span>
+        <h2>You're Spending Money. You're Not Getting Cases.</h2>
+        <p class="lead">Most injury firms between $2M and $15M spend $10K or more per month on marketing. SEO vendors, PPC agencies, maybe a TV buyer. But nobody owns the strategy. And nobody is accountable for signed cases.</p>
       </div>
       <div class="problem-grid">
         <div class="problem-card">
@@ -81,7 +116,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
             </svg>
           </div>
           <h3>No Strategic Oversight</h3>
-          <p>You have an SEO vendor, a PPC vendor, maybe a TV buyer. But nobody owns the full picture. And nobody is accountable for signed cases.</p>
+          <p>Your SEO vendor, PPC agency, and TV buyer all report different numbers. Nobody connects them. Nobody owns the outcome. You're the one stuck managing it all.</p>
         </div>
         <div class="problem-card">
           <span class="problem-num">02</span>
@@ -95,7 +130,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
             </svg>
           </div>
           <h3>Intake Leaks Revenue</h3>
-          <p>Your marketing generates inquiries. Your intake process loses them. Most firms never connect the two. That gap costs six figures a year.</p>
+          <p>Your marketing brings in calls. Your intake process loses them. Missed calls, slow follow-up, no tracking. That gap costs six figures a year.</p>
         </div>
         <div class="problem-card">
           <span class="problem-num">03</span>
@@ -108,35 +143,142 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
             </svg>
           </div>
           <h3>Vendors Run Unchecked</h3>
-          <p>Each vendor optimizes for their own metrics. Clicks. Rankings. Impressions. None of them optimize for signed cases.</p>
+          <p>Each vendor optimizes for their own metrics. Clicks. Rankings. Impressions. None of them optimize for signed cases. And they don't talk to each other.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What Your CMO Does -->
-  <section class="section-system">
+  <!-- 4. Solution -->
+  <section class="section-solution">
     <div class="container">
-      <div class="system-header">
-        <p class="section-label">The LEXGRO Way</p>
-        <h2>How We Build Your Growth Engine</h2>
-        <p class="lead">We don't replace your vendors. We make them accountable. We don't chase tactics. We set the strategy and make sure it gets done.</p>
+      <div class="solution-header">
+        <p class="section-label">The Solution</p>
+        <h2>One Partner. Every Channel. Full Accountability.</h2>
+        <p class="lead">We sit above your vendors and manage the full marketing picture. Every channel works together toward one number: signed cases.</p>
       </div>
-      <div class="system-grid">
-        <div class="system-card">
-          <span class="system-num">01</span>
-          <div class="system-icon">
+      <div class="solution-grid">
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>SEO and content</span>
+        </div>
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Google Ads and LSAs</span>
+        </div>
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          <span>Connected TV (CTV)</span>
+        </div>
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span>Social media</span>
+        </div>
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c0.127.96.361 1.903.7 2.81a2 2 0 0 1-0.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-0.45c0.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Intake optimization</span>
+        </div>
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Vendor management</span>
+        </div>
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Attribution and reporting</span>
+        </div>
+        <div class="solution-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+          <span>Team training and SOPs</span>
+        </div>
+      </div>
+      <p class="solution-statement">You don't hire more vendors. You hire the person who makes your vendors work.</p>
+    </div>
+  </section>
+
+  <!-- 5. LEXXLY -->
+  <section class="section-lexxly">
+    <div class="container">
+      <div class="lexxly-header">
+        <span class="section-badge">The Technology</span>
+        <h2>Built on LEXXLY. How We See What Others Miss.</h2>
+        <p class="lead">We back every decision with data from LEXXLY, our proprietary platform. It shows us what's working, what's not, and where your cases are coming from.</p>
+      </div>
+      <div class="lexxly-grid">
+        <div class="lexxly-card">
+          <span class="lexxly-num">01</span>
+          <div class="lexxly-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
               <circle cx="12" cy="12" r="3"/>
             </svg>
           </div>
-          <h3>Assess</h3>
-          <p>We audit your market, vendors, intake, and competitive gaps together.</p>
+          <h3>LexxlyRank</h3>
+          <p>See exactly where you rank against every competitor in your market. Updated weekly.</p>
         </div>
-        <div class="system-card">
-          <span class="system-num">02</span>
-          <div class="system-icon">
+        <div class="lexxly-card">
+          <span class="lexxly-num">02</span>
+          <div class="lexxly-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>LexxlyPulse</h3>
+          <p>Track your marketing performance across all channels in one dashboard. No more spreadsheet chaos.</p>
+        </div>
+        <div class="lexxly-card">
+          <span class="lexxly-num">03</span>
+          <div class="lexxly-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12"/>
+              <path d="M12 6v6l4 2"/>
+              <path d="M2 12h4"/>
+            </svg>
+          </div>
+          <h3>LexxlyIQ</h3>
+          <p>Spots trends, flags problems, and recommends next moves before you ask.</p>
+        </div>
+        <div class="lexxly-card">
+          <span class="lexxly-num">04</span>
+          <div class="lexxly-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3>LexxlyAIO</h3>
+          <p>Automated reporting that connects ad spend to signed cases. Not clicks. Cases.</p>
+        </div>
+      </div>
+      <div class="lexxly-cta">
+        <a href="/lexxly/" class="btn btn-outline-light">See the Full Platform</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. How We Work -->
+  <section class="section-how">
+    <div class="container">
+      <div class="how-header">
+        <span class="section-badge">The Process</span>
+        <h2>Three Phases. 90 Days to Results.</h2>
+        <p class="lead">We don't run month-to-month experiments. We follow a three-phase process that gets injury law firms to real momentum in 90 days.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-card">
+          <span class="how-num">01</span>
+          <div class="how-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3>Diagnose</h3>
+          <p>Full audit of your market, vendors, intake, website, and ad spend. We use LEXXLY to benchmark your position against every competitor in your area.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-num">02</span>
+          <div class="how-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 19l7-7 3 3-7 7-3-3z"/>
               <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
@@ -144,356 +286,70 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
               <circle cx="11" cy="11" r="2"/>
             </svg>
           </div>
-          <h3>Build</h3>
-          <p>We set the strategy, content plan, and vendor accountability structure.</p>
+          <h3>Install</h3>
+          <p>We build your 90-day growth plan, restructure vendor accountability, connect marketing to intake, and launch priority campaigns.</p>
         </div>
-        <div class="system-card">
-          <span class="system-num">03</span>
-          <div class="system-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-            </svg>
-          </div>
-          <h3>Execute</h3>
-          <p>We coordinate all channels, manage your vendors, and connect marketing to intake.</p>
-        </div>
-        <div class="system-card">
-          <span class="system-num">04</span>
-          <div class="system-icon">
+        <div class="how-card">
+          <span class="how-num">03</span>
+          <div class="how-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <h3>Measure</h3>
-          <p>We track signed cases and revenue. Adjust what's not working. Repeat.</p>
+          <h3>Scale</h3>
+          <p>Monthly optimization, vendor scorecards, intake monitoring, and quarterly strategy reviews. We measure signed cases, not vanity metrics.</p>
         </div>
+      </div>
+      <div class="how-cta">
+        <a href="/how-we-work/" class="btn btn-outline-light">See How We Work</a>
       </div>
     </div>
   </section>
 
-  <!-- Capabilities -->
-  <section class="section-capabilities">
-    <div class="container">
-      <div class="capabilities-header">
-        <p class="section-label">Your Growth Partner</p>
-        <h2>More Than Marketing</h2>
-        <p class="lead">A fractional CMO doesn't just run campaigns. We own the entire growth engine alongside you.</p>
-      </div>
-      <div class="capabilities-grid">
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-          </div>
-          <h3>Marketing Strategy</h3>
-          <p>Unified plan across all channels. SEO, paid, CTV, content, all working together toward signed cases.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3>Vendor Management</h3>
-          <p>We evaluate, coordinate, and hold your vendors accountable. Most firms keep their agencies. We make them effective.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
-          <h3>Intake Optimization</h3>
-          <p>Marketing generates inquiries. Intake converts them. We connect the two so you stop losing revenue at the front desk.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-              <path d="M2 2l7.586 7.586"/>
-              <circle cx="11" cy="11" r="2"/>
-            </svg>
-          </div>
-          <h3>Content and Editorial</h3>
-          <p>Research-driven content with documentary photography. Not stock photos and template copy. Every piece built to earn trust.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          </div>
-          <h3>Attribution and Analytics</h3>
-          <p>Which channels drive signed cases? Not clicks. Not impressions. We build reporting that tracks what matters to your bottom line.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-              <path d="M8 7h8M8 11h6"/>
-            </svg>
-          </div>
-          <h3>Team Training</h3>
-          <p>Build your internal marketing capability. SOPs, tools, and training so your team levels up and your growth becomes self-sustaining.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CMO vs Agency -->
-  <section class="section-compare">
-    <div class="container">
-      <div class="compare-header">
-        <p class="section-label">The LEXGRO Difference</p>
-        <h2>Growth Partner vs. Agency</h2>
-        <p class="lead">An agency executes tactics. A growth partner leads strategy. The difference shows up in your case count.</p>
-      </div>
-      <div class="compare-cards">
-        <div class="compare-card compare-card-agency">
-          <div class="compare-card-header">
-            <span class="compare-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M8 12h8"/>
-              </svg>
-            </span>
-            <h3>Traditional Agency</h3>
-          </div>
-          <ul class="compare-list">
-            <li>
-              <span class="compare-x">–</span>
-              <div>
-                <strong>Executes tactics</strong>
-                <p>Runs campaigns without a unified strategy</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-x">–</span>
-              <div>
-                <strong>Reports on their own metrics</strong>
-                <p>Clicks, rankings, impressions</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-x">–</span>
-              <div>
-                <strong>Bills hours</strong>
-                <p>Incentive is to keep billing, not to grow your firm</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-x">–</span>
-              <div>
-                <strong>No intake involvement</strong>
-                <p>Marketing stops at the lead. Intake is your problem.</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-x">–</span>
-              <div>
-                <strong>You manage them</strong>
-                <p>You become the project manager of your own marketing</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="compare-card compare-card-lexgro">
-          <div class="compare-card-header">
-            <span class="compare-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M8 12l3 3 5-6"/>
-              </svg>
-            </span>
-            <h3>Your Growth Partner</h3>
-          </div>
-          <ul class="compare-list">
-            <li>
-              <span class="compare-check">✓</span>
-              <div>
-                <strong>Sets strategy and oversees execution</strong>
-                <p>Every channel works toward the same goal</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-check">✓</span>
-              <div>
-                <strong>Reports on cases and revenue</strong>
-                <p>The only metrics that pay your bills</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-check">✓</span>
-              <div>
-                <strong>Wins when you win</strong>
-                <p>Aligned incentives, not hourly billing</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-check">✓</span>
-              <div>
-                <strong>Connects marketing to intake</strong>
-                <p>The full pipeline from ad to signed case</p>
-              </div>
-            </li>
-            <li>
-              <span class="compare-check">✓</span>
-              <div>
-                <strong>We manage them for you</strong>
-                <p>You run your firm. We run your growth.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why a Fractional CMO -->
-  <section class="section-why-cmo">
-    <div class="container">
-      <div class="why-cmo-header">
-        <span class="why-cmo-badge">Aligned Interests</span>
-        <h2>Why a Growth Partner, Not an Agency</h2>
-        <p class="lead">A full-time CMO costs $250K+ and most firms under $20M don't need one five days a week. What you need is a partner who shows up with a system, not a learning curve.</p>
-      </div>
-      <div class="why-cmo-grid">
-        <div class="why-cmo-visual">
-          <div class="why-cmo-quote">
-            <blockquote>
-              "I've spent 12 years inside law firm marketing. I'm not learning your industry on your dime. I already know where the problems are, which vendors perform, and what actually drives cases."
-            </blockquote>
-            <div class="why-cmo-author">
-              <span class="why-cmo-name">Keith Dunnivant</span>
-              <span class="why-cmo-title">President and Fractional CMO, LEXGRO</span>
-            </div>
-          </div>
-        </div>
-        <div class="why-cmo-points">
-          <div class="why-cmo-point">
-            <div class="why-cmo-point-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-            </div>
-            <div class="why-cmo-point-text">
-              <strong>Day-One Impact</strong>
-              <p>No ramp-up period. We bring 12 years of legal marketing playbooks, vendor relationships, and proven systems from day one.</p>
-            </div>
-          </div>
-          <div class="why-cmo-point">
-            <div class="why-cmo-point-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
-            </div>
-            <div class="why-cmo-point-text">
-              <strong>CMO Thinking, Not CMO Cost</strong>
-              <p>Executive-level strategy at a fraction of a full-time salary. You get the leadership without the $250K+ overhead.</p>
-            </div>
-          </div>
-          <div class="why-cmo-point">
-            <div class="why-cmo-point-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <div class="why-cmo-point-text">
-              <strong>Your Team Gets Better</strong>
-              <p>We train your internal staff, build SOPs, and create systems that outlast our engagement. The goal is independence, not dependence.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proof -->
-  <section class="section-proof">
-    <div class="container">
-      <div class="proof-header">
-        <span class="proof-label">Real Results</span>
-        <h2>The Numbers Speak</h2>
-      </div>
-      <div class="proof-grid">
-        <div class="proof-card proof-card-featured">
-          <span class="proof-value">$3M → $11M</span>
-          <span class="proof-desc">Revenue growth in two years for a personal injury firm</span>
-        </div>
-        <div class="proof-card">
-          <span class="proof-value">47</span>
-          <span class="proof-desc">Law firm partners across the US</span>
-        </div>
-        <div class="proof-card">
-          <span class="proof-value">12 Years</span>
-          <span class="proof-desc">Focused exclusively on legal marketing</span>
-        </div>
-      </div>
-      <div class="proof-awards">
-        <p>Eight Figure Firm Revenue Rockstar Award. Eight Figure Firm Speed of Growth Award.</p>
-      </div>
-      <div class="proof-cta">
-        <a href="/results/" class="btn btn-outline-light">See Case Studies</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Who We Help -->
+  <!-- 7. Qualification -->
   <section class="section-who">
     <div class="container">
       <div class="who-header">
         <span class="who-label">Who We Partner With</span>
-        <h2>Built for Injury Law Firms</h2>
-        <p class="lead">Personal injury is our primary focus. We also partner with family law, immigration, and estate planning firms that fit the criteria below.</p>
+        <h2>Built for Injury Law Firms Doing $2M to $15M</h2>
+        <p class="lead">We work with a small number of firms at a time. That focus is what drives results. If you fit the criteria below, we should talk.</p>
       </div>
       <div class="who-grid">
         <div class="who-card who-card-not">
           <h3>LEXGRO Is Not For</h3>
           <ul>
+            <li>Firms under $2M in annual revenue</li>
             <li>Firms spending under $5K/month on marketing</li>
-            <li>Firms looking for a quick fix or one-time project</li>
+            <li>Firms looking for a one-time project</li>
+            <li>Firms that won't share financial data with their growth partner</li>
             <li>Firms that want to "set it and forget it"</li>
-            <li>Firms that won't share financial data</li>
-            <li>Firms under $1M in annual revenue</li>
           </ul>
         </div>
         <div class="who-card who-card-yes">
           <h3>LEXGRO Is For</h3>
           <ul>
-            <li>Injury firms doing $1M to $20M in revenue</li>
+            <li>Injury firms doing $2M to $15M in revenue</li>
             <li>Firms spending $5K+ per month on marketing</li>
-            <li>Law firm partners who want real accountability</li>
-            <li>Firms ready to treat marketing as an investment</li>
-            <li>Firms tired of managing their own vendors</li>
+            <li>Owners who want real accountability from their marketing</li>
+            <li>Firms tired of managing vendors themselves</li>
+            <li>Firms ready to treat marketing as a revenue investment</li>
           </ul>
         </div>
       </div>
       <div class="who-scarcity">
-        <p>Currently working with 10 firms. Accepting 5 new firms in 2026.</p>
+        <p>Currently working with 10 firms. Accepting 5 new partners in 2026.</p>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
+  <!-- 8. CTA -->
   <section class="section-cta">
     <div class="container">
       <div class="cta-content">
         <h2>Ready to Grow?</h2>
-        <p>Get a free Growth Audit. No pitch. No pressure. Just an honest look at what's working, what's not, and whether we're the right partner for your firm.</p>
+        <p>Apply for an Executive Growth Diagnostic. No pitch. No pressure. We review your market, your vendors, and your numbers. Then we tell you exactly what to fix.</p>
         <div class="cta-actions">
-          <a href="/contact/" class="btn btn-white btn-lg">Get Your Growth Audit</a>
+          <a href="/contact/" class="btn btn-white btn-lg">Apply for Growth Diagnostic</a>
         </div>
       </div>
     </div>
@@ -595,31 +451,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     width: auto;
   }
 
-  /* Sections */
-  .section-light {
-    padding: 4rem 1.5rem;
-    background: #f8f9fa;
-  }
-  .section-white {
-    padding: 4rem 1.5rem;
-    background: #fff;
-  }
-  .section-dark {
-    padding: 4rem 1.5rem;
-    background: var(--color-bg-dark);
-    color: #fff;
-  }
-  .section-green {
-    padding: 4rem 1.5rem;
-    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
-    color: #fff;
-  }
-  .section-cta {
-    padding: 4rem 1.5rem;
-    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
-    color: #fff;
-    text-align: center;
-  }
+  /* Shared section utilities */
   .section-label {
     font-size: 0.75rem;
     font-weight: 600;
@@ -628,46 +460,12 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     color: var(--color-primary);
     margin-bottom: 0.5rem;
   }
-  .section-dark .section-label,
-  .section-green .section-label {
-    color: var(--color-primary-light);
-  }
-  .content-narrow {
-    max-width: 700px;
-    margin: 0 auto 2.5rem;
-    text-align: center;
-  }
-  .content-narrow h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin-bottom: 1rem;
-  }
   .lead {
     font-size: 1.0625rem;
     line-height: 1.6;
     color: #4b5563;
   }
-
-  /* Problem Section */
-  .section-problem {
-    padding: 6rem 1.5rem;
-    background: #fafafa;
-    position: relative;
-  }
-  .section-problem::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
-  }
-  .problem-header {
-    max-width: 600px;
-    margin: 0 auto 4rem;
-    text-align: center;
-  }
-  .problem-label {
+  .section-badge {
     display: inline-block;
     font-size: 0.6875rem;
     font-weight: 700;
@@ -679,6 +477,131 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     border-radius: 100px;
     margin-bottom: 1.25rem;
     border: 1px solid rgba(100, 116, 139, 0.15);
+  }
+
+  /* 2. Social Proof */
+  .section-social-proof {
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+  .section-social-proof::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
+  }
+  .social-proof-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .social-proof-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      gap: 1.5rem;
+    }
+  }
+  .testimonial-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: 16px 16px 0 0;
+  }
+  .quote-icon {
+    width: 24px;
+    height: 24px;
+    color: rgba(41, 140, 66, 0.2);
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+  }
+  .testimonial-quote p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-text-dark);
+    margin: 0 0 1.5rem;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .testimonial-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .testimonial-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .testimonial-info strong {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+  .testimonial-info span {
+    font-size: 0.8125rem;
+    color: #4b5563;
+  }
+
+  /* 3. Problem Section */
+  .section-problem {
+    padding: 6rem 1.5rem;
+    background: #fff;
+    position: relative;
+  }
+  .section-problem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.15), transparent);
+  }
+  .problem-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    text-align: center;
   }
   .problem-header h2 {
     font-size: clamp(2rem, 5vw, 2.75rem);
@@ -694,8 +617,6 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     max-width: 500px;
     margin: 0 auto;
   }
-
-  /* Problem Grid */
   .problem-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -712,7 +633,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
   }
   .problem-card {
     position: relative;
-    background: #fff;
+    background: #fafafa;
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     padding: 2rem;
@@ -773,13 +694,93 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     line-height: 1.65;
   }
 
-  /* System Section */
-  .section-system {
+  /* 4. Solution Section */
+  .section-solution {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(180deg, var(--color-bg-dark) 0%, #0a1f0f 100%);
+    color: #fff;
+  }
+  .solution-header {
+    max-width: 650px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .solution-header .section-label {
+    color: var(--color-primary-light);
+  }
+  .solution-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .solution-header .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: #b0b8b3;
+  }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+  }
+  @media (max-width: 900px) {
+    .solution-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 520px;
+    }
+  }
+  @media (max-width: 500px) {
+    .solution-grid {
+      grid-template-columns: 1fr;
+      max-width: 320px;
+    }
+  }
+  .solution-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  .solution-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  .solution-item svg {
+    width: 22px;
+    height: 22px;
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+  }
+  .solution-item span {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #e2e8f0;
+  }
+  .solution-statement {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    max-width: 650px;
+    margin: 0 auto;
+    letter-spacing: -0.01em;
+  }
+
+  /* 5. LEXXLY Section */
+  .section-lexxly {
     padding: 6rem 1.5rem;
     background: #fff;
     position: relative;
   }
-  .section-system::before {
+  .section-lexxly::before {
     content: '';
     position: absolute;
     top: 0;
@@ -788,24 +789,24 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.15), transparent);
   }
-  .system-header {
+  .lexxly-header {
     max-width: 650px;
     margin: 0 auto 4rem;
     text-align: center;
   }
-  .system-header h2 {
+  .lexxly-header h2 {
     font-size: clamp(2rem, 5vw, 2.75rem);
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--color-text-dark);
     letter-spacing: -0.02em;
   }
-  .system-header .lead {
+  .lexxly-header .lead {
     font-size: 1.125rem;
     line-height: 1.7;
     color: #4b5563;
   }
-  .system-grid {
+  .lexxly-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
@@ -813,8 +814,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     margin: 0 auto;
     position: relative;
   }
-  /* Connecting line between cards */
-  .system-grid::before {
+  .lexxly-grid::before {
     content: '';
     position: absolute;
     top: 52px;
@@ -826,21 +826,21 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     z-index: 0;
   }
   @media (max-width: 900px) {
-    .system-grid {
+    .lexxly-grid {
       grid-template-columns: repeat(2, 1fr);
       max-width: 520px;
     }
-    .system-grid::before {
+    .lexxly-grid::before {
       display: none;
     }
   }
   @media (max-width: 500px) {
-    .system-grid {
+    .lexxly-grid {
       grid-template-columns: 1fr;
       max-width: 320px;
     }
   }
-  .system-card {
+  .lexxly-card {
     position: relative;
     background: #fafafa;
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -851,7 +851,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
   }
-  .system-card::before {
+  .lexxly-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -861,12 +861,12 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
     border-radius: 16px 16px 0 0;
   }
-  .system-card:hover {
+  .lexxly-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     border-color: rgba(41, 140, 66, 0.15);
   }
-  .system-num {
+  .lexxly-num {
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
@@ -875,7 +875,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     color: rgba(41, 140, 66, 0.35);
     letter-spacing: 0.05em;
   }
-  .system-card .system-icon {
+  .lexxly-icon {
     width: 56px;
     height: 56px;
     display: flex;
@@ -886,504 +886,27 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     margin: 0 auto 1.25rem;
     box-shadow: 0 4px 16px rgba(41, 140, 66, 0.25);
   }
-  .system-card .system-icon svg {
+  .lexxly-icon svg {
     width: 26px;
     height: 26px;
     color: #fff;
   }
-  .system-card h3 {
+  .lexxly-card h3 {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-text-dark);
     margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
   }
-  .system-card p {
+  .lexxly-card p {
     font-size: 0.875rem;
     color: #4b5563;
     line-height: 1.6;
     margin: 0;
   }
-
-  /* Capabilities */
-  .section-capabilities {
-    padding: 6rem 1.5rem;
-    background: linear-gradient(180deg, var(--color-bg-dark) 0%, #0a1f0f 100%);
-    color: #fff;
-  }
-  .capabilities-header {
-    max-width: 650px;
-    margin: 0 auto 4rem;
+  .lexxly-cta {
     text-align: center;
-  }
-  .capabilities-header .section-label {
-    color: var(--color-primary-light);
-  }
-  .capabilities-header h2 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 700;
-    margin-bottom: 1.25rem;
-    color: #fff;
-    letter-spacing: -0.02em;
-  }
-  .capabilities-header .lead {
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: #b0b8b3;
-  }
-  .capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  @media (max-width: 900px) {
-    .capabilities-grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-    }
-  }
-  @media (min-width: 601px) and (max-width: 900px) {
-    .capabilities-grid {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 700px;
-    }
-  }
-  .capability-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-  }
-  .capability-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-4px);
-  }
-  .capability-icon {
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: 14px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 16px rgba(41, 140, 66, 0.3);
-  }
-  .capability-icon svg {
-    width: 26px;
-    height: 26px;
-    color: #fff;
-  }
-  .capability-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-  .capability-card p {
-    font-size: 0.9375rem;
-    color: #b0b8b3;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Compare Section */
-  .section-compare {
-    padding: 6rem 1.5rem;
-    background: #f8fafc;
-  }
-  .compare-header {
-    max-width: 600px;
-    margin: 0 auto 4rem;
-    text-align: center;
-  }
-  .compare-header h2 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--color-text-dark);
-    letter-spacing: -0.02em;
-  }
-  .compare-header .lead {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: #4b5563;
-  }
-  .compare-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  @media (max-width: 800px) {
-    .compare-cards {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-    }
-  }
-  .compare-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  }
-  .compare-card-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #f1f5f9;
-  }
-  .compare-card-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-  }
-  .compare-card-icon svg {
-    width: 26px;
-    height: 26px;
-  }
-  .compare-card-agency .compare-card-icon {
-    background: rgba(100, 116, 139, 0.1);
-  }
-  .compare-card-agency .compare-card-icon svg {
-    color: #64748b;
-  }
-  .compare-card-lexgro .compare-card-icon {
-    background: rgba(41, 140, 66, 0.1);
-  }
-  .compare-card-lexgro .compare-card-icon svg {
-    color: var(--color-primary);
-  }
-  .compare-card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
-  }
-  .compare-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-  .compare-list li {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .compare-x,
-  .compare-check {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 0.75rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 0.125rem;
-  }
-  .compare-x {
-    background: rgba(100, 116, 139, 0.1);
-    color: #64748b;
-  }
-  .compare-check {
-    background: rgba(41, 140, 66, 0.15);
-    color: var(--color-primary);
-  }
-  .compare-list strong {
-    display: block;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
-    margin-bottom: 0.125rem;
-  }
-  .compare-list p {
-    font-size: 0.8125rem;
-    color: #4b5563;
-    line-height: 1.5;
-    margin: 0;
-  }
-  .compare-card-agency {
-    border: 1px solid #e2e8f0;
-    background: #f1f5f9;
-  }
-  .compare-card-agency h3 {
-    color: #64748b;
-  }
-  .compare-card-agency .compare-list strong {
-    color: #4b5563;
-  }
-  .compare-card-agency .compare-list p {
-    color: #4b5563;
-  }
-  .compare-card-lexgro {
-    border: 2px solid var(--color-primary);
-    position: relative;
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.03) 0%, #fff 100%);
-    box-shadow: 0 8px 32px rgba(41, 140, 66, 0.15), 0 0 0 1px rgba(41, 140, 66, 0.1);
-  }
-  .compare-card-lexgro::before {
-    content: 'Recommended';
-    position: absolute;
-    top: -0.75rem;
-    right: 1.5rem;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: #fff;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.375rem 0.75rem;
-    border-radius: 100px;
-    box-shadow: 0 4px 12px rgba(41, 140, 66, 0.3);
-  }
-
-  /* Why Fractional CMO Section */
-  .section-why-cmo {
-    padding: 6rem 1.5rem;
-    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0a2912 100%);
-    color: #fff;
-  }
-  .why-cmo-header {
-    max-width: 700px;
-    margin: 0 auto 4rem;
-    text-align: center;
-  }
-  .why-cmo-badge {
-    display: inline-block;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #fff;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-  }
-  .why-cmo-header h2 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 700;
-    margin-bottom: 1.25rem;
-    letter-spacing: -0.02em;
-    color: #fff;
-  }
-  .why-cmo-header .lead {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: #b0b8b3;
-  }
-  .why-cmo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-    align-items: start;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  @media (max-width: 900px) {
-    .why-cmo-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-  }
-
-  /* Quote */
-  .why-cmo-quote {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    position: relative;
-  }
-  .why-cmo-quote::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, var(--color-primary), var(--color-primary-dark));
-    border-radius: 16px 0 0 16px;
-  }
-  .why-cmo-quote blockquote {
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: #e2e8f0;
-    font-style: italic;
-    margin: 0 0 1.5rem;
-  }
-  .why-cmo-author {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-  }
-  .why-cmo-name {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: #fff;
-  }
-  .why-cmo-title {
-    font-size: 0.8125rem;
-    color: #b0b8b3;
-  }
-
-  /* Points */
-  .why-cmo-points {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .why-cmo-point {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    transition: all 0.2s ease;
-  }
-  .why-cmo-point:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-  .why-cmo-point-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(41, 140, 66, 0.2);
-    border-radius: 12px;
-    flex-shrink: 0;
-  }
-  .why-cmo-point-icon svg {
-    width: 24px;
-    height: 24px;
-    color: var(--color-primary-light);
-  }
-  .why-cmo-point-text strong {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 0.375rem;
-  }
-  .why-cmo-point-text p {
-    font-size: 0.875rem;
-    color: #b0b8b3;
-    line-height: 1.55;
-    margin: 0;
-  }
-
-  /* Proof Section */
-  .section-proof {
-    padding: 6rem 1.5rem;
-    background: #fafafa;
-    text-align: center;
-    position: relative;
-  }
-  .section-proof::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
-  }
-  .proof-header {
-    max-width: 600px;
-    margin: 0 auto 3rem;
-  }
-  .proof-label {
-    display: inline-block;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-slate);
-    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 1.25rem;
-    border: 1px solid rgba(100, 116, 139, 0.15);
-  }
-  .proof-header h2 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 700;
-    color: var(--color-text-dark);
-    letter-spacing: -0.02em;
-  }
-  .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto 2rem;
-  }
-  @media (max-width: 700px) {
-    .proof-grid {
-      grid-template-columns: 1fr;
-      max-width: 380px;
-    }
-  }
-  .proof-card {
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-  }
-  .proof-card-featured {
-    position: relative;
-  }
-  .proof-card-featured::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
-    border-radius: 16px 16px 0 0;
-  }
-  .proof-value {
-    display: block;
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: 0.5rem;
-  }
-  .proof-desc {
-    display: block;
-    font-size: 0.9375rem;
-    color: #4b5563;
-    line-height: 1.5;
-  }
-  .proof-awards {
-    margin-bottom: 1.5rem;
-  }
-  .proof-awards p {
-    font-size: 0.875rem;
-    color: #4b5563;
-    font-style: italic;
-  }
-  .proof-cta {
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
   .btn-outline-light {
     display: inline-block;
@@ -1401,7 +924,119 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     color: #fff;
   }
 
-  /* Who We Help */
+  /* 6. How We Work Section */
+  .section-how {
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+  .section-how::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
+  }
+  .how-header {
+    max-width: 650px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .how-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .how-header .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #4b5563;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .how-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      gap: 1.5rem;
+    }
+  }
+  .how-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .how-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: 16px 16px 0 0;
+  }
+  .how-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(41, 140, 66, 0.15);
+  }
+  .how-num {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(41, 140, 66, 0.35);
+    letter-spacing: 0.05em;
+  }
+  .how-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 16px rgba(41, 140, 66, 0.25);
+  }
+  .how-icon svg {
+    width: 26px;
+    height: 26px;
+    color: #fff;
+  }
+  .how-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.01em;
+  }
+  .how-card p {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.65;
+  }
+  .how-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  /* 7. Who We Help */
   .section-who {
     padding: 6rem 1.5rem;
     background: #fff;
@@ -1482,7 +1117,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     color: #4b5563;
   }
   .who-card-not li::before {
-    content: '–';
+    content: '\2013';
     position: absolute;
     left: 0;
     color: #94a3b8;
@@ -1499,7 +1134,7 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     color: var(--color-text-dark);
   }
   .who-card-yes li::before {
-    content: '✓';
+    content: '\2713';
     position: absolute;
     left: 0;
     color: var(--color-primary);
@@ -1521,7 +1156,13 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     border: 1px solid rgba(41, 140, 66, 0.15);
   }
 
-  /* CTA */
+  /* 8. CTA */
+  .section-cta {
+    padding: 4rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
+    color: #fff;
+    text-align: center;
+  }
   .cta-content {
     max-width: 650px;
     margin: 0 auto;

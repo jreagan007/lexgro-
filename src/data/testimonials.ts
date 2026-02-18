@@ -23,6 +23,7 @@ export const testimonials: Testimonial[] = [
     practiceArea: 'Personal Injury and Workers Comp',
     location: 'Wilmington, NC',
     photo: '/images/clients/clarke-speaks.png',
+    quote: 'LEXGRO took us from guessing to knowing exactly where our cases come from. The accountability changed how we spend every dollar.',
   },
   {
     name: 'Peter Davis',
@@ -47,6 +48,7 @@ export const testimonials: Testimonial[] = [
     practiceArea: 'Personal Injury',
     location: 'Atlanta, GA',
     photo: '/images/clients/riah-greathouse.webp',
+    quote: 'Having a CMO who actually understands injury law made all the difference. No learning curve. Results from day one.',
   },
   {
     name: 'Drew Brown',
@@ -79,6 +81,7 @@ export const testimonials: Testimonial[] = [
     practiceArea: 'Personal Injury',
     location: 'Spokane, WA',
     photo: '/images/clients/matthew-albrecht.webp',
+    quote: 'We went from spending money on marketing to investing in growth. The difference shows up in our case count every month.',
   },
   {
     name: 'Yunuen Alvarado Bustos',
