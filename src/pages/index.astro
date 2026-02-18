@@ -7,7 +7,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import { testimonials } from '../data/testimonials';
 
-// Import trust assets
+// Import hero background and trust assets
+import heroBackground from '../assets/images/heroes/hero-main.png';
 import trustAvatars1 from '../assets/images/heroes/trust-avatars-1.png';
 import trustAvatars2 from '../assets/images/heroes/trust-avatars-2.png';
 import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
@@ -25,7 +26,16 @@ const featuredTestimonials = testimonials.filter(t =>
 >
   <!-- 1. Hero -->
   <section class="hero">
-    <div class="container">
+    <Image
+      src={heroBackground}
+      alt=""
+      class="hero-bg"
+      widths={[800, 1200, 1920]}
+      sizes="100vw"
+      loading="eager"
+    />
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
       <div class="hero-grid">
         <div class="hero-content">
           <p class="hero-label">The Law Firm CMO</p>
@@ -360,9 +370,35 @@ const featuredTestimonials = testimonials.filter(t =>
 <style>
   /* Hero */
   .hero {
+    position: relative;
     background: var(--color-bg-dark);
     color: #fff;
     padding: 4rem 1.5rem 3rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(1, 25, 7, 0.88) 0%,
+      rgba(1, 25, 7, 0.78) 40%,
+      rgba(1, 25, 7, 0.6) 100%
+    );
+  }
+  .hero-container {
+    position: relative;
+    z-index: 2;
   }
   .hero-grid {
     display: grid;
@@ -413,13 +449,15 @@ const featuredTestimonials = testimonials.filter(t =>
     gap: 1.25rem;
   }
   .stat-item {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 8px;
     padding: 1rem 1.5rem;
     display: flex;
     align-items: baseline;
     gap: 0.75rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   .stat-value {
     font-size: 1.75rem;
