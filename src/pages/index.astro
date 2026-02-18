@@ -375,6 +375,7 @@ const featuredTestimonials = testimonials.filter(t =>
     color: #fff;
     padding: 4rem 1.5rem 3rem;
     overflow: hidden;
+    min-height: 520px;
   }
   .hero-bg {
     position: absolute;
@@ -382,8 +383,16 @@ const featuredTestimonials = testimonials.filter(t =>
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: left top;
     z-index: 0;
+  }
+  @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+    }
+    .hero-bg {
+      object-position: 25% top;
+    }
   }
   .hero-overlay {
     position: absolute;

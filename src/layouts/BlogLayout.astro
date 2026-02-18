@@ -88,9 +88,17 @@ function formatDate(date: Date): string {
   <div class="progress-bar" id="progress-bar"></div>
 
   <article class="blog-article">
-    <!-- Header -->
+    <!-- Hero Header -->
     <header class="blog-header">
-      <div class="container">
+      <img
+        src={heroImgPath}
+        alt=""
+        class="hero-bg"
+        loading="eager"
+        onerror="this.style.display='none'"
+      />
+      <div class="hero-overlay"></div>
+      <div class="container hero-container">
         <div class="header-inner">
           <Breadcrumbs items={breadcrumbItems} />
 
@@ -136,19 +144,6 @@ function formatDate(date: Date): string {
         </div>
       </div>
     </header>
-
-    <!-- Featured Image -->
-    <div class="featured-image">
-      <div class="container">
-        <img
-          src={heroImgPath}
-          alt={title}
-          class="featured-img"
-          loading="eager"
-          onerror="this.parentElement.parentElement.style.display='none'"
-        />
-      </div>
-    </div>
 
     <!-- Main Content Area -->
     <div class="content-wrapper">
@@ -267,10 +262,39 @@ function formatDate(date: Date): string {
     transition: width 0.1s ease;
   }
 
-  /* Header */
+  /* Header - Dark hero with editorial background */
   .blog-header {
-    padding: 2rem 0 1.5rem;
-    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    background: var(--color-bg-dark);
+    padding: 3rem 0 2.5rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(1, 25, 7, 0.82) 0%,
+      rgba(1, 25, 7, 0.75) 40%,
+      rgba(1, 25, 7, 0.65) 100%
+    );
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
   }
 
   .header-inner {
@@ -297,14 +321,14 @@ function formatDate(date: Date): string {
 
   .reading-time {
     font-size: 0.8125rem;
-    color: #4b5563;
+    color: #b0b8b3;
   }
 
   .article-title {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
     line-height: 1.15;
     font-weight: 800;
-    color: var(--color-text-dark);
+    color: #fff;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
@@ -312,7 +336,7 @@ function formatDate(date: Date): string {
   .article-lede {
     font-size: 1.125rem;
     line-height: 1.5;
-    color: #4b5563;
+    color: #b0b8b3;
     margin-bottom: 1.5rem;
   }
 
@@ -335,6 +359,7 @@ function formatDate(date: Date): string {
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
   }
 
   .author-text {
@@ -344,18 +369,18 @@ function formatDate(date: Date): string {
 
   .author-name {
     font-weight: 600;
-    color: var(--color-text-dark);
+    color: #fff;
     text-decoration: none;
     font-size: 0.9375rem;
   }
 
   .author-name:hover {
-    color: var(--color-primary);
+    color: var(--color-mint);
   }
 
   .pub-date {
     font-size: 0.8125rem;
-    color: #4b5563;
+    color: #b0b8b3;
   }
 
   /* Share Buttons */
@@ -368,9 +393,9 @@ function formatDate(date: Date): string {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 1px solid var(--color-border);
-    background: white;
-    color: #4b5563;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: #b0b8b3;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -381,32 +406,13 @@ function formatDate(date: Date): string {
   .share-btn:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
-    background: #fafafa;
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .share-btn.copied {
     border-color: var(--color-primary);
     background: var(--color-primary);
     color: white;
-  }
-
-  /* Featured Image */
-  .featured-image {
-    padding: 0;
-    background: #fafafa;
-  }
-
-  .featured-image .container {
-    max-width: 960px;
-  }
-
-  .featured-img {
-    width: 100%;
-    height: auto;
-    max-height: 480px;
-    object-fit: cover;
-    border-radius: 0 0 12px 12px;
-    display: block;
   }
 
   /* Content Wrapper */
