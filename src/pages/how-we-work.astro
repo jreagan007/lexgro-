@@ -4,6 +4,8 @@
  * LEXGRO voice, clean educational content
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
 ---
 
 <BaseLayout
@@ -13,7 +15,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
+    <Image
+      src={heroBackground}
+      alt=""
+      class="hero-bg"
+      widths={[800, 1200, 1920]}
+      sizes="100vw"
+      loading="eager"
+    />
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
       <p class="hero-label">The System</p>
       <h1>How We Work</h1>
       <p class="hero-text">Three layers. Each feeds the next. Intelligence tells us what to build. Editorial produces it. Full funnel gets it everywhere.</p>
@@ -369,10 +380,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   /* Hero */
   .hero {
+    position: relative;
     background: var(--color-bg-dark);
     color: #fff;
     padding: 4rem 1.5rem 3rem;
     text-align: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(1, 25, 7, 0.72) 0%,
+      rgba(1, 25, 7, 0.65) 40%,
+      rgba(1, 25, 7, 0.55) 100%
+    );
+  }
+  .hero-container {
+    position: relative;
+    z-index: 2;
   }
   .hero-label {
     font-size: 0.75rem;

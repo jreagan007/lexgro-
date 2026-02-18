@@ -16,6 +16,7 @@ interface Props {
   slug?: string;
   category?: string;
   readingTime?: string;
+  heroImage?: string;
   relatedPosts?: Array<{ title: string; slug: string; category?: string; description?: string }>;
 }
 
@@ -29,8 +30,12 @@ const {
   slug = '',
   category = 'Marketing',
   readingTime = '5 min read',
+  heroImage,
   relatedPosts = []
 } = Astro.props;
+
+// Check for hero image
+const heroImgPath = heroImage || `/images/heroes/blog/${slug}.jpg`;
 
 // Breadcrumb items
 const breadcrumbItems = [
@@ -132,6 +137,18 @@ function formatDate(date: Date): string {
       </div>
     </header>
 
+    <!-- Featured Image -->
+    <div class="featured-image">
+      <div class="container">
+        <img
+          src={heroImgPath}
+          alt={title}
+          class="featured-img"
+          loading="eager"
+          onerror="this.parentElement.parentElement.style.display='none'"
+        />
+      </div>
+    </div>
 
     <!-- Main Content Area -->
     <div class="content-wrapper">
@@ -371,6 +388,25 @@ function formatDate(date: Date): string {
     border-color: var(--color-primary);
     background: var(--color-primary);
     color: white;
+  }
+
+  /* Featured Image */
+  .featured-image {
+    padding: 0;
+    background: #fafafa;
+  }
+
+  .featured-image .container {
+    max-width: 960px;
+  }
+
+  .featured-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 0 0 12px 12px;
+    display: block;
   }
 
   /* Content Wrapper */

@@ -15,6 +15,7 @@ interface Props {
   updatedDate?: Date;
   slug?: string;
   wordCount?: number;
+  heroImage?: string;
 }
 
 const {
@@ -24,8 +25,12 @@ const {
   pubDate,
   updatedDate,
   slug = '',
-  wordCount = 5000
+  wordCount = 5000,
+  heroImage
 } = Astro.props;
+
+// Check for hero image
+const heroImgPath = heroImage || `/images/heroes/guide/${slug}.jpg`;
 
 // Calculate reading time (200 words per minute)
 const readingTime = Math.ceil(wordCount / 200);
@@ -85,7 +90,15 @@ function formatDate(date: Date): string {
   <article class="guide-article">
     <!-- Hero Header -->
     <header class="guide-hero">
-      <div class="container">
+      <img
+        src={heroImgPath}
+        alt=""
+        class="hero-bg"
+        loading="eager"
+        onerror="this.style.display='none'"
+      />
+      <div class="hero-overlay"></div>
+      <div class="container hero-container">
         <Breadcrumbs items={breadcrumbItems} />
 
         <div class="hero-content">
@@ -243,8 +256,34 @@ function formatDate(date: Date): string {
 
   /* Hero */
   .guide-hero {
+    position: relative;
     background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-dark-alt) 100%);
     padding: 3rem 0 4rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(1, 25, 7, 0.78) 0%,
+      rgba(1, 25, 7, 0.7) 40%,
+      rgba(1, 25, 7, 0.6) 100%
+    );
+  }
+  .hero-container {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-content {
