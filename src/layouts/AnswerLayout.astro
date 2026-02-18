@@ -245,4 +245,68 @@ const faqSchema = faqs.length > 0 ? {
     font-size: 0.875rem;
     color: #4b5563;
   }
+
+  /* Tables */
+  .answer-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .answer-body :global(thead) {
+    background: var(--color-bg-dark);
+  }
+
+  .answer-body :global(th) {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .answer-body :global(th:first-child) {
+    border-radius: 8px 0 0 0;
+  }
+
+  .answer-body :global(th:last-child) {
+    border-radius: 0 8px 0 0;
+  }
+
+  .answer-body :global(td) {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  .answer-body :global(tbody tr:nth-child(even)) {
+    background: rgba(41, 140, 66, 0.03);
+  }
+
+  .answer-body :global(tbody tr:hover) {
+    background: rgba(41, 140, 66, 0.06);
+  }
+
+  .answer-body :global(tbody tr:last-child td:first-child) {
+    border-radius: 0 0 0 8px;
+  }
+
+  .answer-body :global(tbody tr:last-child td:last-child) {
+    border-radius: 0 0 8px 0;
+  }
+
+  @media (max-width: 768px) {
+    .answer-body :global(table) {
+      font-size: 0.875rem;
+    }
+
+    .answer-body :global(th),
+    .answer-body :global(td) {
+      padding: 0.625rem 0.75rem;
+    }
+  }
 </style>
