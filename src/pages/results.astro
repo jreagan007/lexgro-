@@ -450,27 +450,28 @@ const resultsSchema = {
     max-width: 340px;
   }
   .stat-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     padding: 1.25rem 1.5rem;
     display: flex;
     align-items: baseline;
     gap: 0.75rem;
     transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
   }
   .stat-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
   }
   .stat-value {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--color-primary-light);
+    color: #fff;
   }
   .stat-text {
     font-size: 0.875rem;
-    color: #b0b8b3;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   /* ===========================
