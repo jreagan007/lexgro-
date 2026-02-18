@@ -6,6 +6,8 @@
  * Matches homepage visual design spec
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroBackground from '../../assets/images/heroes/tips-hero.jpg';
 import { tips, getTips } from '../../data/tips-from-keith';
 
 const allTips = getTips();
@@ -45,7 +47,9 @@ const videoListSchema = {
 
   <!-- ========== HERO ========== -->
   <section class="hero">
-    <div class="container">
+    <Image src={heroBackground} alt="" class="hero-bg" widths={[800, 1200, 1920]} sizes="100vw" loading="eager" />
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
       <div class="hero-grid">
         <div class="hero-content">
           <p class="hero-label">YouTube Shorts</p>
@@ -210,6 +214,27 @@ const videoListSchema = {
     background: var(--color-bg-dark);
     color: #fff;
     padding: 4rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right, rgba(1, 25, 7, 0.85) 0%, rgba(1, 25, 7, 0.78) 40%, rgba(1, 25, 7, 0.68) 100%);
+  }
+  .hero-container {
+    position: relative;
+    z-index: 2;
   }
   .hero-grid {
     display: grid;

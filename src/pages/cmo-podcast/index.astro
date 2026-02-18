@@ -5,6 +5,8 @@
  * Conversations with law firm marketing executives
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroBackground from '../../assets/images/heroes/cmo-podcast-index-hero.jpg';
 import { cmoEpisodes, getSortedCMOEpisodes, formatDate } from '../../data/cmo-podcast-episodes';
 import { podcastPlatforms } from '../../data/podcast-episodes';
 
@@ -42,7 +44,9 @@ const podcastSchema = {
 
   <!-- Hero Section -->
   <section class="podcast-hero">
-    <div class="container">
+    <Image src={heroBackground} alt="" class="hero-bg" widths={[800, 1200, 1920]} sizes="100vw" loading="eager" />
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
       <div class="hero-content">
         <span class="section-label">Podcast Series</span>
         <h1 class="hero-title">The CMO Podcast</h1>
@@ -185,6 +189,30 @@ const podcastSchema = {
   .podcast-hero {
     padding: 5rem 0 3rem;
     background: var(--color-bg-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right, rgba(1, 25, 7, 0.85) 0%, rgba(1, 25, 7, 0.78) 40%, rgba(1, 25, 7, 0.68) 100%);
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-content {
@@ -246,7 +274,7 @@ const podcastSchema = {
 
   .latest-card {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
-    border-radius: 24px;
+    border-radius: 16px;
     padding: 3rem;
     position: relative;
   }

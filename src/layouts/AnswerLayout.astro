@@ -123,24 +123,47 @@ const faqSchema = faqs.length > 0 ? {
 
 <style>
   .answer-header {
-    background: linear-gradient(135deg, #fafafa 0%, white 100%);
+    background: var(--color-bg-dark);
     padding: 3rem 0 2rem;
-    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
   }
 
   .answer-label {
-    color: var(--color-primary);
+    display: inline-block;
+    color: #b0b8b3;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     margin-bottom: 0.75rem;
+    padding: 0.375rem 1rem;
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12), rgba(100, 116, 139, 0.06));
+    border-radius: 100px;
   }
 
   .answer-header h1 {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     line-height: 1.25;
     max-width: 800px;
+    color: #fff;
+  }
+
+  /* Override breadcrumb colors for dark hero */
+  .answer-header :global(.breadcrumb-item a) {
+    color: #b0b8b3;
+  }
+
+  .answer-header :global(.breadcrumb-item a:hover) {
+    color: var(--color-mint);
+  }
+
+  .answer-header :global(.breadcrumb-item span[aria-current="page"]) {
+    color: #fff;
+  }
+
+  .answer-header :global(.breadcrumb-separator) {
+    color: #b0b8b3;
   }
 
   .quick-answer-box {
@@ -152,7 +175,7 @@ const faqSchema = faqs.length > 0 ? {
     background: var(--color-primary);
     color: white;
     padding: 1.5rem 2rem;
-    border-radius: 10px;
+    border-radius: 16px;
     max-width: 800px;
   }
 
@@ -196,7 +219,7 @@ const faqSchema = faqs.length > 0 ? {
   .sidebar-cta {
     background: #fafafa;
     padding: 1.5rem;
-    border-radius: 10px;
+    border-radius: 16px;
     border: 1px solid var(--color-border);
   }
 
