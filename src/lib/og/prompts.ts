@@ -570,7 +570,7 @@ export const CARD_PROMPTS: Record<string, CardPromptConfig> = {
   },
 
   'marketing-card': {
-    prompt: `Whiteboard with erased marks, dry erase markers on tray, empty conference room, morning strategy session atmosphere, 1990s consulting aesthetic, Fuji Pro 400H muted tones, no readable text, no people`,
+    prompt: `Law firm conference table with scattered marketing reports and printouts, ceramic coffee cup, warm morning golden hour light through tall windows, strategy session aftermath, 1990s corporate documentary style, Kodak Portra 400 warm muted tones, natural grain, no people, no text, no logos`,
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
