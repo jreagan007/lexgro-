@@ -46,8 +46,8 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
 ---
 
 <BaseLayout
-  title="Executive Growth Diagnostic | LEXGRO"
-  description="Apply for a free Growth Diagnostic for your injury law firm. We review your market, vendors, and numbers. Then we tell you exactly what we'd do."
+  title="Apply for Strategic Marketing Oversight | LEXGRO"
+  description="Apply for strategic marketing oversight for your PI firm. We review your market, vendors, and numbers. This is a strategic evaluation, not a sales presentation."
   image="/og/contact.png"
 >
   <!-- Hero Section -->
@@ -64,11 +64,11 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
       <div class="container">
         <div class="hero-layout">
         <div class="hero-content">
-          <span class="section-label">Executive Growth Diagnostic</span>
-          <h1 class="hero-title">Apply for Your Growth Diagnostic</h1>
+          <span class="section-label">Strategic Marketing Oversight</span>
+          <h1 class="hero-title">Apply for Strategic Marketing Oversight</h1>
           <p class="hero-subtitle">
-            We review your market, your vendors, and your numbers. Then we tell you exactly what we'd do.
-            No sales pitch. Just honest analysis and a clear action plan.
+            We partner with a limited number of $2M to $15M PI firms ready for structured growth.
+            This is a strategic evaluation, not a sales presentation.
           </p>
 
           <div class="trust-signal">
@@ -117,28 +117,10 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
             </div>
 
             <div class="form-group">
-              <label for="practiceArea">Primary Practice Area</label>
-              <select id="practiceArea" name="practiceArea" required>
-                <option value="">Select your main practice area</option>
-                <option value="personal-injury">Personal Injury</option>
-                <option value="family-law">Family Law</option>
-                <option value="immigration">Immigration</option>
-                <option value="estate-planning">Estate Planning</option>
-                <option value="bankruptcy">Bankruptcy</option>
-                <option value="criminal-defense">Criminal Defense</option>
-                <option value="workers-comp">Workers' Compensation</option>
-                <option value="employment">Employment Law</option>
-                <option value="business">Business/Corporate</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="revenue">Annual Revenue Range</label>
+              <label for="revenue">Firm Revenue Range</label>
               <select id="revenue" name="revenue" required>
-                <option value="">Select your revenue range</option>
-                <option value="under-1m">Under $1M</option>
-                <option value="1m-2m">$1M - $2M</option>
+                <option value="">Select your annual revenue</option>
+                <option value="under-2m">Under $2M</option>
                 <option value="2m-5m">$2M - $5M</option>
                 <option value="5m-10m">$5M - $10M</option>
                 <option value="10m-15m">$10M - $15M</option>
@@ -150,11 +132,22 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
               <label for="marketingSpend">Monthly Marketing Spend</label>
               <select id="marketingSpend" name="marketingSpend" required>
                 <option value="">Select your monthly spend</option>
-                <option value="under-5k">Under $5K</option>
-                <option value="5k-10k">$5K - $10K</option>
-                <option value="10k-25k">$10K - $25K</option>
-                <option value="25k-50k">$25K - $50K</option>
-                <option value="50k-plus">$50K+</option>
+                <option value="under-10k">Under $10K</option>
+                <option value="10k-30k">$10K - $30K</option>
+                <option value="30k-50k">$30K - $50K</option>
+                <option value="50k-100k">$50K - $100K</option>
+                <option value="100k-plus">$100K+</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="practiceArea">Practice Focus</label>
+              <select id="practiceArea" name="practiceArea" required>
+                <option value="">Select your primary focus</option>
+                <option value="personal-injury">Personal Injury</option>
+                <option value="mass-tort">Mass Tort</option>
+                <option value="pi-mass-tort">PI + Mass Tort</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
@@ -162,16 +155,41 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
               <label for="marketingStructure">Current Marketing Structure</label>
               <select id="marketingStructure" name="marketingStructure" required>
                 <option value="">How is your marketing managed?</option>
-                <option value="all-inhouse">All in-house</option>
-                <option value="all-outsourced">All outsourced</option>
-                <option value="mix">Mix of both</option>
-                <option value="not-sure">Not sure</option>
+                <option value="multiple-vendors">Multiple vendors, no central oversight</option>
+                <option value="one-agency">One agency handles everything</option>
+                <option value="in-house">In-house marketing team</option>
+                <option value="mix">Mix of in-house and vendors</option>
+                <option value="not-sure">Not sure / starting from scratch</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="whyNow">Why Now? (Optional)</label>
-              <textarea id="whyNow" name="whyNow" rows="3" placeholder="What prompted you to look into this?"></textarea>
+              <label for="bottleneck">Biggest Marketing Bottleneck</label>
+              <select id="bottleneck" name="bottleneck" required>
+                <option value="">What's your biggest challenge?</option>
+                <option value="no-oversight">No strategic oversight of vendors</option>
+                <option value="intake-leaks">Intake is losing leads</option>
+                <option value="cost-per-case">Cost per case is too high</option>
+                <option value="cant-measure">Can't measure what's working</option>
+                <option value="scaling">Ready to scale but don't know how</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ownerRole">Your Role in Marketing</label>
+              <select id="ownerRole" name="ownerRole" required>
+                <option value="">How involved are you in marketing?</option>
+                <option value="managing-everything">I manage vendors directly</option>
+                <option value="reviewing-results">I review results but want less involvement</option>
+                <option value="delegated">I've delegated but don't trust the results</option>
+                <option value="hands-off">I want to be hands-off with someone I trust</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="whyNow">Why Now?</label>
+              <textarea id="whyNow" name="whyNow" rows="3" placeholder="What prompted you to look into strategic marketing oversight?"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-lg submit-btn">
@@ -179,7 +197,7 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
             </button>
 
             <p class="form-disclaimer">
-              Keith reviews every application within 24 hours. We'll follow up with next steps if it's a fit.
+              This is a strategic evaluation, not a sales presentation. Keith reviews every application within 24 hours.
             </p>
           </form>
         </div>
@@ -272,11 +290,11 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
     <div class="container">
       <div class="proof-content">
         <div class="proof-stat">
-          <span class="stat-value">200+</span>
-          <span class="stat-label">Law Firms Helped</span>
+          <span class="stat-value">47</span>
+          <span class="stat-label">Law Firm Partners</span>
         </div>
         <div class="proof-stat">
-          <span class="stat-value">12+</span>
+          <span class="stat-value">25+</span>
           <span class="stat-label">Years in Legal Marketing</span>
         </div>
         <div class="proof-stat">

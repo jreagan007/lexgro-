@@ -23,16 +23,6 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { label: 'How We Work', href: '/how-we-work/' },
   { label: 'LEXXLY', href: '/lexxly/' },
-  { label: 'Results', href: '/results/' },
-  {
-    label: 'Resources',
-    dropdown: [
-      { label: 'Guides', href: '/guide/', description: 'In-depth marketing playbooks', count: '7' },
-      { label: 'Blog', href: '/blog/', description: 'Insights and strategies', count: '19' },
-      { label: 'Podcast', href: '/podcast/', description: 'Law Firm Growth Podcast', count: '30' },
-      { label: 'Tips from Keith', href: '/tips-from-keith/', description: 'Quick video tips', count: '12' },
-    ]
-  },
   { label: 'About', href: '/about/' },
 ];
 
@@ -119,7 +109,7 @@ function isActive(link: NavLink): boolean {
         ))}
       </ul>
       <a href="/contact/" class="btn btn-primary nav-cta">
-        Get Your Growth Plan
+        Apply
       </a>
     </div>
   </nav>

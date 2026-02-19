@@ -1,7 +1,7 @@
 ---
 /**
- * LEXXLY Suite - Intelligence Platform
- * Partnership-focused, LEXGRO voice
+ * LEXXLY - Growth Intelligence System
+ * Deep dive into the LEXXLY platform modules
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
@@ -9,8 +9,8 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
 ---
 
 <BaseLayout
-  title="LEXXLY Suite"
-  description="The intelligence platform our team uses to decide what to build, who to target, and where the gaps are. Data that drives real decisions."
+  title="LEXXLY Marketing Intelligence for Personal Injury Law Firms | LEXGRO"
+  description="LEXXLY connects your CRM, call tracking, ad platforms, and intake data into one view. See what's working, what's not, and where your cases come from."
   image="/og/lexxly.png"
 >
   <!-- Hero -->
@@ -25,266 +25,216 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     />
     <div class="hero-overlay"></div>
     <div class="container hero-container">
-      <span class="hero-badge">Intelligence Platform</span>
-      <h1>LEXXLY Suite</h1>
-      <p class="hero-text">Not dashboards you log into once a month. Data our team actually uses. What to build. Who to target. Where the gaps are.</p>
+      <span class="hero-badge">Growth Intelligence System</span>
+      <h1>LEXXLY. The Growth Intelligence System for Personal Injury Law Firms.</h1>
+      <p class="hero-text">Your CRM, call tracking, ad platforms, intake data, and SEO rankings. All in one view. Connected to signed cases, not vanity metrics.</p>
       <div class="hero-actions">
-        <a href="/contact/" class="btn btn-primary btn-lg">Request Access</a>
-        <a href="/how-we-work/" class="btn btn-ghost btn-lg">How It Works</a>
+        <a href="/contact/" class="btn btn-primary btn-lg">Apply for Executive Growth Diagnostic</a>
+        <a href="#modules" class="btn btn-ghost btn-lg">See the Modules</a>
       </div>
     </div>
   </section>
 
-  <!-- Products -->
+  <!-- 1. Why LEXXLY Exists -->
   <section class="section-light">
     <div class="container">
-      <div class="products">
+      <div class="why-content">
+        <span class="section-badge">The Problem</span>
+        <h2>You Can't Fix What You Can't See</h2>
+        <div class="why-text">
+          <p>Most PI firms have data everywhere. Google Ads sends one report. Your SEO vendor sends another. Call tracking lives in a third dashboard. CRM data sits in a fourth. Nobody connects them.</p>
+          <p>The result: you're making $30K+ monthly marketing decisions based on fragmented information. You can't see which channels actually drive signed cases. You can't tell if your intake team is losing the leads your marketing generates.</p>
+          <p>LEXXLY solves this by connecting every data source into one intelligence layer. Not a dashboard you log into once a month. A system your fractional CMO uses every day to make decisions that drive cases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. What LEXXLY Does -->
+  <section class="section-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Data Integration</span>
+        <h2>What LEXXLY Connects</h2>
+        <p>Every data source that touches your marketing, intake, and revenue. One unified view.</p>
+      </div>
+      <div class="data-grid">
+        <div class="data-item">
+          <strong>CRM Data</strong>
+          <span>Case status, lead source, revenue by channel</span>
+        </div>
+        <div class="data-item">
+          <strong>Call Tracking</strong>
+          <span>Call volume, answer rates, response times</span>
+        </div>
+        <div class="data-item">
+          <strong>Ad Platforms</strong>
+          <span>Google Ads, Meta, LSAs, CTV spend and performance</span>
+        </div>
+        <div class="data-item">
+          <strong>Intake Data</strong>
+          <span>Form submissions, call outcomes, conversion rates</span>
+        </div>
+        <div class="data-item">
+          <strong>SEO Rankings</strong>
+          <span>Keyword positions, local pack, competitor tracking</span>
+        </div>
+        <div class="data-item">
+          <strong>AI Search Visibility</strong>
+          <span>ChatGPT, Google AI Overview, Perplexity citations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Module Breakdown -->
+  <section id="modules" class="section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">The Modules</span>
+        <h2>Four Intelligence Modules. One System.</h2>
+        <p>Each module solves a specific visibility problem. Together, they give your fractional CMO everything needed to drive cases.</p>
+      </div>
+
+      <div class="modules">
 
         <!-- LexxlyRank -->
-        <div class="product" id="rank">
-          <div class="product-header">
-            <div class="product-icon">
+        <div class="module" id="rank">
+          <div class="module-header">
+            <div class="module-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+                <circle cx="12" cy="12" r="3"/>
               </svg>
             </div>
             <div>
-              <h2>LexxlyRank</h2>
-              <span class="product-type">SEO Intelligence</span>
+              <h3>LexxlyRank</h3>
+              <span class="module-type">SEO Intelligence</span>
             </div>
           </div>
-
-          <p class="product-intro">SERP data meets CPC data. High cost per click means high intent. High volume means opportunity. We understand intent before planning a single post or pillar page.</p>
-
-          <div class="product-features">
-            <h3>What We Look For</h3>
-            <div class="features-list">
-              <div class="feature">
-                <strong>Keyword gaps</strong>
-                <span>What competitors rank for that you don't. We build a roadmap based on where you can actually win.</span>
-              </div>
-              <div class="feature">
-                <strong>Position tracking</strong>
-                <span>We watch your rankings. When something drops, we catch it early and figure out why.</span>
-              </div>
-              <div class="feature">
-                <strong>Link opportunities</strong>
-                <span>Who links to competitors? Why? We find the opportunities worth pursuing.</span>
-              </div>
-              <div class="feature">
-                <strong>Local visibility</strong>
-                <span>Google Maps rankings by location. How you show up in each market you serve.</span>
-              </div>
-              <div class="feature">
-                <strong>Featured snippets</strong>
-                <span>Position zero. The answer box. We identify which queries you can own.</span>
-              </div>
+          <p class="module-intro">See exactly where you stand against every competitor in your market. Updated weekly. Built for decisions, not vanity reports.</p>
+          <div class="module-features">
+            <div class="feature">
+              <strong>Keyword gap analysis</strong>
+              <span>What competitors rank for that you don't. Prioritized by volume, CPC, and difficulty.</span>
             </div>
-          </div>
-
-          <div class="product-output">
-            <h3>Example Output</h3>
-            <div class="output-table">
-              <div class="output-row output-header">
-                <span>Keyword Gap</span>
-                <span>Volume</span>
-                <span>Difficulty</span>
-                <span>Action</span>
-              </div>
-              <div class="output-row">
-                <span>scaffold accident lawyer nyc</span>
-                <span>320</span>
-                <span class="diff-med">Medium</span>
-                <span>Create practice page</span>
-              </div>
-              <div class="output-row">
-                <span>uber accident lawyer brooklyn</span>
-                <span>210</span>
-                <span class="diff-low">Low</span>
-                <span>Quick win this month</span>
-              </div>
-              <div class="output-row">
-                <span>construction settlement ny</span>
-                <span>480</span>
-                <span class="diff-high">High</span>
-                <span>Complete guide</span>
-              </div>
+            <div class="feature">
+              <strong>Local pack monitoring</strong>
+              <span>Google Maps rankings by location. How you show up in each market you serve.</span>
+            </div>
+            <div class="feature">
+              <strong>Position tracking</strong>
+              <span>Daily or weekly tracking. When something drops, we catch it early and diagnose why.</span>
+            </div>
+            <div class="feature">
+              <strong>Content opportunity scoring</strong>
+              <span>(Volume x CPC) / Difficulty = Opportunity. We build where the math makes sense.</span>
             </div>
           </div>
         </div>
 
         <!-- LexxlyPulse -->
-        <div class="product" id="pulse">
-          <div class="product-header">
-            <div class="product-icon">
+        <div class="module" id="pulse">
+          <div class="module-header">
+            <div class="module-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
               </svg>
             </div>
             <div>
-              <h2>LexxlyPulse</h2>
-              <span class="product-type">Sentiment Discovery</span>
+              <h3>LexxlyPulse</h3>
+              <span class="module-type">Performance Tracking</span>
             </div>
           </div>
-
-          <p class="product-intro">FAQ content built on real sentiment is gold. We pull from legal forums, review sites, social discussions. What people actually ask. The words they actually use. That becomes your content.</p>
-
-          <div class="product-features">
-            <h3>What We Find</h3>
-            <div class="features-list">
-              <div class="feature">
-                <strong>Pain points by frequency</strong>
-                <span>Not just what people ask. How often. The questions that come up over and over become your FAQ content.</span>
-              </div>
-              <div class="feature">
-                <strong>Their words, not yours</strong>
-                <span>The exact phrases your audience uses. Your content speaks their language.</span>
-              </div>
-              <div class="feature">
-                <strong>News worth covering</strong>
-                <span>Verdicts, regulatory changes, trending topics. Stories that earn links and build authority.</span>
-              </div>
-              <div class="feature">
-                <strong>Gaps in competitor perception</strong>
-                <span>What people say about competitors. Where you can position differently.</span>
-              </div>
+          <p class="module-intro">Real-time marketing performance across every channel. One dashboard. Connected to signed cases, not clicks.</p>
+          <div class="module-features">
+            <div class="feature">
+              <strong>Channel performance</strong>
+              <span>Spend, leads, and signed cases by channel. See what's working at a glance.</span>
             </div>
-          </div>
-
-          <div class="product-output">
-            <h3>Example Output</h3>
-            <div class="clusters">
-              <div class="cluster">
-                <span class="cluster-count">203</span>
-                <span class="cluster-name">Medical and injury concerns</span>
-              </div>
-              <div class="cluster">
-                <span class="cluster-count">128</span>
-                <span class="cluster-name">Legal process questions</span>
-              </div>
-              <div class="cluster">
-                <span class="cluster-count">85</span>
-                <span class="cluster-name">Financial stress</span>
-              </div>
-              <div class="cluster">
-                <span class="cluster-count">70</span>
-                <span class="cluster-name">Insurance disputes</span>
-              </div>
+            <div class="feature">
+              <strong>Vendor scorecards</strong>
+              <span>Each vendor rated on the metrics that matter. No more hidden underperformance.</span>
+            </div>
+            <div class="feature">
+              <strong>Intake monitoring</strong>
+              <span>Call answer rates, response times, form conversion rates. The data your intake team needs.</span>
+            </div>
+            <div class="feature">
+              <strong>Cost per case tracking</strong>
+              <span>What each signed case costs by channel. The metric that drives budget decisions.</span>
             </div>
           </div>
         </div>
 
         <!-- LexxlyIQ -->
-        <div class="product" id="iq">
-          <div class="product-header">
-            <div class="product-icon">
+        <div class="module" id="iq">
+          <div class="module-header">
+            <div class="module-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 20V10"></path>
-                <path d="M18 20V4"></path>
-                <path d="M6 20v-4"></path>
+                <path d="M12 20V10"/>
+                <path d="M18 20V4"/>
+                <path d="M6 20v-4"/>
               </svg>
             </div>
             <div>
-              <h2>LexxlyIQ</h2>
-              <span class="product-type">Attribution + CRO</span>
+              <h3>LexxlyIQ</h3>
+              <span class="module-type">Attribution and CRO</span>
             </div>
           </div>
-
-          <p class="product-intro">Full journey attribution. First impression to signed case. Then we optimize the conversion points so more traffic turns into cases.</p>
-
-          <div class="product-features">
-            <h3>What We Track and Optimize</h3>
-            <div class="features-list">
-              <div class="feature">
-                <strong>View-through attribution</strong>
-                <span>CTV builds awareness but rarely gets last click. We credit awareness channels for the journeys they start.</span>
-              </div>
-              <div class="feature">
-                <strong>Conversion rate optimization</strong>
-                <span>Form, phone, chat. Which converts better? Why? We test and optimize continuously.</span>
-              </div>
-              <div class="feature">
-                <strong>Real contribution</strong>
-                <span>Each touchpoint measured by actual impact. Not arbitrary position in the funnel.</span>
-              </div>
-              <div class="feature">
-                <strong>Budget recommendations</strong>
-                <span>Based on what actually drives cases. Not assumptions.</span>
-              </div>
+          <p class="module-intro">Full-journey attribution from first impression to signed case. Know what's actually driving revenue, not just clicks.</p>
+          <div class="module-features">
+            <div class="feature">
+              <strong>Multi-touch attribution</strong>
+              <span>CTV builds awareness, SEO builds trust, PPC captures intent. We credit each touchpoint accurately.</span>
             </div>
-          </div>
-
-          <div class="product-output">
-            <h3>How We Credit Each Channel</h3>
-            <div class="attribution">
-              <div class="attr-row">
-                <span class="attr-channel">CTV</span>
-                <span class="attr-role">First impression, builds awareness</span>
-                <span class="attr-solution">We track who saw it, even if they didn't click</span>
-              </div>
-              <div class="attr-row">
-                <span class="attr-channel">Paid Search</span>
-                <span class="attr-role">Captures active intent</span>
-                <span class="attr-solution">Credit based on the full journey, not just last click</span>
-              </div>
-              <div class="attr-row">
-                <span class="attr-channel">SEO and Content</span>
-                <span class="attr-role">Builds trust, answers questions</span>
-                <span class="attr-solution">We see which pages help close cases</span>
-              </div>
-              <div class="attr-row">
-                <span class="attr-channel">Retargeting</span>
-                <span class="attr-role">Brings visitors back</span>
-                <span class="attr-solution">No double counting. One conversion, accurate credit.</span>
-              </div>
+            <div class="feature">
+              <strong>View-through tracking</strong>
+              <span>CTV rarely gets last click. We track who saw your ad, even if they searched later.</span>
+            </div>
+            <div class="feature">
+              <strong>Conversion optimization</strong>
+              <span>Form, phone, chat. Which converts better? Why? We test and optimize continuously.</span>
+            </div>
+            <div class="feature">
+              <strong>Budget recommendations</strong>
+              <span>Based on what actually drives cases, not assumptions. Data-driven reallocation.</span>
             </div>
           </div>
         </div>
 
         <!-- LexxlyAIO -->
-        <div class="product" id="aio">
-          <div class="product-header">
-            <div class="product-icon">
+        <div class="module" id="aio">
+          <div class="module-header">
+            <div class="module-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
               </svg>
             </div>
             <div>
-              <h2>LexxlyAIO</h2>
-              <span class="product-type">AI Search Optimization</span>
+              <h3>LexxlyAIO</h3>
+              <span class="module-type">AI Search Optimization</span>
             </div>
           </div>
-
-          <p class="product-intro">Search behavior is shifting. People ask AI assistants, get answers without clicking. We make sure you're visible where they're looking. And we give them a reason to visit your site instead of stopping at the summary.</p>
-
-          <div class="product-features">
-            <h3>What We Track</h3>
-            <div class="features-list">
-              <div class="feature">
-                <strong>Visibility across AI platforms</strong>
-                <span>ChatGPT, Google AI Overview, Perplexity. Where are you showing up? Where are you missing?</span>
-              </div>
-              <div class="feature">
-                <strong>Citation analysis</strong>
-                <span>What sources get referenced? Why? We reverse-engineer what earns the mention.</span>
-              </div>
-              <div class="feature">
-                <strong>Click-through optimization</strong>
-                <span>A mention isn't enough. We build content that earns the visit, not just the summary.</span>
-              </div>
-              <div class="feature">
-                <strong>Competitor gaps</strong>
-                <span>Where competitors show up. Where they don't. Your positioning opportunities.</span>
-              </div>
+          <p class="module-intro">Search behavior is shifting. People ask AI assistants and get answers without clicking. If you're not visible there, you're invisible to a growing segment.</p>
+          <div class="module-features">
+            <div class="feature">
+              <strong>AI platform visibility</strong>
+              <span>Track your presence across ChatGPT, Google AI Overview, and Perplexity.</span>
             </div>
-          </div>
-
-          <div class="product-output">
-            <h3>Why It Matters</h3>
-            <div class="callout">
-              <p>More searches end without a click. AI gives the answer. If you're not visible there, and if there's no reason to visit your site, you're invisible to a growing segment of people who need a lawyer.</p>
+            <div class="feature">
+              <strong>Citation analysis</strong>
+              <span>What sources get referenced and why. We reverse-engineer what earns the mention.</span>
+            </div>
+            <div class="feature">
+              <strong>Click-through optimization</strong>
+              <span>A mention isn't enough. We build content that earns the visit, not just the summary.</span>
+            </div>
+            <div class="feature">
+              <strong>Competitor monitoring</strong>
+              <span>Where competitors show up in AI results. Where they don't. Your positioning opportunities.</span>
             </div>
           </div>
         </div>
@@ -293,45 +243,80 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     </div>
   </section>
 
-  <!-- Integration -->
+  <!-- 4. How LEXXLY Supports CMO -->
   <section class="section-dark">
     <div class="container">
-      <div class="integration">
-        <h2>Data That Drives Decisions</h2>
-        <p>LEXXLY isn't a reporting tool you check once a month. It's how we decide what to build. Our editorial team uses this data. Then distribution gets it everywhere.</p>
-        <div class="integration-flow">
-          <div class="int-step">
-            <span class="int-label">LEXXLY Intelligence</span>
-            <span class="int-desc">Identifies keyword gaps, pain points, opportunities</span>
+      <div class="supports-content">
+        <h2>How LEXXLY Powers Your Fractional CMO</h2>
+        <p>LEXXLY isn't a standalone product. It's the intelligence layer that makes fractional CMO services work. Your CMO uses it daily to make decisions, hold vendors accountable, and optimize spend.</p>
+        <div class="supports-flow">
+          <div class="flow-step">
+            <span class="flow-label">LEXXLY Data</span>
+            <span class="flow-desc">Real-time intelligence from every channel</span>
           </div>
-          <div class="int-arrow"></div>
-          <div class="int-step">
-            <span class="int-label">Editorial Production</span>
-            <span class="int-desc">Creates content prioritized by opportunity score</span>
+          <div class="flow-arrow"></div>
+          <div class="flow-step">
+            <span class="flow-label">CMO Decisions</span>
+            <span class="flow-desc">Strategy backed by data, not guesswork</span>
           </div>
-          <div class="int-arrow"></div>
-          <div class="int-step">
-            <span class="int-label">Full Funnel Distribution</span>
-            <span class="int-desc">Places content everywhere prospects look</span>
+          <div class="flow-arrow"></div>
+          <div class="flow-step">
+            <span class="flow-label">Vendor Execution</span>
+            <span class="flow-desc">Aligned teams working toward signed cases</span>
           </div>
-          <div class="int-arrow"></div>
-          <div class="int-step">
-            <span class="int-label">Attribution Feedback</span>
-            <span class="int-desc">Measures what works, refines intelligence</span>
+          <div class="flow-arrow"></div>
+          <div class="flow-step">
+            <span class="flow-label">Measured Results</span>
+            <span class="flow-desc">Attribution feeds back into intelligence</span>
+          </div>
+        </div>
+        <div class="supports-cta">
+          <a href="/how-we-work/" class="btn btn-outline-white btn-lg">See How We Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Differentiation -->
+  <section class="section-white">
+    <div class="container">
+      <div class="diff-content">
+        <span class="section-badge">The Difference</span>
+        <h2>Traffic Reports vs. Revenue Intelligence</h2>
+        <div class="diff-grid">
+          <div class="diff-card diff-card-muted">
+            <h3>What Agencies Show You</h3>
+            <ul>
+              <li>Traffic went up 15%</li>
+              <li>We generated 200 clicks</li>
+              <li>Rankings improved for 12 keywords</li>
+              <li>CPM was $8.50</li>
+              <li>Impressions reached 50K</li>
+            </ul>
+          </div>
+          <div class="diff-card diff-card-highlight">
+            <h3>What LEXXLY Shows You</h3>
+            <ul>
+              <li>You signed 12 new cases this month</li>
+              <li>Google Ads drove 5 at $2,100 per case</li>
+              <li>SEO drove 4 at $800 per case</li>
+              <li>CTV assisted 3 (first touch)</li>
+              <li>Intake missed 8 calls last week</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- 6. CTA -->
   <section class="section-cta">
     <div class="container">
       <div class="cta-content">
-        <h2>See LEXXLY in Action</h2>
-        <p>A demo for your market. No pitch. Just an honest look at what's possible.</p>
+        <h2>See LEXXLY Applied to Your Market</h2>
+        <p>Apply for an Executive Growth Diagnostic. We'll run your market through LEXXLY and show you where the opportunities are.</p>
         <div class="cta-actions">
-          <a href="/contact/" class="btn btn-white btn-lg">Request Demo</a>
+          <a href="/contact/" class="btn btn-white btn-lg">Apply for Executive Growth Diagnostic</a>
           <a href="/how-we-work/" class="btn btn-outline-white btn-lg">How We Work</a>
         </div>
       </div>
@@ -389,11 +374,14 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     margin-bottom: 1.25rem;
   }
   .hero h1 {
-    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-size: clamp(2rem, 5vw, 3.25rem);
     color: #fff;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
     line-height: 1.1;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero-text {
     font-size: 1.125rem;
@@ -421,7 +409,7 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
   /* Sections */
   .section-light {
     padding: 6rem 1.5rem;
-    background: linear-gradient(180deg, #f8fdf9 0%, #fafafa 30%, #fafafa 70%, #f8fdf9 100%);
+    background: #fafafa;
     position: relative;
   }
   .section-light::before {
@@ -431,7 +419,21 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(41, 140, 66, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
+  }
+  .section-white {
+    padding: 6rem 1.5rem;
+    background: #fff;
+    position: relative;
+  }
+  .section-white::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
   .section-dark {
     padding: 6rem 1.5rem;
@@ -467,14 +469,110 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     pointer-events: none;
   }
 
-  /* Products */
-  .products {
+  .section-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(100, 116, 139, 0.15);
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+  .section-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .section-header p {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+
+  /* Why LEXXLY */
+  .why-content {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .why-content h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .why-text {
+    text-align: left;
+  }
+  .why-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 1rem;
+  }
+
+  /* Data Grid */
+  .data-grid {
     display: grid;
-    gap: 2.5rem;
-    max-width: 940px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    max-width: 900px;
     margin: 0 auto;
   }
-  .product {
+  @media (max-width: 700px) {
+    .data-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 500px) {
+    .data-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .data-item {
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .data-item:hover {
+    border-color: rgba(41, 140, 66, 0.15);
+    background: rgba(41, 140, 66, 0.02);
+  }
+  .data-item strong {
+    display: block;
+    font-size: 0.9375rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+  }
+  .data-item span {
+    font-size: 0.8125rem;
+    color: #4b5563;
+    line-height: 1.4;
+  }
+
+  /* Modules */
+  .modules {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .module {
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
@@ -484,7 +582,7 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     position: relative;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .product::before {
+  .module::before {
     content: '';
     position: absolute;
     top: 0;
@@ -494,17 +592,17 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
     border-radius: 16px 16px 0 0;
   }
-  .product:hover {
+  .module:hover {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(41, 140, 66, 0.06);
     border-color: rgba(41, 140, 66, 0.1);
   }
-  .product-header {
+  .module-header {
     display: flex;
     align-items: flex-start;
     gap: 1.25rem;
     margin-bottom: 1.5rem;
   }
-  .product-icon {
+  .module-icon {
     width: 52px;
     height: 52px;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
@@ -516,41 +614,28 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     flex-shrink: 0;
     box-shadow: 0 4px 16px rgba(41, 140, 66, 0.25);
   }
-  .product-header h2 {
+  .module-header h3 {
     font-size: 1.625rem;
     margin-bottom: 0.25rem;
     letter-spacing: -0.01em;
+    color: var(--color-text-dark);
   }
-  .product-type {
+  .module-type {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-primary);
   }
-  .product-intro {
+  .module-intro {
     font-size: 1.0625rem;
     color: #4b5563;
     line-height: 1.65;
     margin-bottom: 2rem;
-    max-width: 800px;
   }
-
-  /* Features */
-  .product-features h3 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-slate);
-    margin-bottom: 1rem;
-    padding-bottom: 0.625rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    font-weight: 700;
-  }
-  .features-list {
+  .module-features {
     display: grid;
     gap: 0;
-    margin-bottom: 2rem;
   }
   .feature {
     display: flex;
@@ -558,7 +643,6 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     gap: 0.25rem;
     padding: 0.875rem 0 0.875rem 1.25rem;
     border-left: 2px solid rgba(41, 140, 66, 0.15);
-    position: relative;
     transition: all 0.2s ease;
   }
   .feature:hover {
@@ -575,164 +659,26 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     line-height: 1.5;
   }
 
-  /* Output */
-  .product-output h3 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-slate);
-    margin-bottom: 1rem;
-    font-weight: 700;
-  }
-  .output-table {
-    background: #f8f9fa;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }
-  .output-row {
-    display: grid;
-    grid-template-columns: 2fr 0.6fr 0.7fr 1.2fr;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    font-size: 0.8125rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  }
-  .output-row:last-child {
-    border-bottom: none;
-  }
-  .output-header {
-    background: linear-gradient(135deg, var(--color-bg-dark), #0a1f0f);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-bottom: none;
-    padding: 0.875rem 1rem;
-  }
-  .diff-low {
-    color: var(--color-primary);
-    font-weight: 600;
-  }
-  .diff-med {
-    color: #f5a623;
-    font-weight: 600;
-  }
-  .diff-high {
-    color: #c44;
-    font-weight: 600;
-  }
-
-  /* Clusters */
-  .clusters {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  @media (max-width: 500px) {
-    .clusters {
-      grid-template-columns: 1fr;
-    }
-  }
-  .cluster {
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.04) 0%, #f8f9fa 100%);
-    padding: 1.25rem 1rem;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid rgba(41, 140, 66, 0.08);
-    transition: all 0.2s ease;
-  }
-  .cluster:hover {
-    border-color: rgba(41, 140, 66, 0.15);
-    box-shadow: 0 4px 12px rgba(41, 140, 66, 0.06);
-  }
-  .cluster-count {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    line-height: 1;
-    margin-bottom: 0.375rem;
-  }
-  .cluster-name {
-    font-size: 0.8125rem;
-    color: #4b5563;
-  }
-
-  /* Attribution */
-  .attribution {
-    display: grid;
-    gap: 0.625rem;
-  }
-  .attr-row {
-    display: grid;
-    grid-template-columns: 100px 1fr 1fr;
-    gap: 0.75rem;
-    padding: 0.875rem 1rem;
-    background: #f8f9fa;
-    border-radius: 10px;
-    font-size: 0.8125rem;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    transition: all 0.2s ease;
-  }
-  .attr-row:hover {
-    background: rgba(41, 140, 66, 0.03);
-    border-color: rgba(41, 140, 66, 0.1);
-  }
-  @media (max-width: 600px) {
-    .attr-row {
-      grid-template-columns: 1fr;
-      gap: 0.25rem;
-    }
-  }
-  .attr-channel {
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-  .attr-role {
-    color: #4b5563;
-  }
-  .attr-solution {
-    color: var(--color-text-dark);
-    font-weight: 500;
-  }
-
-  /* Callout */
-  .callout {
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.06) 0%, rgba(26, 167, 116, 0.04) 100%);
-    border-left: 4px solid var(--color-primary);
-    padding: 1.25rem 1.5rem;
-    border-radius: 0 12px 12px 0;
-  }
-  .callout p {
-    font-size: 0.9375rem;
-    color: var(--color-text-dark);
-    line-height: 1.6;
-    font-style: italic;
-  }
-
-  /* Integration */
-  .integration {
+  /* Supports CMO */
+  .supports-content {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
   }
-  .integration h2 {
+  .supports-content h2 {
     color: #fff;
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
-  .integration > p {
+  .supports-content > p {
     color: #b0b8b3;
     font-size: 1.0625rem;
     line-height: 1.65;
     max-width: 650px;
     margin: 0 auto 3rem;
   }
-  .integration-flow {
+  .supports-flow {
     display: grid;
     grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
     align-items: center;
@@ -741,21 +687,15 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     margin: 0 auto;
   }
   @media (max-width: 800px) {
-    .integration-flow {
-      grid-template-columns: 1fr auto 1fr;
+    .supports-flow {
+      grid-template-columns: 1fr;
       gap: 0.75rem;
     }
-  }
-  @media (max-width: 500px) {
-    .integration-flow {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-    }
-    .int-arrow {
+    .flow-arrow {
       display: none;
     }
   }
-  .int-step {
+  .flow-step {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 12px;
@@ -763,37 +703,124 @@ import heroBackground from '../assets/images/heroes/lexxly-hero.jpg';
     text-align: center;
     transition: all 0.2s ease;
   }
-  .int-step:hover {
+  .flow-step:hover {
     background: rgba(255,255,255,0.1);
     border-color: rgba(255,255,255,0.2);
   }
-  .int-label {
+  .flow-label {
     display: block;
     font-weight: 600;
     font-size: 0.875rem;
     margin-bottom: 0.25rem;
     color: #fff;
   }
-  .int-desc {
+  .flow-desc {
     display: block;
     font-size: 0.6875rem;
     color: #b0b8b3;
     line-height: 1.4;
   }
-  .int-arrow {
+  .flow-arrow {
     width: 24px;
     height: 2px;
     background: var(--color-primary-light);
     position: relative;
     flex-shrink: 0;
   }
-  .int-arrow::after {
+  .flow-arrow::after {
     content: '';
     position: absolute;
     right: 0;
     top: -3px;
     border: 4px solid transparent;
     border-left-color: var(--color-primary-light);
+  }
+  .supports-cta {
+    margin-top: 3rem;
+  }
+
+  /* Differentiation */
+  .diff-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .diff-content h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    text-align: left;
+  }
+  @media (max-width: 600px) {
+    .diff-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .diff-card {
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .diff-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+  }
+  .diff-card ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .diff-card li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .diff-card-muted {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }
+  .diff-card-muted h3 {
+    color: #64748b;
+  }
+  .diff-card-muted li {
+    color: #4b5563;
+  }
+  .diff-card-muted li::before {
+    content: '\2013';
+    position: absolute;
+    left: 0;
+    color: #94a3b8;
+    font-weight: 700;
+  }
+  .diff-card-highlight {
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.04) 0%, #fff 100%);
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 24px rgba(41, 140, 66, 0.08);
+  }
+  .diff-card-highlight h3 {
+    color: var(--color-primary);
+  }
+  .diff-card-highlight li {
+    color: var(--color-text-dark);
+    font-weight: 500;
+  }
+  .diff-card-highlight li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.8125rem;
   }
 
   /* CTA */

@@ -1,7 +1,7 @@
 ---
 /**
  * LEXGRO Homepage
- * Fractional CMO for injury law firms doing $2M-$15M
+ * Strategic Marketing Oversight for Personal Injury Firms
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
@@ -20,8 +20,8 @@ const featuredTestimonials = testimonials.filter(t =>
 ---
 
 <BaseLayout
-  title="Your Fractional CMO for Law Firms | LEXGRO"
-  description="We run marketing for injury law firms doing $2M to $15M. We coordinate your vendors, fix your intake, and build systems that drive signed cases."
+  title="Strategic Marketing Oversight for Personal Injury Firms | LEXGRO"
+  description="Fractional CMO services for PI firms doing $2M to $15M. We lead your agencies, fix your intake, and build systems that drive signed cases. Not clicks."
   image="/og/homepage.png"
 >
   <!-- 1. Hero -->
@@ -38,14 +38,15 @@ const featuredTestimonials = testimonials.filter(t =>
     <div class="container hero-container">
       <div class="hero-grid">
         <div class="hero-content">
-          <p class="hero-label">The Law Firm CMO</p>
-          <h1>Your CMO. Your Growth Partner.</h1>
+          <p class="hero-label">Fractional CMO for Personal Injury</p>
+          <h1>Strategic Marketing Oversight for Personal Injury Firms Ready to Scale to $15M.</h1>
           <p class="hero-text">
-            We run marketing for injury law firms doing $2M to $15M. We coordinate your vendors, fix your intake, and build systems that drive signed cases. Not clicks. When you win, we win.
+            You don't need another agency. You need someone who leads them. LEXGRO provides fractional CMO services built for founder-led PI firms doing $2M to $15M. We align your vendors, fix your intake, and make every marketing dollar accountable to signed cases.
           </p>
+          <p class="hero-scarcity">We partner with a limited number of founder-led PI firms at a time.</p>
           <div class="hero-actions">
-            <a href="/contact/" class="btn btn-primary btn-lg">Get Your Growth Plan</a>
-            <a href="/how-we-work/" class="btn btn-ghost btn-lg">How We Work</a>
+            <a href="/contact/" class="btn btn-primary btn-lg">Apply for Executive Growth Diagnostic</a>
+            <a href="/how-we-work/" class="btn btn-ghost btn-lg">See If Your Firm Qualifies</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -55,18 +56,18 @@ const featuredTestimonials = testimonials.filter(t =>
               <span class="stat-text">Law firm partners</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">12</span>
+              <span class="stat-value">25</span>
               <span class="stat-text">Years in legal marketing</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">$47M+</span>
+              <span class="stat-value">$75M+</span>
               <span class="stat-text">Revenue generated for law firm partners</span>
             </div>
           </div>
         </div>
       </div>
       <div class="hero-trust">
-        <p class="trust-label">Trusted by injury law firms across the country</p>
+        <p class="trust-label">Trusted by growing personal injury firms nationwide</p>
         <div class="trust-avatars">
           <Image src={trustAvatars1} alt="Law firm partners" width={400} />
           <Image src={trustAvatars2} alt="Law firm partners" width={400} />
@@ -81,7 +82,7 @@ const featuredTestimonials = testimonials.filter(t =>
     <div class="container">
       <div class="social-proof-header">
         <span class="section-badge">Real Results</span>
-        <h2>What Our Partners Say</h2>
+        <h2>Trusted by Growing Personal Injury Firms Nationwide</h2>
       </div>
       <div class="testimonial-grid">
         {featuredTestimonials.map((t) => (
@@ -102,116 +103,142 @@ const featuredTestimonials = testimonials.filter(t =>
           </div>
         ))}
       </div>
+
+      <!-- Mini Case Study -->
+      <div class="case-study-block">
+        <div class="case-study-header">
+          <span class="case-study-badge">Case Study</span>
+          <h3>$4.2M PI Firm → $6.1M in 18 Months</h3>
+        </div>
+        <div class="case-study-metrics">
+          <div class="case-metric">
+            <span class="case-metric-value">22%</span>
+            <span class="case-metric-label">Ad waste eliminated</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-value">41% → 57%</span>
+            <span class="case-metric-label">Intake conversion rate</span>
+          </div>
+          <div class="case-metric">
+            <span class="case-metric-value">31%</span>
+            <span class="case-metric-label">More signed cases</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 3. Problem -->
+  <!-- 3. Differentiator (Agency Chaos) -->
   <section class="section-problem">
     <div class="container">
       <div class="problem-header">
         <span class="section-badge">The Real Problem</span>
-        <h2>You're Spending Money. You're Not Getting Cases.</h2>
-        <p class="lead">Most injury firms between $2M and $15M spend $10K or more per month on marketing. SEO vendors, PPC agencies, maybe a TV buyer. But nobody owns the strategy. And nobody is accountable for signed cases.</p>
+        <h2>You Don't Have an Agency Problem. You Have an Oversight Problem.</h2>
       </div>
-      <div class="problem-grid">
-        <div class="problem-card">
-          <span class="problem-num">01</span>
-          <div class="problem-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="3"/>
-              <circle cx="18" cy="6" r="3"/>
-              <circle cx="6" cy="18" r="3"/>
-              <circle cx="18" cy="18" r="3"/>
-              <path d="M6 9v6M18 9v6" opacity="0.3"/>
-            </svg>
-          </div>
-          <h3>No Strategic Oversight</h3>
-          <p>Your SEO vendor, PPC agency, and TV buyer all report different numbers. Nobody connects them. Nobody owns the outcome. You're the one stuck managing it all.</p>
+      <div class="problem-content">
+        <div class="problem-text">
+          <p>Your SEO vendor sends a ranking report. Your PPC agency sends a click report. Your TV buyer sends an impression report. None of them talk to each other. None of them own signed cases.</p>
+          <p>You're the one stuck in the middle, trying to figure out which channel is actually working. That's not your job. That's ours.</p>
+          <p>Most PI firms between $2M and $15M spend $30K or more per month on marketing with no one connecting the dots. The result: wasted spend, missed calls, and vendors optimizing for their own metrics instead of your caseload.</p>
         </div>
-        <div class="problem-card">
-          <span class="problem-num">02</span>
-          <div class="problem-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v6l3-3"/>
-              <path d="M12 8l-3-3"/>
-              <path d="M20 12a8 8 0 1 1-16 0"/>
-              <path d="M12 22v-6"/>
-              <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
-            </svg>
+        <div class="problem-cards">
+          <div class="problem-card">
+            <span class="problem-num">01</span>
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="18" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="18" r="3"/>
+                <path d="M6 9v6M18 9v6" opacity="0.3"/>
+              </svg>
+            </div>
+            <h3>Disconnected Vendors</h3>
+            <p>Each vendor optimizes for their own metrics. Clicks. Rankings. Impressions. Nobody optimizes for signed cases.</p>
           </div>
-          <h3>Intake Leaks Revenue</h3>
-          <p>Your marketing brings in calls. Your intake process loses them. Missed calls, slow follow-up, no tracking. That gap costs six figures a year.</p>
-        </div>
-        <div class="problem-card">
-          <span class="problem-num">03</span>
-          <div class="problem-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 8v4"/>
-              <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
-              <path d="M8.5 8.5l-3-3M15.5 8.5l3-3M8.5 15.5l-3 3M15.5 15.5l3 3" opacity="0.4"/>
-            </svg>
+          <div class="problem-card">
+            <span class="problem-num">02</span>
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v6l3-3"/>
+                <path d="M12 8l-3-3"/>
+                <path d="M20 12a8 8 0 1 1-16 0"/>
+                <path d="M12 22v-6"/>
+                <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Intake Leaks Revenue</h3>
+            <p>Your marketing brings in calls. Your intake process loses them. Missed calls, slow follow-up, no tracking.</p>
           </div>
-          <h3>Vendors Run Unchecked</h3>
-          <p>Each vendor optimizes for their own metrics. Clicks. Rankings. Impressions. None of them optimize for signed cases. And they don't talk to each other.</p>
+          <div class="problem-card">
+            <span class="problem-num">03</span>
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 8v4"/>
+                <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+                <path d="M8.5 8.5l-3-3M15.5 8.5l3-3M8.5 15.5l-3 3M15.5 15.5l3 3" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>No Strategic Oversight</h3>
+            <p>Nobody owns the full picture. You're the default CMO, and that's not where you should spend your time.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Solution -->
-  <section class="section-solution">
+  <!-- 4. Fractional CMO SEO Block -->
+  <section class="section-cmo-seo">
     <div class="container">
-      <div class="solution-header">
-        <p class="section-label">The Solution</p>
-        <h2>One Partner. Every Channel. Full Accountability.</h2>
-        <p class="lead">We sit above your vendors and manage the full marketing picture. Every channel works together toward one number: signed cases.</p>
+      <div class="cmo-seo-content">
+        <span class="section-badge">Fractional CMO</span>
+        <h2>Fractional CMO Services for Personal Injury Law Firms</h2>
+        <div class="cmo-seo-text">
+          <p>A fractional CMO gives your firm C-suite marketing leadership without the $300K salary. At LEXGRO, that means a senior marketing executive who knows personal injury, knows your vendors, and knows how to turn ad spend into signed cases.</p>
+          <p>We don't replace your agencies. We lead them. We sit above your SEO vendor, PPC agency, TV buyer, and intake team to make sure every channel works together toward one number: signed cases.</p>
+          <p>This is executive marketing oversight built for founder-led PI firms doing $2M to $15M who are tired of managing vendors themselves.</p>
+        </div>
+        <div class="cmo-services-grid">
+          <div class="cmo-service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            <span>Strategic growth planning</span>
+          </div>
+          <div class="cmo-service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            <span>Full-channel media planning</span>
+          </div>
+          <div class="cmo-service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Vendor and agency alignment</span>
+          </div>
+          <div class="cmo-service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c0.127.96.361 1.903.7 2.81a2 2 0 0 1-0.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-0.45c0.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Intake and conversion oversight</span>
+          </div>
+          <div class="cmo-service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Attribution and reporting</span>
+          </div>
+          <div class="cmo-service">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>SEO, PPC, LSA, CTV, social</span>
+          </div>
+        </div>
+        <div class="cmo-seo-cta">
+          <a href="/how-we-work/" class="btn btn-primary btn-lg">See How We Work</a>
+        </div>
       </div>
-      <div class="solution-grid">
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <span>SEO and content</span>
-        </div>
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          <span>Google Ads and LSAs</span>
-        </div>
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
-          <span>Connected TV (CTV)</span>
-        </div>
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          <span>Social media</span>
-        </div>
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c0.127.96.361 1.903.7 2.81a2 2 0 0 1-0.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-0.45c0.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>Intake optimization</span>
-        </div>
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span>Vendor management</span>
-        </div>
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          <span>Attribution and reporting</span>
-        </div>
-        <div class="solution-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
-          <span>Team training and SOPs</span>
-        </div>
-      </div>
-      <p class="solution-statement">You don't hire more vendors. You hire the person who makes your vendors work.</p>
     </div>
   </section>
 
-  <!-- 5. LEXXLY -->
+  <!-- 5. Powered by LEXXLY -->
   <section class="section-lexxly">
     <div class="container">
       <div class="lexxly-header">
         <span class="section-badge">The Technology</span>
-        <h2>Built on LEXXLY. How We See What Others Miss.</h2>
-        <p class="lead">We back every decision with data from LEXXLY, our proprietary platform. It shows us what's working, what's not, and where your cases are coming from.</p>
+        <h2>Powered by LEXXLY. Your Growth Intelligence System.</h2>
+        <p class="lead">Every decision we make is backed by data from LEXXLY, our proprietary intelligence platform. It connects your CRM, call tracking, ad platforms, and intake data into one view. No more spreadsheet chaos.</p>
       </div>
       <div class="lexxly-grid">
         <div class="lexxly-card">
@@ -223,7 +250,7 @@ const featuredTestimonials = testimonials.filter(t =>
             </svg>
           </div>
           <h3>LexxlyRank</h3>
-          <p>See exactly where you rank against every competitor in your market. Updated weekly.</p>
+          <p>See where you rank against every competitor in your market. Track keyword gaps, local visibility, and SEO opportunities weekly.</p>
         </div>
         <div class="lexxly-card">
           <span class="lexxly-num">02</span>
@@ -233,7 +260,7 @@ const featuredTestimonials = testimonials.filter(t =>
             </svg>
           </div>
           <h3>LexxlyPulse</h3>
-          <p>Track your marketing performance across all channels in one dashboard. No more spreadsheet chaos.</p>
+          <p>Real-time marketing performance across every channel. One dashboard. Connected to signed cases, not vanity metrics.</p>
         </div>
         <div class="lexxly-card">
           <span class="lexxly-num">03</span>
@@ -245,7 +272,7 @@ const featuredTestimonials = testimonials.filter(t =>
             </svg>
           </div>
           <h3>LexxlyIQ</h3>
-          <p>Spots trends, flags problems, and recommends next moves before you ask.</p>
+          <p>Full-journey attribution from first impression to signed case. Know what's working and where to invest next.</p>
         </div>
         <div class="lexxly-card">
           <span class="lexxly-num">04</span>
@@ -257,22 +284,23 @@ const featuredTestimonials = testimonials.filter(t =>
             </svg>
           </div>
           <h3>LexxlyAIO</h3>
-          <p>Automated reporting that connects ad spend to signed cases. Not clicks. Cases.</p>
+          <p>AI search visibility tracking across ChatGPT, Google AI Overview, and Perplexity. Stay visible where prospects research.</p>
         </div>
       </div>
+      <p class="lexxly-statement">Traditional agencies show traffic. LEXXLY shows revenue impact.</p>
       <div class="lexxly-cta">
-        <a href="/lexxly/" class="btn btn-outline-light">See the Full Platform</a>
+        <a href="/lexxly/" class="btn btn-outline-light">Explore the Full Platform</a>
       </div>
     </div>
   </section>
 
-  <!-- 6. How We Work -->
+  <!-- 6. How We Work (3 Steps) -->
   <section class="section-how">
     <div class="container">
       <div class="how-header">
         <span class="section-badge">The Process</span>
-        <h2>Three Phases. Results in 90 Days.</h2>
-        <p class="lead">We don't run month-to-month experiments. We follow a three-phase process that gets injury law firms to real momentum in 90 days.</p>
+        <h2>A Structured Path to Predictable Growth</h2>
+        <p class="lead">We follow a three-phase process that gets PI firms to real momentum in 90 days. No month-to-month experiments. A structured system built for results.</p>
       </div>
       <div class="how-grid">
         <div class="how-card">
@@ -283,7 +311,7 @@ const featuredTestimonials = testimonials.filter(t =>
               <circle cx="12" cy="12" r="3"/>
             </svg>
           </div>
-          <h3>Diagnose</h3>
+          <h3>Executive Diagnostic</h3>
           <p>Full audit of your market, vendors, intake, website, and ad spend. We use LEXXLY to benchmark your position against every competitor in your area.</p>
         </div>
         <div class="how-card">
@@ -296,7 +324,7 @@ const featuredTestimonials = testimonials.filter(t =>
               <circle cx="11" cy="11" r="2"/>
             </svg>
           </div>
-          <h3>Install</h3>
+          <h3>Install Strategic Oversight</h3>
           <p>We build your 90-day growth plan, restructure vendor accountability, connect marketing to intake, and launch priority campaigns.</p>
         </div>
         <div class="how-card">
@@ -306,60 +334,91 @@ const featuredTestimonials = testimonials.filter(t =>
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <h3>Scale</h3>
+          <h3>Scale What Works</h3>
           <p>Monthly optimization, vendor scorecards, intake monitoring, and quarterly strategy reviews. We measure signed cases, not vanity metrics.</p>
         </div>
       </div>
       <div class="how-cta">
-        <a href="/how-we-work/" class="btn btn-outline-light">See How We Work</a>
+        <a href="/how-we-work/" class="btn btn-outline-light">See the Full Process</a>
       </div>
     </div>
   </section>
 
-  <!-- 7. Qualification -->
+  <!-- 7. Founder Credibility -->
+  <section class="section-founder">
+    <div class="container">
+      <div class="founder-content">
+        <span class="section-badge">Leadership</span>
+        <h2>Led by a Career Law Firm Marketing Executive</h2>
+        <div class="founder-grid">
+          <div class="founder-bio">
+            <p>LEXGRO is led by Keith Dyer, a marketing executive with 25 years of experience building growth systems for law firms across the country.</p>
+            <p>Keith has worked with 47 law firm partners, managed millions in marketing spend, and built the systems that have generated over $75M in revenue for his clients.</p>
+            <p>He hosts the Law Firm Growth Podcast, speaks at legal marketing conferences, and built LEXXLY to solve the data problem he saw at every firm he worked with.</p>
+            <ul class="founder-stats-list">
+              <li>25 years in legal marketing</li>
+              <li>47 law firm partnerships</li>
+              <li>$75M+ revenue generated</li>
+              <li>Host, Law Firm Growth Podcast</li>
+              <li>Creator of the LEXXLY platform</li>
+            </ul>
+          </div>
+          <div class="founder-quote-card">
+            <svg class="founder-quote-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l0.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l0.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p>"Most firms don't have a marketing problem. They have an oversight problem. Fix that, and everything else follows."</p>
+            <span class="founder-attribution">Keith Dyer, Founder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Qualification + Scarcity -->
   <section class="section-who">
     <div class="container">
       <div class="who-header">
         <span class="who-label">Who We Partner With</span>
-        <h2>Built for Injury Law Firms Doing $2M to $15M</h2>
-        <p class="lead">We work with a small number of firms at a time. That focus is what drives results. If you fit the criteria below, we should talk.</p>
+        <h2>Built for PI Firms Ready for Strategic Oversight</h2>
+        <p class="lead">We work with a limited number of firms at a time. That focus is what drives results.</p>
       </div>
       <div class="who-grid">
         <div class="who-card who-card-not">
-          <h3>LEXGRO Is Not For</h3>
+          <h3>This Is Not For You If</h3>
           <ul>
-            <li>Firms under $2M in annual revenue</li>
-            <li>Firms spending under $5K/month on marketing</li>
-            <li>Firms looking for a one-time project</li>
-            <li>Firms that won't share financial data with their growth partner</li>
-            <li>Firms that want to "set it and forget it"</li>
+            <li>Your firm does under $2M in annual revenue</li>
+            <li>You spend under $30K/month on marketing</li>
+            <li>You want a one-time project, not an ongoing partnership</li>
+            <li>You're not willing to share financial data with your growth partner</li>
+            <li>You want to "set it and forget it"</li>
           </ul>
         </div>
         <div class="who-card who-card-yes">
-          <h3>LEXGRO Is For</h3>
+          <h3>This Is For You If</h3>
           <ul>
-            <li>Injury firms doing $2M to $15M in revenue</li>
-            <li>Firms spending $5K+ per month on marketing</li>
-            <li>Owners who want real accountability from their marketing</li>
-            <li>Firms tired of managing vendors themselves</li>
-            <li>Firms ready to treat marketing as a revenue investment</li>
+            <li>You run a PI firm doing $2M to $15M in revenue</li>
+            <li>You spend $30K+ per month on marketing</li>
+            <li>You're tired of managing vendors yourself</li>
+            <li>You want one person accountable for signed cases</li>
+            <li>You're ready to treat marketing as a revenue investment</li>
           </ul>
         </div>
       </div>
       <div class="who-scarcity">
-        <p>Currently working with 10 firms. Accepting 5 new partners in 2026.</p>
+        <p>We limit strategic partnerships to 6 to 8 firms at a time.</p>
       </div>
     </div>
   </section>
 
-  <!-- 8. CTA -->
+  <!-- Final CTA -->
   <section class="section-cta">
     <div class="container">
       <div class="cta-content">
-        <h2>Ready to Grow?</h2>
-        <p>Apply for an Executive Growth Diagnostic. No pitch. No pressure. We review your market, your vendors, and your numbers. Then we tell you exactly what to fix.</p>
+        <h2>If You're Ready for Strategic Oversight Instead of Agency Chaos</h2>
+        <p>Apply for an Executive Growth Diagnostic. We review your market, your vendors, and your numbers. Then we tell you exactly what to fix.</p>
         <div class="cta-actions">
-          <a href="/contact/" class="btn btn-white btn-lg">Get Your Growth Plan</a>
+          <a href="/contact/" class="btn btn-white btn-lg">Apply for Executive Growth Diagnostic</a>
         </div>
       </div>
     </div>
@@ -436,9 +495,9 @@ const featuredTestimonials = testimonials.filter(t =>
     margin-bottom: 1rem;
   }
   .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-size: clamp(1.75rem, 4vw, 3rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.15;
     color: #fff;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
@@ -447,7 +506,14 @@ const featuredTestimonials = testimonials.filter(t =>
     font-size: 1.0625rem;
     line-height: 1.6;
     color: #b0b8b3;
+    margin-bottom: 1rem;
+  }
+  .hero-scarcity {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
     margin-bottom: 2rem;
+    font-style: italic;
   }
   .hero-actions {
     display: flex;
@@ -636,7 +702,80 @@ const featuredTestimonials = testimonials.filter(t =>
     color: #4b5563;
   }
 
-  /* 3. Problem Section */
+  /* Case Study Block */
+  .case-study-block {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    position: relative;
+  }
+  .case-study-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: 16px 16px 0 0;
+  }
+  .case-study-header {
+    margin-bottom: 1.5rem;
+  }
+  .case-study-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    background: rgba(41, 140, 66, 0.08);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+  }
+  .case-study-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    letter-spacing: -0.01em;
+  }
+  .case-study-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 600px) {
+    .case-study-metrics {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+  .case-metric {
+    text-align: center;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+  }
+  .case-metric-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+  .case-metric-label {
+    font-size: 0.8125rem;
+    color: #4b5563;
+  }
+
+  /* 3. Differentiator */
   .section-problem {
     padding: 6rem 1.5rem;
     background: #fff;
@@ -652,35 +791,44 @@ const featuredTestimonials = testimonials.filter(t =>
     background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.15), transparent);
   }
   .problem-header {
-    max-width: 600px;
-    margin: 0 auto 4rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
     text-align: center;
   }
   .problem-header h2 {
     font-size: clamp(2rem, 5vw, 2.75rem);
     font-weight: 700;
-    margin-bottom: 1.25rem;
     color: var(--color-text-dark);
     letter-spacing: -0.02em;
   }
-  .problem-header .lead {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: #4b5563;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  .problem-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+  .problem-content {
     max-width: 1100px;
     margin: 0 auto;
   }
+  .problem-text {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .problem-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 1rem;
+  }
+  .problem-text p:last-child {
+    margin-bottom: 0;
+  }
+  .problem-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
   @media (max-width: 900px) {
-    .problem-grid {
+    .problem-cards {
       grid-template-columns: 1fr;
       max-width: 420px;
+      margin: 0 auto;
       gap: 1.5rem;
     }
   }
@@ -747,52 +895,59 @@ const featuredTestimonials = testimonials.filter(t =>
     line-height: 1.65;
   }
 
-  /* 4. Solution Section */
-  .section-solution {
+  /* 4. Fractional CMO SEO Block */
+  .section-cmo-seo {
     padding: 6rem 1.5rem;
     background: linear-gradient(180deg, var(--color-bg-dark) 0%, #0a1f0f 100%);
     color: #fff;
   }
-  .solution-header {
-    max-width: 650px;
-    margin: 0 auto 4rem;
+  .cmo-seo-content {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
   }
-  .solution-header .section-label {
-    color: var(--color-primary-light);
+  .cmo-seo-content .section-badge {
+    color: #b0b8b3;
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.15), rgba(100, 116, 139, 0.08));
+    border-color: rgba(100, 116, 139, 0.2);
   }
-  .solution-header h2 {
+  .cmo-seo-content h2 {
     font-size: clamp(2rem, 5vw, 2.75rem);
     font-weight: 700;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     color: #fff;
     letter-spacing: -0.02em;
   }
-  .solution-header .lead {
+  .cmo-seo-text {
+    text-align: left;
+    margin-bottom: 3rem;
+  }
+  .cmo-seo-text p {
     font-size: 1.0625rem;
     line-height: 1.7;
     color: #b0b8b3;
+    margin-bottom: 1rem;
   }
-  .solution-grid {
+  .cmo-seo-text p:last-child {
+    margin-bottom: 0;
+  }
+  .cmo-services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    max-width: 1100px;
-    margin: 0 auto 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
   }
-  @media (max-width: 900px) {
-    .solution-grid {
+  @media (max-width: 700px) {
+    .cmo-services-grid {
       grid-template-columns: repeat(2, 1fr);
-      max-width: 520px;
     }
   }
   @media (max-width: 500px) {
-    .solution-grid {
+    .cmo-services-grid {
       grid-template-columns: 1fr;
-      max-width: 320px;
     }
   }
-  .solution-item {
+  .cmo-service {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -802,31 +957,23 @@ const featuredTestimonials = testimonials.filter(t =>
     border-radius: 12px;
     transition: all 0.2s ease;
   }
-  .solution-item:hover {
+  .cmo-service:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.15);
   }
-  .solution-item svg {
+  .cmo-service svg {
     width: 22px;
     height: 22px;
     color: var(--color-primary-light);
     flex-shrink: 0;
   }
-  .solution-item span {
+  .cmo-service span {
     font-size: 0.9375rem;
     font-weight: 500;
     color: #e2e8f0;
   }
-  .solution-statement {
+  .cmo-seo-cta {
     text-align: center;
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: #fff;
-    max-width: 650px;
-    margin: 0 auto;
-    letter-spacing: -0.01em;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   /* 5. LEXXLY Section */
@@ -989,9 +1136,22 @@ const featuredTestimonials = testimonials.filter(t =>
     position: relative;
     z-index: 2;
   }
+  .lexxly-statement {
+    text-align: center;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    max-width: 650px;
+    margin: 3rem auto 0;
+    letter-spacing: -0.01em;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(41, 140, 66, 0.15);
+    position: relative;
+    z-index: 1;
+  }
   .lexxly-cta {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
     position: relative;
     z-index: 1;
   }
@@ -1128,10 +1288,115 @@ const featuredTestimonials = testimonials.filter(t =>
     margin-top: 3rem;
   }
 
-  /* 7. Who We Help */
-  .section-who {
+  /* 7. Founder Credibility */
+  .section-founder {
     padding: 6rem 1.5rem;
     background: #fff;
+    position: relative;
+  }
+  .section-founder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.15), transparent);
+  }
+  .founder-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .founder-content h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    text-align: left;
+  }
+  @media (max-width: 700px) {
+    .founder-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .founder-bio p {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .founder-stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .founder-stats-list li {
+    font-size: 0.9375rem;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .founder-stats-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+  .founder-quote-card {
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.04) 0%, #fff 100%);
+    border: 2px solid rgba(41, 140, 66, 0.12);
+    border-radius: 16px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .founder-quote-icon {
+    width: 32px;
+    height: 32px;
+    color: rgba(41, 140, 66, 0.2);
+    margin-bottom: 1rem;
+  }
+  .founder-quote-card p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .founder-attribution {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* 8. Qualification */
+  .section-who {
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
+  }
+  .section-who::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
   }
   .who-header {
     max-width: 650px;
@@ -1252,7 +1517,7 @@ const featuredTestimonials = testimonials.filter(t =>
     border: 1px solid rgba(41, 140, 66, 0.15);
   }
 
-  /* 8. CTA */
+  /* Final CTA */
   .section-cta {
     padding: 5rem 1.5rem;
     background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
